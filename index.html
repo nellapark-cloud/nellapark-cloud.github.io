@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대전 사역 & 시스템 네트워크 지도</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons (for beautiful icons) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Pretendard', sans-serif;
+        }
+        .tab-active {
+            background-color: #3b82f6;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen pb-12">
+
+    <!-- Header Banner -->
+    <header class="bg-gradient-to-r from-blue-900 to-indigo-900 text-white py-10 px-4 shadow-md">
+        <div class="max-w-6xl mx-auto text-center">
+            <span class="bg-blue-500/30 text-blue-200 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-3 inline-block">Daejeon Ministry Network</span>
+            <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight">대전 사역 & 시스템 팀 현황</h1>
+            <p class="mt-2 text-blue-200 text-sm md:text-base max-w-2xl mx-auto">
+                대전 지역에서 활동 중인 예배 사역팀, 침신대 학내 팀, 음향·조명·영상 시스템팀
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-6xl mx-auto px-4 mt-8">
+        
+        <!-- Search & Quick Stats -->
+        <div class="bg-white rounded-2xl shadow-sm p-6 mb-8 border border-gray-100">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <!-- Search Input -->
+                <div class="relative flex-1">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                        <i data-lucide="search" class="w-5 h-5"></i>
+                    </span>
+                    <input type="text" id="searchInput" oninput="filterTeams()" placeholder="팀명, 인물, 출신 학교, 키워드를 검색하세요..." 
+                           class="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all text-sm">
+                </div>
+                
+                <!-- Stats Showcase -->
+                <div class="flex gap-4 text-center justify-around md:justify-end text-sm">
+                    <div class="bg-blue-50 px-4 py-2 rounded-xl">
+                        <span class="block text-xs text-gray-500 font-medium">예배 & 사역</span>
+                        <span class="text-lg font-bold text-blue-600" id="countWorship">14</span>
+                    </div>
+                    <div class="bg-emerald-50 px-4 py-2 rounded-xl">
+                        <span class="block text-xs text-gray-500 font-medium">캠퍼스 팀</span>
+                        <span class="text-lg font-bold text-emerald-600" id="countCampus">5</span>
+                    </div>
+                    <div class="bg-orange-50 px-4 py-2 rounded-xl">
+                        <span class="block text-xs text-gray-500 font-medium">시스템 & 전문</span>
+                        <span class="text-lg font-bold text-orange-600" id="countTech">10</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category Filter Tabs -->
+            <div class="flex flex-wrap gap-2 mt-6 border-t border-gray-100 pt-4" id="tabContainer">
+                <button onclick="setCategory('all')" class="category-tab px-4 py-2 rounded-lg text-xs font-semibold bg-blue-600 text-white shadow-sm transition-all">전체보기</button>
+                <button onclick="setCategory('worship')" class="category-tab px-4 py-2 rounded-lg text-xs font-semibold bg-gray-100 text-gray-600 hover:bg-gray-200 transition-all">예배 및 사역팀</button>
+                <button onclick="setCategory('campus')" class="category-tab px-4 py-2 rounded-lg text-xs font-semibold bg-gray-100 text-gray-600 hover:bg-gray-200 transition-all">침신대 학내팀</button>
+                <button onclick="setCategory('tech')" class="category-tab px-4 py-2 rounded-lg text-xs font-semibold bg-gray-100 text-gray-600 hover:bg-gray-200 transition-all">시스템 & 엔지니어</button>
+                <button onclick="setCategory('artist')" class="category-tab px-4 py-2 rounded-lg text-xs font-semibold bg-gray-100 text-gray-600 hover:bg-gray-200 transition-all">아티스트 & 밴드</button>
+            </div>
+        </div>
+
+        <!-- Grid Results -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="cardsGrid">
+            <!-- Dynamic Cards go here -->
+        </div>
+
+        <!-- No Results -->
+        <div id="noResults" class="hidden text-center py-16 bg-white rounded-2xl border border-gray-100 shadow-sm">
+            <i data-lucide="folder-open" class="w-12 h-12 text-gray-300 mx-auto mb-3"></i>
+            <p class="text-gray-500 font-medium">검색 결과와 일치하는 사역팀 정보가 없습니다.</p>
+        </div>
+    </main>
+
+    <script>
+        const data = [
+            { name: "리즌 워십", category: "worship", categoryLabel: "예배 사역팀", tags: ["목원대 출신"], details: [{ label: "출신", value: "목원대학교 동문 중심" }], description: "목원대학교 출신의 예배인도자 및 연주자들이 연합하여 활동하는 젊은 예배 사역팀입니다." },
+            { name: "먼데이워십", category: "worship", categoryLabel: "예배 사역팀", tags: ["목원대 출신", "소통미니스트리"], details: [{ label: "대표", value: "박장로 목사 (41세)" }, { label: "지원", value: "소통 미니스트리 정식 지원" }], description: "목원대 출신 사역자들을 필두로 매주 월요일 예배를 세워가며, 소통 미니스트리의 든든한 백업을 받아 활발히 동역하고 있습니다." },
+            { name: "더 코드 미니스트리", category: "worship", categoryLabel: "예배 사역팀", tags: ["장바울 대표", "주바라기 협력"], details: [{ label: "대표", value: "장바울" }, { label: "협력", value: "주바라기 선교회 연결망" }, { label: "동역자", value: "김성수 목사 (92학번 기과 출신)" }, { label: "사모", value: "침신대 교음과 출신" }], description: "주바라기 네트워크와 긴밀히 연계되어 있으며, 학부 및 교단적 인적 인프라가 대단히 탄탄한 전문 사역 미니스트리입니다." },
+            { name: "소통 미니스트리 (CT 워십)", category: "worship", categoryLabel: "예배 사역팀", tags: ["감리교", "순회집회"], details: [{ label: "브랜드", value: "CT 워십" }, { label: "주요사역", value: "감리교 중심의 연합 순회집회 진행" }], description: "감리교단을 기반으로 전국의 교회들을 순회하며 예배를 심고 네트워킹을 도모하는 전문 사역 단체입니다." },
+            { name: "주바라기 선교회", category: "worship", categoryLabel: "선교 단체", tags: ["캠프 사역", "역사 깊은 단체"], details: [{ label: "대표", value: "이상은 전도사" }, { label: "찬양 인도", value: "김기현 전도사" }, { label: "창립자", value: "하재호 목사" }], description: "전국적인 청소년/청년 캠프 사역을 이끌어온 대전의 대표 선교단체입니다." },
+            { name: "현진주", category: "artist", categoryLabel: "솔로 아티스트", tags: ["오디션 출신", "게스트 초청"], details: [{ label: "이력", value: "지상파/케이블 TV 오디션 출신" }, { label: "협력팀", value: "더 코드 미니스트리, 주바라기 선교회" }], description: "매력적인 음색과 실력을 갖춘 오디션 출신 보컬리스트입니다." },
+            { name: "예수전도단 대전지부", category: "worship", categoryLabel: "선교 단체", tags: ["화요모임", "YWAM"], details: [{ label: "대표사역", value: "대전 화요모임 정기 예배 인도" }], description: "오랜 시간 대전 지역의 청년 예배자들을 일깨워온 초교파 선교단체입니다." },
+            { name: "산성침례교회 (GATE CAMP)", category: "worship", categoryLabel: "교회 / 청소년 사역", tags: ["캠프 사역"], details: [{ label: "인도자", value: "박영규 목사" }, { label: "핵심사역", value: "청소년 교육 및 GATE CAMP" }], description: "미자립교회의 다음세대를 효과적으로 품기 위한 여름 캠프를 운영합니다." },
+            { name: "한빛감리교회 청소년 사역", category: "worship", categoryLabel: "교회 / 연례 집회", tags: ["연례 콘서트"], details: [{ label: "연례행사", value: "청소년 찬양 콘서트 & 기도 캠프" }], description: "감리교 내 다음세대 거점에서 청소년을 기도로 일깨우는 캠프를 개최합니다." },
+            { name: "오메가 교회 (UNISON STATION)", category: "worship", categoryLabel: "교회 / 컨퍼런스", tags: ["킹덤 오브 컨퍼런스"], details: [{ label: "주최행사", value: "킹덤 오브 컨퍼런스 (연 2회)" }], description: "현대적인 워십을 리드하는 오메가교회에서 배재대에서 대규모 컨퍼런스를 개최합니다." },
+            { name: "온유시 워십팀 (On-U-Si)", category: "worship", categoryLabel: "예배 사역팀", tags: ["샤우터 워십"], details: [{ label: "인도자", value: "박인준 목사" }], description: "박인준 부목사의 역동적인 인도 아래 대전 서구 지역을 중심으로 뜨거운 예배 운동을 펼칩니다." },
+            { name: "목원대학교 오픈 처치", category: "worship", categoryLabel: "학내 예배 운동", tags: ["캠퍼스 부흥"], details: [{ label: "규모", value: "학기별 1회 대형 연합집회" }], description: "학원 복음화의 모범적 사례로, 목원대 대강당을 가득 채우는 오픈 부흥 집회입니다." },
+            { name: "LIGHT ON (라이트온)", category: "worship", categoryLabel: "청소년 사역", tags: ["네임리스 캠프"], details: [{ label: "시그니처", value: "nameless camp 기획·진행" }], description: "오직 그리스도의 이름만 높이는 기치 아래 청소년을 타깃한 캠프를 진행합니다." },
+            { name: "침신대 정오기도회", category: "campus", categoryLabel: "침례신학대 (학부)", tags: ["학부 팀", "기도 예배"], details: [{ label: "소속", value: "침례신학대학교 학부" }], description: "낮 12시마다 예배와 기도의 불을 지피는 순수 학내 자생 기도팀입니다." },
+            { name: "침신대 샤마 (SHAMAH)", category: "campus", categoryLabel: "침례신학대 (학부)", tags: ["학부 찬양팀"], details: [{ label: "소속", value: "침례신학대학교 학부" }], description: "영성 깊고 파워풀한 보컬과 안정적 세션 구성을 자랑하는 찬양 사역팀입니다." },
+            { name: "침신대 찬양할렐루야", category: "campus", categoryLabel: "침례신학대 (학부)", tags: ["학부 연합", "전통팀"], details: [{ label: "소속", value: "침례신학대학교 학부" }], description: "침례교 예배 음악의 정수를 이어받아 정기 채플 지원 및 부흥 집회를 돕습니다." },
+            { name: "침신대 대학원 워십팀", category: "campus", categoryLabel: "침례신학대 (대학원)", tags: ["원우회 사역"], details: [{ label: "소속", value: "침례신학대학교 신학대학원" }], description: "현장 사역을 겪어낸 신대원생으로 이루어져 완성도 높은 영성을 들려주는 팀입니다." },
+            { name: "침신대 브니엘 (Peniel)", category: "campus", categoryLabel: "침례신학대 (대학원)", tags: ["대학원 소속"], details: [{ label: "소속", value: "침례신학대학교 대학원" }], description: "깊은 중보기도와 훈련된 찬양으로 강력한 영적 파동을 일으키는 팀입니다." },
+            { name: "애니커뮤니케이션", category: "tech", categoryLabel: "음향/조명 엔지니어링", tags: ["종합 렌탈"], details: [{ label: "핵심 엔지니어", value: "최희돈, 황인용" }], description: "드라마틱한 조명 연출과 정밀한 음향 시스템을 구축하는 베테랑 연합 팀입니다." },
+            { name: "블레쓰 웨이 (Bless Way)", category: "tech", categoryLabel: "예배 기술 기업", tags: ["목회자 엔지니어"], details: [{ label: "대표", value: "이종율 목사" }], description: "현직 목회자가 직접 현장을 디렉팅하여 완벽한 사운드와 조명을 추구합니다." },
+            { name: "Ome 사운드", category: "tech", categoryLabel: "전문 음향", tags: ["음향 엔지니어링"], details: [{ label: "음향 감독", value: "김기현 전도사" }], description: "보컬과 가사 전달력이 매우 우수한 음향을 보장합니다." },
+            { name: "사운드포커스 (Sound Focus)", category: "tech", categoryLabel: "전문 음향", tags: ["방송 음향"], details: [{ label: "엔지니어", value: "조재모 실장" }], description: "CTS 급의 엄격한 사운드 퀄리티를 로컬 집회에 이식합니다." },
+            { name: "가이드 라인 (Guide Line)", category: "tech", categoryLabel: "음향/기획사", tags: ["세종/조치원"], details: [{ label: "책임자", value: "김성민 실장" }], description: "기획적 기틀을 세팅해주고 세종·조치원 권역의 기술을 리딩합니다." },
+            { name: "신경우 LED 스크린", category: "tech", categoryLabel: "영상 미디어", tags: ["LED 스크린"], details: [{ label: "엔지니어", value: "신경우 실장" }], description: "LED 고해상도 스크린 렌탈 및 미디어 연출에 뛰어난 감각을 보입니다." },
+            { name: "중계팀 '소다수'", category: "tech", categoryLabel: "영상 제작/중계", tags: ["라이브 중계"], details: [{ label: "감독", value: "박용우 실장" }], description: "고화질 스트리밍과 정교한 멀티캠 스위칭으로 현장 감동을 완벽히 송출합니다." },
+            { name: "아이빅 (IBIG Network)", category: "tech", categoryLabel: "종합 미디어 그룹", tags: ["토탈 시스템"], details: [{ label: "기술역량", value: "음향, 영상, 조명 풀 세팅" }], description: "대전 기독교 문화의 거대한 허브로 중대형 집회를 일괄 처리합니다." },
+            { name: "향기스토리", category: "tech", categoryLabel: "문화 사역/시스템", tags: ["대전 로컬"], description: "기독교 문화 사역을 선도합니다." },
+            { name: "재즈 밴드 '폴리 (Polly)'", category: "artist", categoryLabel: "전문 연주 단체", tags: ["재즈 엣지", "신앙인"], details: [{ label: "대표", value: "이기명 전도사" }], description: "기술과 감각 면에서 단연 독보적인 전문 프로 재즈 연주 밴드입니다." }
+        ];
+
+        let activeCategory = 'all';
+
+        function init() {
+            renderCards();
+            updateStats();
+            lucide.createIcons();
+        }
+
+        function setCategory(category) {
+            activeCategory = category;
+            const tabs = document.querySelectorAll('.category-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('bg-blue-600', 'text-white', 'shadow-sm');
+                tab.classList.add('bg-gray-100', 'text-gray-600', 'hover:bg-gray-200');
+            });
+            event.target.classList.remove('bg-gray-100', 'text-gray-600', 'hover:bg-gray-200');
+            event.target.classList.add('bg-blue-600', 'text-white', 'shadow-sm');
+            filterTeams();
+        }
+
+        function filterTeams() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = data.filter(item => {
+                const matchesCategory = (activeCategory === 'all' || item.category === activeCategory);
+                const searchString = [
+                    item.name,
+                    item.categoryLabel,
+                    ...(item.tags || []),
+                    item.description || "",
+                    ...(item.details ? item.details.map(d => d.value) : [])
+                ].join(' ').toLowerCase();
+                const matchesQuery = searchString.includes(query);
+                return matchesCategory && matchesQuery;
+            });
+            renderCards(filtered);
+        }
+
+        function renderCards(list = data) {
+            const grid = document.getElementById('cardsGrid');
+            const noResults = document.getElementById('noResults');
+            grid.innerHTML = '';
+
+            if (list.length === 0) {
+                grid.classList.add('hidden');
+                noResults.classList.remove('hidden');
+                return;
+            }
+
+            grid.classList.remove('hidden');
+            noResults.classList.add('hidden');
+
+            list.forEach(item => {
+                let badgeColor = "bg-blue-50 text-blue-700";
+                if (item.category === 'campus') badgeColor = "bg-emerald-50 text-emerald-700";
+                if (item.category === 'tech') badgeColor = "bg-orange-50 text-orange-700";
+                if (item.category === 'artist') badgeColor = "bg-purple-50 text-purple-700";
+
+                let detailsHtml = "";
+                if (item.details && item.details.length > 0) {
+                    detailsHtml = `
+                        <div class="mt-4 pt-4 border-t border-gray-100 space-y-1.5 text-xs">
+                            ${item.details.map(d => `
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400 font-medium">${d.label}</span>
+                                    <span class="text-gray-700 font-semibold text-right max-w-[180px] truncate" title="${d.value}">${d.value}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                }
+
+                const tagsHtml = item.tags ? item.tags.map(tag => `
+                    <span class="bg-gray-100 text-gray-600 text-[10px] px-2 py-0.5 rounded-md font-medium">#${tag}</span>
+                `).join('') : '';
+
+                const cardHtml = `
+                    <div class="bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 p-6 border border-gray-100 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-3">
+                                <span class="text-[11px] font-bold px-2.5 py-1 rounded-full ${badgeColor}">${item.categoryLabel}</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-800 mb-1 hover:text-blue-600 transition-colors">${item.name}</h3>
+                            <p class="text-xs text-gray-500 line-clamp-3 leading-relaxed mt-2">
+                                ${item.description || "상세 사역 정보 준비 중입니다."}
+                            </p>
+                            <div class="flex flex-wrap gap-1 mt-3">
+                                ${tagsHtml}
+                            </div>
+                        </div>
+                        ${detailsHtml}
+                    </div>
+                `;
+                grid.insertAdjacentHTML('beforeend', cardHtml);
+            });
+        }
+
+        function updateStats() {
+            const worship = data.filter(i => i.category === 'worship').length;
+            const campus = data.filter(i => i.category === 'campus').length;
+            const tech = data.filter(i => i.category === 'tech' || i.category === 'artist').length;
+            document.getElementById('countWorship').innerText = worship;
+            document.getElementById('countCampus').innerText = campus;
+            document.getElementById('countTech').innerText = tech;
+        }
+
+        window.onload = init;
+    </script>
+</body>
+</html>
