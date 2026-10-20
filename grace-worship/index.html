@@ -65,6 +65,13 @@ section,footer{border-top-color:#EFEBE6 !important}
 }
 </style>
 
+<style>
+#top{position:relative;overflow:hidden}
+.gw-bgv{position:absolute;inset:0;z-index:0;pointer-events:none;container-type:size;overflow:hidden}
+.gw-bgv iframe{position:absolute;top:50%;left:50%;width:max(100cqw,177.78cqh);height:max(56.25cqw,100cqh);transform:translate(-50%,-50%) scale(1.08);border:0}
+.gw-bgv::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,0.80) 0%,rgba(255,255,255,0.70) 45%,rgba(255,255,255,0.88) 100%)}
+#top>*:not(.gw-bgv){position:relative;z-index:1}
+</style>
 </head>
 <body>
 
@@ -88,7 +95,7 @@ WATCH
 </header>
 
 <!-- HERO -->
-<section id="top" class="gw-sec" style="padding: 150px 48px 140px; background: #FFFFFF; text-align: center">
+<section id="top" class="gw-sec" style="padding: 150px 48px 140px; background: #FFFFFF; text-align: center"><div class="gw-bgv" aria-hidden="true"><iframe src="https://www.youtube-nocookie.com/embed/2b-FUoQVB98?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=2b-FUoQVB98&amp;controls=0&amp;playsinline=1&amp;rel=0&amp;modestbranding=1&amp;disablekb=1&amp;iv_load_policy=3" title="배경 영상" tabindex="-1" allow="autoplay; encrypted-media; picture-in-picture" frameborder="0"></iframe></div>
 <p style="margin: 0 0 28px; font-size: 11px; letter-spacing: 0.4em; color: #6B6573">은혜교회 찬양사역팀 · DAEJEON</p>
 <h1 class="gw-hero-script" style="margin: 0; font-family: 'Great Vibes', cursive; font-weight: 400; font-size: 190px; line-height: 1.05; color: #1F1D24">Grace Worship</h1>
 <div aria-hidden="true" style="width: 64px; height: 1px; margin: 40px auto; background: #A9506A"></div>
