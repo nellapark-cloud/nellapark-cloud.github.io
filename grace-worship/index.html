@@ -132,7 +132,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 /* 영상 */
 .video-card{display:flex;flex-wrap:wrap;align-items:center;gap:28px;background:var(--card);border-radius:20px;padding:28px;box-shadow:var(--shadow)}
 .video-thumb{flex:1 1 380px;aspect-ratio:16/9;border-radius:14px;background:linear-gradient(135deg,var(--sky) 0%,var(--sky-soft) 60%,#fff 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.video-thumb .play{width:84px;height:84px;border-radius:50%;background:#fff;box-shadow:var(--shadow-lg);display:flex;align-items:center;justify-content:center}
+.video-thumb{border:0;padding:0;cursor:pointer;font:inherit}
+.video-thumb .play{position:relative;transition:transform .2s ease;width:84px;height:84px;border-radius:50%;background:#fff;box-shadow:var(--shadow-lg);display:flex;align-items:center;justify-content:center}
+.video-thumb:hover .play{transform:scale(1.06)}
+.video-thumb iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .video-info{flex:1 1 300px;display:flex;flex-direction:column;gap:14px}
 .video-info h3{margin:0;font-size:24px;font-weight:900;letter-spacing:-.03em}
 .video-info p{margin:0;font-size:15px;color:var(--body)}
@@ -377,19 +380,14 @@ footer{background:var(--footer);color:var(--footer-ink);padding:48px 24px 24px}
 <h2 class="h2">찬양 영상</h2>
 </div>
 <div class="video-card" style="background:var(--bg);box-shadow:none;border:1px solid var(--line)">
-<a class="video-thumb" href="https://www.youtube.com/playlist?list=PLlQGGta1UGsFIQ7ynevWfsIgvMyFTPQMe" target="_blank" rel="noopener" aria-label="은혜교회 찬양팀 영상 보기">
-<svg aria-hidden="true" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%">
-<g fill="none" stroke="#3A9AD9" stroke-linecap="round" opacity=".25">
-<path d="M0 250 C 100 210, 180 290, 320 250 S 540 210, 640 250" stroke-width="2"/>
-<path d="M0 275 C 120 240, 200 310, 340 275 S 560 240, 640 275" stroke-width="1.5"/>
-</g>
-</svg>
+<button type="button" class="video-thumb" id="gw-video" data-id="WaJ1yiuZoCE" aria-label="찬양팀 영상 재생">
+<img src="https://i.ytimg.com/vi/WaJ1yiuZoCE/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/WaJ1yiuZoCE/hqdefault.jpg'" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
 <span class="play"><svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="#3A9AD9"><path d="M8 5.5v13l11-6.5z"/></svg></span>
-</a>
+</button>
 <div class="video-info">
 <span style="font-size:11px;font-weight:800;letter-spacing:.16em;color:var(--accent)">PLAYLIST · 찬양팀 영상</span>
 <h3>은혜교회 찬양팀 영상</h3>
-<p>그레이스워십이 드린 찬양을 한곳에 모았어요. 누르시면 재생목록으로 바로 이동합니다. 주일 오전 11시에는 실시간 예배로 함께하세요.</p>
+<p>그레이스워십이 드린 찬양을 한곳에 모았어요. 화면을 누르면 바로 재생되고, 아래 버튼을 누르면 재생목록 전체를 보실 수 있어요. 주일 오전 11시에는 실시간 예배로 함께하세요.</p>
 <div class="btns">
 <a href="https://www.youtube.com/playlist?list=PLlQGGta1UGsFIQ7ynevWfsIgvMyFTPQMe" target="_blank" rel="noopener" class="btn btn-primary">찬양팀 영상 보기 <span aria-hidden="true">›</span></a>
 <a href="https://www.youtube.com/@sjgrace/live" target="_blank" rel="noopener" class="btn btn-ghost">실시간 예배</a>
@@ -467,6 +465,15 @@ footer{background:var(--footer);color:var(--footer-ink);padding:48px 24px 24px}
   }
   burger.addEventListener('click', function(){ setMenu(!header.classList.contains('open')); });
   document.querySelectorAll('[data-close-menu]').forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
+  var v = document.getElementById('gw-video');
+  if (v) v.addEventListener('click', function(){
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + v.getAttribute('data-id') + '?autoplay=1&rel=0&playsinline=1';
+    f.title = '은혜교회 찬양팀 영상';
+    f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    f.allowFullscreen = true;
+    v.innerHTML = ''; v.appendChild(f); v.style.cursor = 'default';
+  }, {once:true});
 })();
 </script>
 </body>
