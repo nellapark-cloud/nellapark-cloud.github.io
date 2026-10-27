@@ -23,6 +23,7 @@
 <link rel="icon" href="https://sejonggrace.com/assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;family=Noto+Sans+KR:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet">
 <style>
 /* 은혜교회 홈페이지와 같은 색 · 같은 글꼴 */
@@ -63,7 +64,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .hdr{max-width:1200px;margin:0 auto;border-radius:16px;background:rgba(255,255,255,.96);box-shadow:0 8px 24px rgba(30,80,120,.10);border:1px solid var(--line)}
 .hdr-row{padding:0 20px;display:flex;align-items:center;justify-content:space-between;gap:8px 24px;min-height:68px}
 .brand{display:flex;flex-direction:column;line-height:1.1}
-.brand .script{font-size:30px;color:var(--ink)}
+.brand .brand-name{font-family:Pretendard,'Noto Sans KR',system-ui,sans-serif;font-size:20px;font-weight:800;letter-spacing:-.02em;color:var(--ink)}
 .brand small{font-size:10px;font-weight:700;letter-spacing:.14em;color:var(--muted);margin-top:2px}
 .gnav{display:flex;align-items:center;gap:2px 26px;font-size:14px;font-weight:500;color:var(--body)}
 .gnav a{padding:12px 0}
@@ -177,7 +178,7 @@ footer{background:var(--footer);color:var(--footer-ink);padding:48px 24px 24px}
 <div class="hdr">
 <div class="hdr-row">
 <a href="#top" class="brand" aria-label="그레이스워십 처음으로">
-<span class="script">Grace Worship</span>
+<span class="brand-name">Grace Worship</span>
 <small>은혜교회 예배팀</small>
 </a>
 <button type="button" class="burger" id="burger" aria-label="메뉴 열기" aria-expanded="false">
