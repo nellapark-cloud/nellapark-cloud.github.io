@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>그레이스 워십 | Grace Worship</title>
-<meta name="description" content="대전 유성구 은혜교회 찬양사역팀 그레이스 워십">
+<title>그레이스워십 | 은혜교회 예배팀</title>
+<meta name="description" content="대전 유성구 기독교한국침례회 은혜교회 예배팀 그레이스워십 — 은혜로 시작해 노래로 응답하는 사람들">
 <link rel="canonical" href="https://nellapark-cloud.github.io/grace-worship/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Grace Worship">
-<meta property="og:title" content="그레이스 워십 | Grace Worship">
-<meta property="og:description" content="은혜로 시작해 노래로 응답하는 사람들 — 대전 유성구 은혜교회 찬양사역팀">
+<meta property="og:title" content="그레이스워십 | 은혜교회 예배팀">
+<meta property="og:description" content="은혜로 시작해 노래로 응답하는 사람들 — 대전 유성구 은혜교회 예배팀">
 <meta property="og:url" content="https://nellapark-cloud.github.io/grace-worship/">
 <meta property="og:image" content="https://nellapark-cloud.github.io/grace-worship/og.png">
 <meta property="og:image:width" content="1200">
@@ -17,280 +17,333 @@
 <meta property="og:image:alt" content="Grace Worship — 은혜로 시작해 노래로 응답하는 사람들">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="그레이스 워십 | Grace Worship">
-<meta name="twitter:description" content="은혜로 시작해 노래로 응답하는 사람들 — 대전 유성구 은혜교회 찬양사역팀">
+<meta name="twitter:title" content="그레이스워십 | 은혜교회 예배팀">
+<meta name="twitter:description" content="은혜로 시작해 노래로 응답하는 사람들 — 대전 유성구 은혜교회 예배팀">
 <meta name="twitter:image" content="https://nellapark-cloud.github.io/grace-worship/og.png">
-<style>html{scroll-behavior:smooth}</style>
-
+<link rel="icon" href="https://sejonggrace.com/assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&amp;family=Gowun+Batang:wght@400;700&amp;family=IBM+Plex+Sans+KR:wght@300;400;500&amp;display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;family=Noto+Sans+KR:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet">
 <style>
-body{margin:0;background:#FFFFFF}
-a{color:#1F1D24}a:hover{color:#A9506A}
-section{scroll-margin-top:82px}
-[style*="font-size: 190px"]{font-size:min(190px, 13.2vw) !important}
-#top,#members,#videos{background:#FFFFFF !important}
-#top{position:relative;overflow:hidden}
-.gw-hero-script{background-image:linear-gradient(100deg,#A894EE 0%,#C9A9F2 22%,#F0B9D6 45%,#C3B2F6 68%,#9FC0F0 88%,#B49CF0 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent !important;line-height:1.35 !important;padding:0.22em 0.3em 0.32em !important;margin:-0.22em auto -0.32em !important;overflow:visible;animation:gwShimmer 9s ease-in-out infinite alternate}
-@keyframes gwShimmer{from{background-position:0% 50%}to{background-position:100% 50%}}
-@media (prefers-reduced-motion: reduce){.gw-hero-script{animation:none}}
-#top [style*="margin: 40px auto"]{background:linear-gradient(90deg,#C3B2F6,#F0B9D6) !important;width:88px !important}
-#top [style*="letter-spacing: 0.4em"]{color:#8E7FB8 !important}
-#about,#ministry,#contact{background:#FAF8F5 !important}
-footer{background:#F5F2EE !important}
-section,footer{border-top-color:#EFEBE6 !important}
-@media (max-width: 1080px){
-  [style*="repeat(4, minmax(0, 1fr))"]{grid-template-columns:repeat(2, minmax(0, 1fr)) !important}
+/* 은혜교회 홈페이지와 같은 색 · 같은 글꼴 */
+:root{
+  --bg:#F3F9FE; --bg-soft:#EEF7FE; --sky:#D6ECFA; --sky-soft:#E6F4FD;
+  --line:#DDEDF8; --line-2:#D3E8F6; --line-3:#E6F0F8;
+  --ink:#0F1B3D; --ink-2:#1E2B4F; --body:#3B4868; --muted:#5A6788;
+  --accent:#1F7AB8; --accent-2:#3A9AD9; --btn:#7CC4F2; --btn-ink:#0F2A4A;
+  --card:#FFFFFF; --shadow:0 8px 22px rgba(30,80,120,0.07); --shadow-lg:0 10px 26px rgba(30,80,120,0.14);
+  --footer:#1D3A5C; --footer-ink:#C9D9EA; --footer-muted:#7F8BA8;
 }
-@media (max-width: 760px){
-  [style*="repeat(4, minmax(0, 1fr))"]{grid-template-columns:minmax(0, 1fr) !important}
-  .gw-nav-links{display:none !important}
-  .gw-sec{padding:72px 20px !important}
-  #top{padding:88px 20px 80px !important}
-  header{padding:12px 20px !important}
-  [style*="font-size: 88px"]{font-size:44px !important}
-  [style*="font-size: 44px"]{font-size:30px !important}
-  [style*="font-size: 40px"]{font-size:26px !important}
-  [style*="font-size: 38px"]{font-size:25px !important}
-  [style*="font-size: 36px"]{font-size:28px !important}
-  [style*="font-size: 30px"]{font-size:20px !important}
-  [style*="font-size: 26px"]{font-size:19px !important}
-  [style*="font-size: 24px"]{font-size:18px !important}
-  [style*="font-size: 22px"]{font-size:17px !important}
-  [style*="font-size: 16px"]{font-size:15px !important}
-  [style*="margin: 40px auto"]{margin:24px auto !important}
-  [style*="margin: 72px 0 0"]{margin-top:44px !important}
-  [style*="flex: 0 0 80px"]{flex-basis:48px !important}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Pretendard,'Noto Sans KR',system-ui,sans-serif;line-height:1.6;word-break:keep-all;overflow-wrap:break-word}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font-family:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.sec{padding:96px 0}
+.tag{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.18em;color:var(--accent);background:#fff;border-radius:999px;padding:5px 14px;box-shadow:0 4px 12px rgba(30,80,120,.08)}
+.sec-head{display:flex;flex-direction:column;gap:14px;margin-bottom:44px}
+.sec-head.center{align-items:center;text-align:center}
+.h2{margin:0;font-size:clamp(28px,3.4vw,40px);line-height:1.25;font-weight:900;letter-spacing:-.03em}
+.lead{margin:0;font-size:16px;color:var(--body);max-width:620px}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:50px;padding:0 22px;border-radius:10px;font-weight:700;font-size:15px}
+.btn-primary{background:var(--btn);color:var(--btn-ink);box-shadow:0 8px 18px rgba(124,196,242,.35)}
+.btn-ghost{background:#fff;border:1px solid var(--line-2);color:var(--accent)}
+.script{font-family:'Great Vibes',cursive;font-weight:400}
+.script-grad{background-image:linear-gradient(100deg,#1F7AB8 0%,#3A9AD9 35%,#7CC4F2 60%,#3A9AD9 85%,#1F7AB8 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:shimmer 10s ease-in-out infinite alternate}
+@keyframes shimmer{from{background-position:0% 50%}to{background-position:100% 50%}}
+@media (prefers-reduced-motion: reduce){.script-grad{animation:none}}
+
+/* 떠 있는 헤더 */
+#site-header{position:sticky;top:0;z-index:50;padding:12px 16px 0}
+.hdr{max-width:1200px;margin:0 auto;border-radius:16px;background:rgba(255,255,255,.96);box-shadow:0 8px 24px rgba(30,80,120,.10);border:1px solid var(--line)}
+.hdr-row{padding:0 20px;display:flex;align-items:center;justify-content:space-between;gap:8px 24px;min-height:68px}
+.brand{display:flex;flex-direction:column;line-height:1.1}
+.brand .script{font-size:30px;color:var(--ink)}
+.brand small{font-size:10px;font-weight:700;letter-spacing:.14em;color:var(--muted);margin-top:2px}
+.gnav{display:flex;align-items:center;gap:2px 26px;font-size:14px;font-weight:500;color:var(--body)}
+.gnav a{padding:12px 0}
+.gnav a:hover{color:var(--accent)}
+.gnav .home-link{display:inline-flex;align-items:center;min-height:42px;padding:0 18px;border-radius:10px;background:var(--btn);color:var(--btn-ink);font-weight:700;box-shadow:0 6px 14px rgba(124,196,242,.35)}
+.gnav .home-link:hover{color:var(--btn-ink)}
+.burger{display:none;width:44px;height:44px;align-items:center;justify-content:center;border:1px solid var(--line-2);border-radius:12px;background:#fff;cursor:pointer;padding:0}
+.mnav{display:none;flex-direction:column;padding:0 20px 18px;border-top:1px solid var(--line)}
+.mnav a{display:flex;align-items:center;justify-content:space-between;min-height:50px;font-size:16px;font-weight:600;border-bottom:1px solid #E3F0F9}
+.mnav a span{color:var(--accent)}
+.mnav .home-link{justify-content:center;margin-top:14px;border:0;border-radius:10px;background:var(--btn);color:var(--btn-ink);font-weight:700;font-size:15px}
+.ic-close{display:none}
+#site-header.open .ic-close{display:block}
+#site-header.open .ic-open{display:none}
+@media (max-width:900px){
+  .gnav{display:none}
+  .burger{display:flex}
+  #site-header.open .mnav{display:flex}
+}
+
+/* 히어로 */
+.hero{position:relative;overflow:hidden;margin-top:-80px;background:linear-gradient(180deg,var(--sky) 0%,var(--bg-soft) 55%,var(--bg) 100%);text-align:center}
+.hero-art{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero-in{position:relative;padding:170px 24px 110px;display:flex;flex-direction:column;align-items:center;gap:20px}
+.hero h1{margin:0;font-size:min(150px,17vw);line-height:1.3;padding:0 .25em;letter-spacing:0}
+.hero .sub{margin:0;font-size:clamp(22px,2.8vw,32px);font-weight:900;letter-spacing:-.03em;line-height:1.35}
+.hero .sub em{font-style:normal;color:var(--accent)}
+.hero p.desc{margin:0;max-width:520px;font-size:16px;color:var(--body)}
+.hero .btns{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:6px}
+.verse{margin-top:30px;display:inline-flex;align-items:center;gap:10px;padding:10px 18px;border-radius:999px;background:rgba(255,255,255,.85);box-shadow:0 4px 12px rgba(30,80,120,.08);font-size:14px;color:var(--body)}
+.verse b{color:var(--accent);font-weight:700}
+
+/* 소개 */
+.about{display:flex;flex-wrap:wrap;gap:40px;align-items:stretch}
+.about-text{flex:3 1 480px;display:flex;flex-direction:column;gap:18px}
+.about-text h3{margin:0;font-size:clamp(22px,2.4vw,28px);font-weight:800;letter-spacing:-.02em;line-height:1.45}
+.about-text p{margin:0;font-size:16px;color:var(--body)}
+.values{flex:2 1 300px;display:flex;flex-direction:column;gap:12px}
+.value{display:flex;gap:16px;align-items:flex-start;background:var(--card);border-radius:16px;padding:20px;box-shadow:var(--shadow)}
+.value .ico{flex:0 0 44px;height:44px;border-radius:12px;background:var(--sky-soft);display:flex;align-items:center;justify-content:center}
+.value b{display:block;font-size:16px;font-weight:800}
+.value b small{font-size:11px;font-weight:800;letter-spacing:.16em;color:var(--accent);margin-left:6px}
+.value span{font-size:14px;color:var(--body)}
+
+/* 멤버 */
+.members{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+.member{display:flex;flex-direction:column;background:var(--card);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.member img{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:center 28%;background:var(--sky-soft)}
+.member-body{padding:20px 20px 22px;display:flex;flex-direction:column;gap:14px;flex:1}
+.member-head .role{font-size:11px;font-weight:800;letter-spacing:.16em;color:var(--accent)}
+.member-head h3{margin:4px 0 0;font-size:20px;font-weight:800;letter-spacing:-.02em}
+.member-head h3 small{font-size:13px;font-weight:500;color:var(--muted);margin-left:6px;letter-spacing:0}
+.member .q{margin:0;padding:14px 16px;border-radius:12px;background:var(--bg);font-size:14px;line-height:1.75;color:var(--ink-2)}
+.member .k{display:block;font-size:11px;font-weight:800;letter-spacing:.1em;color:var(--accent);margin-bottom:4px}
+.member .faith{margin:0;font-size:13px;line-height:1.8;color:var(--body)}
+.member .faith cite{display:block;font-style:normal;color:var(--ink-2);margin-bottom:4px}
+
+/* 사역 */
+.ministry{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.mcard{background:var(--card);border-radius:16px;padding:24px 22px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}
+.mcard .num{width:40px;height:40px;border-radius:12px;background:var(--sky-soft);color:var(--accent);font-weight:900;font-size:15px;display:flex;align-items:center;justify-content:center}
+.mcard h3{margin:4px 0 0;font-size:18px;font-weight:800;letter-spacing:-.02em}
+.mcard p{margin:0;font-size:14px;color:var(--body)}
+
+/* 영상 */
+.video-card{display:flex;flex-wrap:wrap;align-items:center;gap:28px;background:var(--card);border-radius:20px;padding:28px;box-shadow:var(--shadow)}
+.video-thumb{flex:1 1 380px;aspect-ratio:16/9;border-radius:14px;background:linear-gradient(135deg,var(--sky) 0%,var(--sky-soft) 60%,#fff 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.video-thumb .play{width:84px;height:84px;border-radius:50%;background:#fff;box-shadow:var(--shadow-lg);display:flex;align-items:center;justify-content:center}
+.video-info{flex:1 1 300px;display:flex;flex-direction:column;gap:14px}
+.video-info h3{margin:0;font-size:24px;font-weight:900;letter-spacing:-.03em}
+.video-info p{margin:0;font-size:15px;color:var(--body)}
+.video-info .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+
+/* 함께하기 */
+.join{display:flex;flex-wrap:wrap;gap:20px}
+.join-main{flex:3 1 460px;background:linear-gradient(135deg,#FFFFFF 0%,var(--sky-soft) 100%);border:1px solid var(--line);border-radius:20px;padding:36px 32px;display:flex;flex-direction:column;gap:16px}
+.join-main h2{margin:0;font-size:clamp(26px,3vw,34px);font-weight:900;letter-spacing:-.03em;line-height:1.35}
+.join-main p{margin:0;font-size:15px;color:var(--body);max-width:520px}
+.join-main .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.join-side{flex:2 1 300px;background:var(--card);border-radius:20px;padding:28px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:6px}
+.join-side .k{font-size:10px;font-weight:800;letter-spacing:.16em;color:var(--accent);margin-bottom:6px}
+.join-side .row{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--line-3);font-size:14px}
+.join-side .row b{font-weight:800;color:var(--accent);white-space:nowrap}
+.join-side .addr{margin-top:12px;font-size:14px;color:var(--body)}
+.join-side .map{display:inline-flex;align-items:center;gap:6px;min-height:44px;font-size:14px;font-weight:700;color:var(--accent)}
+
+/* 푸터 */
+footer{background:var(--footer);color:var(--footer-ink);padding:48px 24px 24px}
+.ft{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:30px}
+.ft-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:28px;font-size:13px}
+.ft-col{display:flex;flex-direction:column;gap:4px}
+.ft-col .t{font-size:14px;font-weight:700;color:#fff;margin-bottom:6px}
+.ft-col a{padding:3px 0}
+.ft-col a:hover{color:#fff}
+.ft-brand .script{font-size:34px;color:#fff;line-height:1.1}
+.ft-copy{border-top:1px solid rgba(255,255,255,.1);padding-top:16px;font-size:12px;color:var(--footer-muted)}
+
+@media (max-width:700px){
+  .sec{padding:72px 0}
+  .hero-in{padding:140px 20px 84px}
+  .wrap{padding:0 16px}
+  .join-main{padding:28px 22px}
+  .video-card{padding:18px}
 }
 </style>
-
 </head>
 <body>
 
-
-<div style="width: 100%; font-family: 'IBM Plex Sans KR', sans-serif; font-weight: 300; color: #1F1D24; background: #FFFFFF">
-
-<!-- NAV -->
-<header style="position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 18px 48px; background: rgba(255,255,255,0.94); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid #EEEAE5">
-<a href="#top" style="font-family: 'Great Vibes', cursive; font-size: 36px; line-height: 1; color: #1F1D24; text-decoration: none">Grace Worship</a>
-<nav class="gw-nav-links" aria-label="주 메뉴" style="display: flex; gap: 40px; font-size: 13px; letter-spacing: 0.14em">
-<a href="#about" style="color: #1F1D24; text-decoration: none">소개</a>
-<a href="#members" style="color: #1F1D24; text-decoration: none">멤버</a>
-<a href="#ministry" style="color: #1F1D24; text-decoration: none">사역</a>
-<a href="#videos" style="color: #1F1D24; text-decoration: none">영상</a>
-<a href="#contact" style="color: #1F1D24; text-decoration: none">함께하기</a>
-</nav>
-<a href="#videos" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 22px; border: 1px solid #1F1D24; border-radius: 999px; color: #1F1D24; text-decoration: none; font-size: 12px; letter-spacing: 0.2em">
-<svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
-WATCH
+<!-- 떠 있는 헤더 -->
+<header id="site-header">
+<div class="hdr">
+<div class="hdr-row">
+<a href="#top" class="brand" aria-label="그레이스워십 처음으로">
+<span class="script">Grace Worship</span>
+<small>은혜교회 예배팀</small>
 </a>
+<button type="button" class="burger" id="burger" aria-label="메뉴 열기" aria-expanded="false">
+<svg class="ic-open" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F1B3D" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+<svg class="ic-close" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F1B3D" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+</button>
+<nav class="gnav" aria-label="주 메뉴">
+<a href="#about">소개</a>
+<a href="#members">멤버</a>
+<a href="#ministry">사역</a>
+<a href="#videos">영상</a>
+<a href="#join">함께하기</a>
+<a href="https://sejonggrace.com/" class="home-link">은혜교회 홈 ›</a>
+</nav>
+</div>
+<nav class="mnav" aria-label="모바일 메뉴">
+<a href="#about" data-close-menu>소개<span aria-hidden="true">›</span></a>
+<a href="#members" data-close-menu>멤버<span aria-hidden="true">›</span></a>
+<a href="#ministry" data-close-menu>사역<span aria-hidden="true">›</span></a>
+<a href="#videos" data-close-menu>영상<span aria-hidden="true">›</span></a>
+<a href="#join" data-close-menu>함께하기<span aria-hidden="true">›</span></a>
+<a href="https://sejonggrace.com/" class="home-link">은혜교회 홈으로</a>
+</nav>
+</div>
 </header>
 
-<!-- HERO -->
-<section id="top" class="gw-sec" style="padding: 150px 48px 140px; background: #FFFFFF; text-align: center">
-<p style="margin: 0 0 28px; font-size: 11px; letter-spacing: 0.4em; color: #6B6573">은혜교회 찬양사역팀 · DAEJEON</p>
-<h1 class="gw-hero-script" style="margin: 0; font-family: 'Great Vibes', cursive; font-weight: 400; font-size: 190px; line-height: 1.05; color: #1F1D24">Grace Worship</h1>
-<div aria-hidden="true" style="width: 64px; height: 1px; margin: 40px auto; background: #A9506A"></div>
-<p style="margin: 0 0 18px; font-family: 'Gowun Batang', serif; font-size: 30px; line-height: 1.5">은혜로 시작해 노래로 응답하는 사람들</p>
-<p style="margin: 0 auto 40px; max-width: 560px; font-size: 15px; line-height: 1.95; color: #55505C">하나님의 은혜가 우리 삶에 스며들어 예배가 됩니다. 그레이스 워십은 예배의 자리에서, 무대 위에서, 그리고 일상 속에서 그 은혜를 노래합니다.</p>
-<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px">
-<a href="#about" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 30px; border-radius: 999px; background: #1F1D24; color: #FFFFFF; text-decoration: none; font-size: 14px; letter-spacing: 0.06em">우리 이야기</a>
-<a href="#videos" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 30px; border-radius: 999px; border: 1px solid #1F1D24; color: #1F1D24; text-decoration: none; font-size: 14px; letter-spacing: 0.06em">찬양 영상 보기</a>
+<!-- 히어로 -->
+<section id="top" class="hero">
+<svg class="hero-art" aria-hidden="true" viewBox="0 0 1440 720" preserveAspectRatio="xMidYMid slice">
+<defs>
+<radialGradient id="glowA" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".9"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient>
+<radialGradient id="glowB" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#7CC4F2" stop-opacity=".35"/><stop offset="1" stop-color="#7CC4F2" stop-opacity="0"/></radialGradient>
+</defs>
+<circle cx="720" cy="300" r="380" fill="url(#glowA)"/>
+<circle cx="180" cy="160" r="260" fill="url(#glowB)"/>
+<circle cx="1280" cy="520" r="300" fill="url(#glowB)"/>
+<g fill="none" stroke="#3A9AD9" stroke-linecap="round" opacity=".22">
+<path d="M0 560 C 180 500, 300 620, 480 560 S 780 500, 960 560 S 1260 620, 1440 560" stroke-width="2"/>
+<path d="M0 590 C 200 540, 320 650, 520 590 S 820 530, 1000 590 S 1280 650, 1440 590" stroke-width="1.5"/>
+<path d="M0 620 C 220 580, 340 680, 560 620 S 860 560, 1040 620 S 1300 680, 1440 620" stroke-width="1"/>
+</g>
+</svg>
+<div class="hero-in">
+<span class="tag">은혜교회 예배팀 · GRACE WORSHIP</span>
+<h1 class="script script-grad">Grace Worship</h1>
+<p class="sub">은혜로 시작해 <em>노래로 응답하는 사람들</em></p>
+<p class="desc">하나님의 은혜가 우리 삶에 스며들어 예배가 됩니다. 그레이스워십은 주일 예배의 자리에서, 그리고 일상 속에서 그 은혜를 노래합니다.</p>
+<div class="btns">
+<a href="#about" class="btn btn-primary">우리 이야기 <span aria-hidden="true">›</span></a>
+<a href="#videos" class="btn btn-ghost">찬양 영상 보기
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3A9AD9" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10.5 9.5v5l4-2.5z" fill="#3A9AD9"/></svg></a>
 </div>
-<p style="margin: 72px 0 0; font-family: 'Cormorant Garamond', serif; font-style: italic;font-size: 22px; color: #6B6573">“Sing to the Lord a new song” — Psalm 96:1</p>
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="gw-sec" style="padding: 140px 48px; border-top: 1px solid #EEEAE5">
-<div style="max-width: 1120px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 72px">
-<div style="flex: 1 1 300px">
-<p style="margin: 0 0 14px; font-size: 11px; letter-spacing: 0.34em; color: #A9506A">01 · ABOUT</p>
-<h2 style="margin: 0; font-family: 'Great Vibes', cursive; font-weight: 400; font-size: 88px; line-height: 1">Grace &amp; Song</h2>
-</div>
-<div style="flex: 2 1 520px">
-<h3 style="margin: 0 0 28px; font-family: 'Gowun Batang', serif; font-weight: 400; font-size: 30px; line-height: 1.6">우리는 잘하는 사람들이 아니라<br>은혜 입은 사람들입니다.</h3>
-<p style="margin: 0 0 20px; font-size: 16px; line-height: 2; color: #55505C">그레이스 워십은 대전 유성구 은혜교회의 찬양사역팀입니다. 주일 예배를 섬기는 것에서 시작해, 찬양집회와 창작곡 작업, 지역 교회와 함께하는 연합예배까지 은혜가 흘러가는 곳이라면 어디든 노래로 함께합니다.</p>
-<p style="margin: 0 0 48px; font-size: 16px; line-height: 2; color: #55505C">우리가 드리는 찬양이 완벽한 공연이 아니라, 한 사람 한 사람의 삶에서 우러나온 고백이 되기를 바랍니다. 그래서 연습보다 먼저 말씀 앞에 서고, 무대보다 먼저 서로를 돌봅니다.</p>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 32px; padding-top: 28px; border-top: 1px solid #EEEAE5">
-<div>
-<p style="margin: 0 0 8px; font-family: 'Cormorant Garamond', serif; font-style: italic;font-size: 26px">Worship</p>
-<p style="margin: 0; font-size: 14px; line-height: 1.8; color: #6B6573">예배가 먼저입니다. 모든 노래는 하나님을 향합니다.</p>
-</div>
-<div>
-<p style="margin: 0 0 8px; font-family: 'Cormorant Garamond', serif; font-style: italic;font-size: 26px">Create</p>
-<p style="margin: 0; font-size: 14px; line-height: 1.8; color: #6B6573">우리의 언어로 새 노래를 짓고 나눕니다.</p>
-</div>
-<div>
-<p style="margin: 0 0 8px; font-family: 'Cormorant Garamond', serif; font-style: italic;font-size: 26px">Together</p>
-<p style="margin: 0; font-size: 14px; line-height: 1.8; color: #6B6573">교회와 다음세대, 지역과 함께 노래합니다.</p>
-</div>
-</div>
-</div>
+<p class="verse"><b>시 96:1</b> 새 노래로 여호와께 노래하라</p>
 </div>
 </section>
 
-<!-- MEMBERS -->
-<section id="members" class="gw-sec" style="padding: 140px 48px; border-top: 1px solid #EEEAE5">
-<div style="max-width: 1120px; margin: 0 auto">
-<div style="text-align: center; margin-bottom: 72px">
-<p style="margin: 0 0 14px; font-size: 11px; letter-spacing: 0.34em; color: #A9506A">02 · MEMBERS</p>
-<h2 style="margin: 0 0 14px; font-family: 'Gowun Batang', serif; font-weight: 400; font-size: 40px">함께 찬양하는 사람들</h2>
-<p style="margin: 0; font-family: 'Cormorant Garamond', serif; font-style: italic;font-size: 21px; color: #6B6573">Many voices, one song</p>
+<!-- 소개 -->
+<section id="about" class="sec">
+<div class="wrap">
+<div class="sec-head">
+<span class="tag" style="align-self:flex-start">ABOUT · 소개</span>
+<h2 class="h2">우리는 잘하는 사람들이 아니라<br><span style="color:var(--accent)">은혜 입은 사람들입니다.</span></h2>
+</div>
+<div class="about">
+<div class="about-text">
+<p>그레이스워십은 대전 유성구 은혜교회의 예배팀입니다. 매주 주일 예배를 섬기는 것이 우리의 본질이고, 그 은혜가 흘러가는 곳이라면 찬양집회와 창작곡, 지역 교회와 함께하는 연합예배까지 노래로 함께합니다.</p>
+<p>우리가 드리는 찬양이 완벽한 공연이 아니라, 한 사람 한 사람의 삶에서 우러나온 고백이 되기를 바랍니다. 그래서 연습보다 먼저 말씀 앞에 서고, 무대보다 먼저 서로를 돌봅니다.</p>
+</div>
+<div class="values">
+<div class="value">
+<span class="ico"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3A9AD9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M7 8h10"/></svg></span>
+<div><b>예배가 먼저<small>WORSHIP</small></b><span>모든 노래는 하나님을 향합니다.</span></div>
+</div>
+<div class="value">
+<span class="ico"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3A9AD9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span>
+<div><b>새 노래<small>CREATE</small></b><span>우리의 언어로 새 노래를 짓고 나눕니다.</span></div>
+</div>
+<div class="value">
+<span class="ico"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3A9AD9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 14.5c3 .2 6 2 6 5.5"/></svg></span>
+<div><b>함께<small>TOGETHER</small></b><span>교회와 다음세대, 지역과 함께 노래합니다.</span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 멤버 -->
+<section id="members" class="sec" style="background:#FFFFFF">
+<div class="wrap">
+<div class="sec-head center">
+<span class="tag" style="background:var(--bg)">MEMBERS · 멤버</span>
+<h2 class="h2">함께 찬양하는 사람들</h2>
+<p class="lead">여러 목소리, 하나의 노래. 각자의 자리에서 예배를 섬깁니다.</p>
 </div>
 
-<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 56px 28px">
+<div class="members">
 
-<article style="display: flex; flex-direction: column; gap: 18px; text-align: center">
-<div style="display: flex; align-items: center; justify-content: center; aspect-ratio: 4 / 5; border-radius: 20px; overflow: hidden; background: #F5F3F0; color: #9A94A0; font-size: 12px; letter-spacing: 0.2em"><img src="images/member-leader-01.jpg" alt="그레이스 워십 예배인도자 김지성" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 30%"></div>
-<div>
-<p style="margin: 0 0 6px; font-family: 'Cormorant Garamond', serif; font-style: italic;font-size: 19px; color: #A9506A">Worship Leader</p>
-<h3 style="margin: 0 0 6px; font-family: 'Gowun Batang', serif; font-size: 22px; font-weight: 400">김지성</h3>
-<p style="margin: 0 0 18px; font-size: 14px; color: #6B6573">예배인도자</p>
-<div style="display: flex; flex-direction: column; gap: 14px; padding-top: 16px; border-top: 1px solid #EEEAE5; text-align: left">
-<div>
-<p style="margin: 0 0 4px; font-size: 11px; letter-spacing: 0.2em; color: #A9506A">예배에 대한 마음가짐</p>
-<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 14px; line-height: 1.8; color: #3A3640">“오늘 드리는 예배가 마지막 예배라는 마음으로, 매 순간 온 마음과 정성을 다해 하나님께 합당한 예배를 드리는 예배자가 되길 소망합니다.”</p>
-</div>
-<div>
-<p style="margin: 0 0 4px; font-size: 11px; letter-spacing: 0.2em; color: #A9506A">신앙철학</p>
-<p style="margin: 0 0 6px; font-family: 'Gowun Batang', serif; font-size: 13px; line-height: 1.8; color: #3A3640">“이 백성은 내가 나를 위하여 지었나니 나를 찬송하게 하려 함이니라” <span style="color: #6B6573">(사 43:21)</span></p>
-<p style="margin: 0; font-size: 13px; line-height: 1.85; color: #55505C">이 말씀을 따라 삶의 모든 순간에 하나님을 찬양하고 영광을 돌리며, 나의 삶을 통해 하나님의 사랑과 복음을 전하는 삶을 살아가길 소망합니다.</p>
-</div>
-</div>
+<article class="member">
+<img src="images/member-leader-01.jpg" alt="그레이스워십 예배인도자 김지성">
+<div class="member-body">
+<div class="member-head"><span class="role">WORSHIP LEADER</span><h3>김지성<small>예배인도자</small></h3></div>
+<p class="q"><span class="k">예배에 대한 마음가짐</span>오늘 드리는 예배가 마지막 예배라는 마음으로, 매 순간 온 마음과 정성을 다해 하나님께 합당한 예배를 드리는 예배자가 되길 소망합니다.</p>
+<p class="faith"><span class="k">신앙철학</span><cite>“이 백성은 내가 나를 위하여 지었나니 나를 찬송하게 하려 함이니라” (사 43:21)</cite>이 말씀을 따라 삶의 모든 순간에 하나님을 찬양하고 영광을 돌리며, 나의 삶을 통해 하나님의 사랑과 복음을 전하는 삶을 살아가길 소망합니다.</p>
 </div>
 </article>
 
-<article style="display: flex; flex-direction: column; gap: 18px; text-align: center">
-<img src="images/member-singer-01.jpg" alt="그레이스 워십 싱어 최은총" style="display: block; width: 100%; aspect-ratio: 4 / 5; border-radius: 20px; object-fit: cover; object-position: center 20%; background: #F5F3F0">
-<div>
-<p style="margin: 0 0 6px; font-family: 'Cormorant Garamond', serif; font-style: italic;font-size: 19px; color: #A9506A">Singer</p>
-<h3 style="margin: 0 0 6px; font-family: 'Gowun Batang', serif; font-size: 22px; font-weight: 400">최은총</h3>
-<p style="margin: 0 0 18px; font-size: 14px; color: #6B6573">싱어</p>
-<div style="display: flex; flex-direction: column; gap: 14px; padding-top: 16px; border-top: 1px solid #EEEAE5; text-align: left">
-<div>
-<p style="margin: 0 0 4px; font-size: 11px; letter-spacing: 0.2em; color: #A9506A">예배에 대한 마음가짐</p>
-<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 14px; line-height: 1.8; color: #3A3640">“제가 할 수 있는 가장 최선의 찬양을 최고의 하나님께 올려드리고 싶습니다.”</p>
-</div>
-<div>
-<p style="margin: 0 0 4px; font-size: 11px; letter-spacing: 0.2em; color: #A9506A">신앙철학</p>
-<p style="margin: 0; font-size: 13px; line-height: 1.85; color: #55505C">하나님께 받은 사랑을 삶으로 흘려보내며, 나의 말과 행동을 통해 한 사람이라도 더 하나님의 사랑을 알아가고 경험할 수 있기를 소망합니다.</p>
-</div>
-</div>
+<article class="member">
+<img src="images/member-singer-01.jpg" alt="그레이스워십 싱어 최은총" style="object-position:center 20%">
+<div class="member-body">
+<div class="member-head"><span class="role">SINGER</span><h3>최은총<small>싱어</small></h3></div>
+<p class="q"><span class="k">예배에 대한 마음가짐</span>제가 할 수 있는 가장 최선의 찬양을 최고의 하나님께 올려드리고 싶습니다.</p>
+<p class="faith"><span class="k">신앙철학</span>하나님께 받은 사랑을 삶으로 흘려보내며, 나의 말과 행동을 통해 한 사람이라도 더 하나님의 사랑을 알아가고 경험할 수 있기를 소망합니다.</p>
 </div>
 </article>
 
-<article style="display: flex; flex-direction: column; gap: 18px; text-align: center">
-<div style="display: flex; align-items: center; justify-content: center; aspect-ratio: 4 / 5; border-radius: 20px; overflow: hidden; background: #F5F3F0; color: #9A94A0; font-size: 12px; letter-spacing: 0.2em"><img src="images/member-keys-02.jpg" alt="그레이스 워십 메인건반 박채은" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 30%"></div>
-<div>
-<p style="margin: 0 0 6px; font-family: 'Cormorant Garamond', serif; font-style: italic;font-size: 19px; color: #A9506A">Main Keys</p>
-<h3 style="margin: 0 0 6px; font-family: 'Gowun Batang', serif; font-size: 22px; font-weight: 400">박채은</h3>
-<p style="margin: 0 0 18px; font-size: 14px; color: #6B6573">메인건반</p>
-<div style="display: flex; flex-direction: column; gap: 14px; padding-top: 16px; border-top: 1px solid #EEEAE5; text-align: left">
-<div>
-<p style="margin: 0 0 4px; font-size: 11px; letter-spacing: 0.2em; color: #A9506A">예배철학</p>
-<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 14px; line-height: 1.8; color: #3A3640">“내가 마땅히 할 수 있는 일이어서가 아니라, 하나님이 감당하게 하시고 나를 사용하시려고 이 일을 맡기셨다는 사명감을 가지고 예배하려 노력합니다. 누가 나를 부르셨는지, 왜 부르셨는지를 항상 기억하며 살아가고 싶습니다.”</p>
-</div>
-<div>
-<p style="margin: 0 0 4px; font-size: 11px; letter-spacing: 0.2em; color: #A9506A">신앙철학</p>
-<p style="margin: 0; font-size: 13px; line-height: 1.85; color: #55505C">원하는 것을 구하고 내 삶을 맡기기 이전에, 오로지 하나님을 경외하며 이미 주신 것에 감사하는 마음으로 살아가기를 원합니다.</p>
-</div>
-</div>
+<article class="member">
+<img src="images/member-keys-02.jpg" alt="그레이스워십 메인건반 박채은">
+<div class="member-body">
+<div class="member-head"><span class="role">MAIN KEYS</span><h3>박채은<small>메인건반</small></h3></div>
+<p class="q"><span class="k">예배철학</span>내가 마땅히 할 수 있는 일이어서가 아니라, 하나님이 감당하게 하시고 나를 사용하시려고 이 일을 맡기셨다는 사명감을 가지고 예배하려 노력합니다. 누가 나를 부르셨는지, 왜 부르셨는지를 항상 기억하며 살아가고 싶습니다.</p>
+<p class="faith"><span class="k">신앙철학</span>원하는 것을 구하고 내 삶을 맡기기 이전에, 오로지 하나님을 경외하며 이미 주신 것에 감사하는 마음으로 살아가기를 원합니다.</p>
 </div>
 </article>
 
-<article style="display: flex; flex-direction: column; gap: 18px; text-align: center">
-<div style="display: flex; align-items: center; justify-content: center; aspect-ratio: 4 / 5; border-radius: 20px; overflow: hidden; background: #F5F3F0; color: #9A94A0; font-size: 12px; letter-spacing: 0.2em"><img src="images/member-guitar-01.jpg" alt="그레이스 워십 어쿠스틱 기타 박채성" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 30%"></div>
-<div>
-<p style="margin: 0 0 6px; font-family: 'Cormorant Garamond', serif; font-style: italic;font-size: 19px; color: #A9506A">Acoustic Guitar</p>
-<h3 style="margin: 0 0 6px; font-family: 'Gowun Batang', serif; font-size: 22px; font-weight: 400">박채성</h3>
-<p style="margin: 0 0 18px; font-size: 14px; color: #6B6573">어쿠스틱 기타</p>
-<div style="display: flex; flex-direction: column; gap: 14px; padding-top: 16px; border-top: 1px solid #EEEAE5; text-align: left">
-<div>
-<p style="margin: 0 0 4px; font-size: 11px; letter-spacing: 0.2em; color: #A9506A">예배철학</p>
-<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 14px; line-height: 1.8; color: #3A3640">“나를 드러내기 위해서가 아니라 오직 우리 주 하나님만을 높이며 찬양하길 원합니다.”</p>
-</div>
-<div>
-<p style="margin: 0 0 4px; font-size: 11px; letter-spacing: 0.2em; color: #A9506A">신앙철학</p>
-<p style="margin: 0; font-size: 13px; line-height: 1.85; color: #55505C">일상 속에서 하나님이 주신 것에 감사하고, 하나님의 자녀 된 자로서 타인을 섬기는 것에 대해 늘 생각하고 실천하며 살고자 합니다.</p>
-</div>
-</div>
+<article class="member">
+<img src="images/member-guitar-01.jpg" alt="그레이스워십 어쿠스틱 기타 박채성">
+<div class="member-body">
+<div class="member-head"><span class="role">ACOUSTIC GUITAR</span><h3>박채성<small>어쿠스틱 기타</small></h3></div>
+<p class="q"><span class="k">예배철학</span>나를 드러내기 위해서가 아니라 오직 우리 주 하나님만을 높이며 찬양하길 원합니다.</p>
+<p class="faith"><span class="k">신앙철학</span>일상 속에서 하나님이 주신 것에 감사하고, 하나님의 자녀 된 자로서 타인을 섬기는 것에 대해 늘 생각하고 실천하며 살고자 합니다.</p>
 </div>
 </article>
 
-<article style="display: flex; flex-direction: column; gap: 18px; text-align: center">
-<div style="display: flex; align-items: center; justify-content: center; aspect-ratio: 4 / 5; border-radius: 20px; overflow: hidden; background: #F5F3F0; color: #9A94A0; font-size: 12px; letter-spacing: 0.2em"><img src="images/member-drums-01.jpg" alt="그레이스 워십 드럼 신수아" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 30%"></div>
-<div>
-<p style="margin: 0 0 6px; font-family: 'Cormorant Garamond', serif; font-style: italic;font-size: 19px; color: #A9506A">Drums</p>
-<h3 style="margin: 0 0 6px; font-family: 'Gowun Batang', serif; font-size: 22px; font-weight: 400">신수아</h3>
-<p style="margin: 0 0 18px; font-size: 14px; color: #6B6573">드럼</p>
-<div style="display: flex; flex-direction: column; gap: 14px; padding-top: 16px; border-top: 1px solid #EEEAE5; text-align: left">
-<div>
-<p style="margin: 0 0 4px; font-size: 11px; letter-spacing: 0.2em; color: #A9506A">예배에 대한 마음가짐</p>
-<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 14px; line-height: 1.8; color: #3A3640">“내가 드러나는 것이 아니라, 우리 찬양팀이 돋보이는 것이 아니라, 오직 주님 한 분만 영광 받는 시간이 되길 소망합니다.”</p>
-</div>
-<div>
-<p style="margin: 0 0 4px; font-size: 11px; letter-spacing: 0.2em; color: #A9506A">신앙철학</p>
-<p style="margin: 0; font-size: 13px; line-height: 1.85; color: #55505C">나 같은 죄인 살리신 주님의 은혜에 감사하며 살아가자.</p>
-</div>
-</div>
+<article class="member">
+<img src="images/member-drums-01.jpg" alt="그레이스워십 드럼 신수아">
+<div class="member-body">
+<div class="member-head"><span class="role">DRUMS</span><h3>신수아<small>드럼</small></h3></div>
+<p class="q"><span class="k">예배에 대한 마음가짐</span>내가 드러나는 것이 아니라, 우리 찬양팀이 돋보이는 것이 아니라, 오직 주님 한 분만 영광 받는 시간이 되길 소망합니다.</p>
+<p class="faith"><span class="k">신앙철학</span>나 같은 죄인 살리신 주님의 은혜에 감사하며 살아가자.</p>
 </div>
 </article>
 
-<article style="display: flex; flex-direction: column; gap: 18px; text-align: center">
-<div style="display: flex; align-items: center; justify-content: center; aspect-ratio: 4 / 5; border-radius: 20px; overflow: hidden; background: #F5F3F0"><img src="images/member-bass-01.jpg" alt="그레이스 워십 베이스기타 임건후" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 30%"></div>
-<div>
-<p style="margin: 0 0 6px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 19px; color: #A9506A">Bass Guitar</p>
-<h3 style="margin: 0 0 6px; font-family: 'Gowun Batang', serif; font-size: 22px; font-weight: 400">임건후</h3>
-<p style="margin: 0 0 18px; font-size: 14px; color: #6B6573">베이스기타</p>
-<div style="display: flex; flex-direction: column; gap: 14px; padding-top: 16px; border-top: 1px solid #EEEAE5; text-align: left">
-<div>
-<p style="margin: 0 0 4px; font-size: 11px; letter-spacing: 0.2em; color: #A9506A">예배에 대한 마음가짐</p>
-<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 14px; line-height: 1.8; color: #3A3640">“저로 인해서 성도님들이 더욱 큰 은혜를 느낄 수 있도록 찬양드리고 싶습니다.”</p>
-</div>
-<div>
-<p style="margin: 0 0 4px; font-size: 11px; letter-spacing: 0.2em; color: #A9506A">신앙철학</p>
-<p style="margin: 0; font-size: 13px; line-height: 1.85; color: #55505C">하나님과 교회 공동체 안에서 서로 교류하며 더욱 성장하여, 하나님의 뜻을 알고 그 뜻에 순종하고 행할 수 있는 사람이 될 수 있길 소망합니다.</p>
-</div>
-</div>
+<article class="member">
+<img src="images/member-bass-01.jpg" alt="그레이스워십 베이스기타 임건후">
+<div class="member-body">
+<div class="member-head"><span class="role">BASS GUITAR</span><h3>임건후<small>베이스기타</small></h3></div>
+<p class="q"><span class="k">예배에 대한 마음가짐</span>저로 인해서 성도님들이 더욱 큰 은혜를 느낄 수 있도록 찬양드리고 싶습니다.</p>
+<p class="faith"><span class="k">신앙철학</span>하나님과 교회 공동체 안에서 서로 교류하며 더욱 성장하여, 하나님의 뜻을 알고 그 뜻에 순종하고 행할 수 있는 사람이 될 수 있길 소망합니다.</p>
 </div>
 </article>
 
-<article style="display: flex; flex-direction: column; gap: 18px; text-align: center">
-<div style="display: flex; align-items: center; justify-content: center; aspect-ratio: 4 / 5; border-radius: 20px; overflow: hidden; background: #F5F3F0"><img src="images/member-ppt-01.jpg" alt="그레이스 워십 파워포인트 담당 박채경" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 30%"></div>
-<div>
-<p style="margin: 0 0 6px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 19px; color: #A9506A">Media &amp; Slides</p>
-<h3 style="margin: 0 0 6px; font-family: 'Gowun Batang', serif; font-size: 22px; font-weight: 400">박채경</h3>
-<p style="margin: 0 0 18px; font-size: 14px; color: #6B6573">파워포인트 담당</p>
-<div style="display: flex; flex-direction: column; gap: 14px; padding-top: 16px; border-top: 1px solid #EEEAE5; text-align: left">
-<div>
-<p style="margin: 0 0 4px; font-size: 11px; letter-spacing: 0.2em; color: #A9506A">예배에 대한 마음가짐</p>
-<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 14px; line-height: 1.8; color: #3A3640">“화면에 띄우는 가사 한 줄도 예배의 일부라는 마음으로, 성도님들이 막힘없이 찬양에 집중할 수 있도록 보이지 않는 자리에서 섬기겠습니다.”</p>
-</div>
-<div>
-<p style="margin: 0 0 4px; font-size: 11px; letter-spacing: 0.2em; color: #A9506A">신앙철학</p>
-<p style="margin: 0; font-size: 13px; line-height: 1.85; color: #55505C">드러나지 않는 자리에서도 하나님은 다 보고 계신다는 믿음으로, 작은 일에 충성하며 맡겨진 일을 기쁨으로 감당하는 삶을 살기 원합니다.</p>
-</div>
-</div>
+<article class="member">
+<img src="images/member-ppt-01.jpg" alt="그레이스워십 파워포인트 담당 박채경">
+<div class="member-body">
+<div class="member-head"><span class="role">MEDIA &amp; SLIDES</span><h3>박채경<small>파워포인트 담당</small></h3></div>
+<p class="q"><span class="k">예배에 대한 마음가짐</span>화면에 띄우는 가사 한 줄도 예배의 일부라는 마음으로, 성도님들이 막힘없이 찬양에 집중할 수 있도록 보이지 않는 자리에서 섬기겠습니다.</p>
+<p class="faith"><span class="k">신앙철학</span>드러나지 않는 자리에서도 하나님은 다 보고 계신다는 믿음으로, 작은 일에 충성하며 맡겨진 일을 기쁨으로 감당하는 삶을 살기 원합니다.</p>
 </div>
 </article>
 
-<article style="display: flex; flex-direction: column; gap: 18px; text-align: center">
-<div style="display: flex; align-items: center; justify-content: center; aspect-ratio: 4 / 5; border-radius: 20px; overflow: hidden; background: #F5F3F0"><img src="images/member-sound-01.jpg" alt="그레이스 워십 음향 박동준" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 30%"></div>
-<div>
-<p style="margin: 0 0 6px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 19px; color: #A9506A">Sound</p>
-<h3 style="margin: 0 0 6px; font-family: 'Gowun Batang', serif; font-size: 22px; font-weight: 400">박동준</h3>
-<p style="margin: 0 0 18px; font-size: 14px; color: #6B6573">음향 · 은혜교회 담임목사</p>
-<div style="display: flex; flex-direction: column; gap: 14px; padding-top: 16px; border-top: 1px solid #EEEAE5; text-align: left">
-<div>
-<p style="margin: 0 0 4px; font-size: 11px; letter-spacing: 0.2em; color: #A9506A">예배에 대한 마음가짐</p>
-<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 14px; line-height: 1.8; color: #3A3640">“보이지 않는 소리의 자리에서, 찬양 한 소절과 말씀 한 마디가 성도님들의 마음에 온전히 닿도록 섬기겠습니다.”</p>
-</div>
-<div>
-<p style="margin: 0 0 4px; font-size: 11px; letter-spacing: 0.2em; color: #A9506A">신앙철학</p>
-<p style="margin: 0; font-size: 13px; line-height: 1.85; color: #55505C">은혜로 부르셨으니 은혜로 섬깁니다. 개척의 자리에서부터 지금까지 함께하신 하나님의 은혜를 기억하며, 한 영혼을 끝까지 사랑하는 사람으로 살기 원합니다.</p>
-</div>
-</div>
+<article class="member">
+<img src="images/member-sound-01.jpg" alt="그레이스워십 음향 박동준">
+<div class="member-body">
+<div class="member-head"><span class="role">SOUND</span><h3>박동준<small>음향 · 담임목사</small></h3></div>
+<p class="q"><span class="k">예배에 대한 마음가짐</span>보이지 않는 소리의 자리에서, 찬양 한 소절과 말씀 한 마디가 성도님들의 마음에 온전히 닿도록 섬기겠습니다.</p>
+<p class="faith"><span class="k">신앙철학</span>은혜로 부르셨으니 은혜로 섬깁니다. 개척의 자리에서부터 지금까지 함께하신 하나님의 은혜를 기억하며, 한 영혼을 끝까지 사랑하는 사람으로 살기 원합니다.</p>
 </div>
 </article>
 
@@ -298,147 +351,122 @@ WATCH
 </div>
 </section>
 
-<!-- MINISTRY -->
-<section id="ministry" class="gw-sec" style="padding: 140px 48px; border-top: 1px solid #EEEAE5">
-<div style="max-width: 1120px; margin: 0 auto">
-<p style="margin: 0 0 14px; font-size: 11px; letter-spacing: 0.34em; color: #A9506A">03 · MINISTRY</p>
-<h2 style="margin: 0 0 60px; font-family: 'Gowun Batang', serif; font-weight: 400; font-size: 40px">은혜가 흘러가는 자리</h2>
-
-<div style="display: flex; flex-direction: column; border-top: 1px solid #1F1D24">
-
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 20px 48px; padding: 36px 0; border-bottom: 1px solid #EEEAE5">
-<span style="flex: 0 0 80px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;font-size: 44px; line-height: 1; color: #A9506A">01</span>
-<h3 style="flex: 1 1 240px; margin: 0; font-family: 'Gowun Batang', serif; font-size: 24px; font-weight: 400">주일 예배 찬양</h3>
-<p style="flex: 2 1 380px; margin: 0; font-size: 15px; line-height: 1.95; color: #55505C">매주 주일 예배의 찬양을 섬깁니다. 그날의 말씀과 이어지는 곡을 고르고, 성도들이 함께 부를 수 있는 예배를 준비합니다.</p>
+<!-- 사역 -->
+<section id="ministry" class="sec">
+<div class="wrap">
+<div class="sec-head">
+<span class="tag" style="align-self:flex-start">MINISTRY · 사역</span>
+<h2 class="h2">은혜가 흘러가는 자리</h2>
 </div>
-
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 20px 48px; padding: 36px 0; border-bottom: 1px solid #EEEAE5">
-<span style="flex: 0 0 80px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;font-size: 44px; line-height: 1; color: #A9506A">02</span>
-<h3 style="flex: 1 1 240px; margin: 0; font-family: 'Gowun Batang', serif; font-size: 24px; font-weight: 400">워십 나잇 · 찬양집회</h3>
-<p style="flex: 2 1 380px; margin: 0; font-size: 15px; line-height: 1.95; color: #55505C">정기적으로 찬양과 기도로만 채우는 밤을 엽니다. 교회 문을 열어 이웃과 다른 교회 성도들도 함께 초대합니다. [일정]</p>
-</div>
-
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 20px 48px; padding: 36px 0; border-bottom: 1px solid #EEEAE5">
-<span style="flex: 0 0 80px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;font-size: 44px; line-height: 1; color: #A9506A">03</span>
-<h3 style="flex: 1 1 240px; margin: 0; font-family: 'Gowun Batang', serif; font-size: 24px; font-weight: 400">창작곡 · 음원</h3>
-<p style="flex: 2 1 380px; margin: 0; font-size: 15px; line-height: 1.95; color: #55505C">말씀을 묵상하며 우리의 언어로 새 노래를 짓습니다. 만든 곡은 음원과 악보로 나누어 다른 교회의 예배에도 쓰이도록 합니다.</p>
-</div>
-
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 20px 48px; padding: 36px 0; border-bottom: 1px solid #EEEAE5">
-<span style="flex: 0 0 80px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;font-size: 44px; line-height: 1; color: #A9506A">04</span>
-<h3 style="flex: 1 1 240px; margin: 0; font-family: 'Gowun Batang', serif; font-size: 24px; font-weight: 400">예배팀 훈련</h3>
-<p style="flex: 2 1 380px; margin: 0; font-size: 15px; line-height: 1.95; color: #55505C">예배의 의미부터 악기와 보컬, 팀워크까지. 청년과 청소년이 다음 세대의 예배자로 자라도록 함께 배우고 연습합니다.</p>
-</div>
-
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 20px 48px; padding: 36px 0; border-bottom: 1px solid #EEEAE5">
-<span style="flex: 0 0 80px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;font-size: 44px; line-height: 1; color: #A9506A">05</span>
-<h3 style="flex: 1 1 240px; margin: 0; font-family: 'Gowun Batang', serif; font-size: 24px; font-weight: 400">연합예배 · 초청 사역</h3>
-<p style="flex: 2 1 380px; margin: 0; font-size: 15px; line-height: 1.95; color: #55505C">지역 교회와 함께 드리는 연합예배, 수련회와 행사의 찬양으로 섬깁니다. 초청은 아래 연락처로 문의해 주세요.</p>
-</div>
-
+<div class="ministry">
+<div class="mcard"><span class="num">01</span><h3>주일 예배 찬양</h3><p>매주 주일 예배의 찬양을 섬깁니다. 그날의 말씀과 이어지는 곡을 고르고, 성도들이 함께 부를 수 있는 예배를 준비합니다.</p></div>
+<div class="mcard"><span class="num">02</span><h3>워십 나잇 · 찬양집회</h3><p>찬양과 기도로만 채우는 밤을 엽니다. 교회 문을 열어 이웃과 다른 교회 성도들도 함께 초대합니다.</p></div>
+<div class="mcard"><span class="num">03</span><h3>창작곡 · 음원</h3><p>말씀을 묵상하며 우리의 언어로 새 노래를 짓습니다. 만든 곡은 음원과 악보로 나누어 다른 교회의 예배에도 쓰이도록 합니다.</p></div>
+<div class="mcard"><span class="num">04</span><h3>예배팀 훈련</h3><p>예배의 의미부터 악기와 보컬, 팀워크까지. 청년과 청소년이 다음 세대의 예배자로 자라도록 함께 배우고 연습합니다.</p></div>
+<div class="mcard"><span class="num">05</span><h3>연합예배 · 초청 사역</h3><p>지역 교회와 함께 드리는 연합예배, 수련회와 행사의 찬양으로 섬깁니다.</p></div>
 </div>
 </div>
 </section>
 
-<!-- VIDEOS -->
-<section id="videos" class="gw-sec" style="padding: 140px 48px; border-top: 1px solid #EEEAE5">
-<div style="max-width: 1120px; margin: 0 auto">
-<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 52px">
-<div>
-<p style="margin: 0 0 14px; font-size: 11px; letter-spacing: 0.34em; color: #A9506A">04 · VIDEOS</p>
-<h2 style="margin: 0; font-family: 'Gowun Batang', serif; font-weight: 400; font-size: 40px">찬양 영상</h2>
+<!-- 영상 -->
+<section id="videos" class="sec" style="background:#FFFFFF">
+<div class="wrap">
+<div class="sec-head">
+<span class="tag" style="align-self:flex-start;background:var(--bg)">VIDEOS · 영상</span>
+<h2 class="h2">찬양 영상</h2>
 </div>
-<a href="https://www.youtube.com/@[채널아이디]" style="display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 26px; border-radius: 999px; border: 1px solid #1F1D24; color: #1F1D24; text-decoration: none; font-size: 14px; letter-spacing: 0.04em">
-<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="4"></rect><polygon points="10 9 15 12 10 15 10 9"></polygon></svg>
-유튜브 채널 구독
+<div class="video-card" style="background:var(--bg);box-shadow:none;border:1px solid var(--line)">
+<a class="video-thumb" href="https://www.youtube.com/@sjgrace" target="_blank" rel="noopener" aria-label="은혜교회 유튜브에서 찬양 영상 보기">
+<svg aria-hidden="true" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%">
+<g fill="none" stroke="#3A9AD9" stroke-linecap="round" opacity=".25">
+<path d="M0 250 C 100 210, 180 290, 320 250 S 540 210, 640 250" stroke-width="2"/>
+<path d="M0 275 C 120 240, 200 310, 340 275 S 560 240, 640 275" stroke-width="1.5"/>
+</g>
+</svg>
+<span class="play"><svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="#3A9AD9"><path d="M8 5.5v13l11-6.5z"/></svg></span>
 </a>
+<div class="video-info">
+<span style="font-size:11px;font-weight:800;letter-spacing:.16em;color:var(--accent)">SUNDAY WORSHIP · LIVE</span>
+<h3>주일 예배 찬양은 은혜교회 유튜브에서</h3>
+<p>그레이스워십이 섬기는 주일 예배 찬양을 은혜교회 유튜브 채널에서 다시 보실 수 있어요. 주일 오전 11시에는 실시간 예배로 함께하세요.</p>
+<div class="btns">
+<a href="https://www.youtube.com/@sjgrace" target="_blank" rel="noopener" class="btn btn-primary">유튜브 채널 <span aria-hidden="true">›</span></a>
+<a href="https://www.youtube.com/@sjgrace/live" target="_blank" rel="noopener" class="btn btn-ghost">실시간 예배</a>
 </div>
-
-<a href="https://www.youtube.com/watch?v=[영상ID]" style="display: block; color: #1F1D24; text-decoration: none; margin-bottom: 48px">
-<div style="position: relative; display: flex; align-items: center; justify-content: center; aspect-ratio: 16 / 9; border-radius: 20px; overflow: hidden; background: #F5F3F0">
-<span style="display: flex; align-items: center; justify-content: center; width: 92px; height: 92px; border-radius: 50%; background: #FFFFFF; box-shadow: 0 8px 30px rgba(31,29,36,0.08)">
-<svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="#1F1D24"><polygon points="7 4 20 12 7 20 7 4"></polygon></svg>
-</span>
-</div>
-<p style="margin: 22px 0 6px; font-size: 11px; letter-spacing: 0.3em; color: #6B6573">FEATURED · LIVE WORSHIP</p>
-<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 26px">[대표 영상 제목]</p>
-</a>
-
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px">
-
-<a href="https://www.youtube.com/watch?v=[영상ID]" style="display: flex; flex-direction: column; gap: 12px; color: #1F1D24; text-decoration: none">
-<div style="position: relative; aspect-ratio: 16 / 9; border-radius: 20px; overflow: hidden; background: #F5F3F0">
-<span style="position: absolute; right: 12px; bottom: 12px; font-size: 12px; background: #FFFFFF; padding: 3px 8px">[0:00]</span>
-</div>
-<p style="margin: 6px 0 0; font-size: 11px; letter-spacing: 0.26em; color: #6B6573">SUNDAY WORSHIP</p>
-<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 19px">[영상 제목]</p>
-</a>
-
-<a href="https://www.youtube.com/watch?v=[영상ID]" style="display: flex; flex-direction: column; gap: 12px; color: #1F1D24; text-decoration: none">
-<div style="position: relative; aspect-ratio: 16 / 9; border-radius: 20px; overflow: hidden; background: #F5F3F0">
-<span style="position: absolute; right: 12px; bottom: 12px; font-size: 12px; background: #FFFFFF; padding: 3px 8px">[0:00]</span>
-</div>
-<p style="margin: 6px 0 0; font-size: 11px; letter-spacing: 0.26em; color: #6B6573">ORIGINAL SONG</p>
-<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 19px">[영상 제목]</p>
-</a>
-
-<a href="https://www.youtube.com/watch?v=[영상ID]" style="display: flex; flex-direction: column; gap: 12px; color: #1F1D24; text-decoration: none">
-<div style="position: relative; aspect-ratio: 16 / 9; border-radius: 20px; overflow: hidden; background: #F5F3F0">
-<span style="position: absolute; right: 12px; bottom: 12px; font-size: 12px; background: #FFFFFF; padding: 3px 8px">[0:00]</span>
-</div>
-<p style="margin: 6px 0 0; font-size: 11px; letter-spacing: 0.26em; color: #6B6573">WORSHIP NIGHT</p>
-<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 19px">[영상 제목]</p>
-</a>
-
-</div>
-</div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="gw-sec" style="padding: 140px 48px; border-top: 1px solid #EEEAE5">
-<div style="max-width: 1120px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 72px">
-<div style="flex: 3 1 460px">
-<p style="margin: 0 0 14px; font-size: 11px; letter-spacing: 0.34em; color: #A9506A">05 · JOIN US</p>
-<h2 style="margin: 0 0 22px; font-family: 'Gowun Batang', serif; font-weight: 400; font-size: 38px; line-height: 1.5">당신의 목소리가<br>이 노래에 필요합니다</h2>
-<p style="margin: 0 0 34px; max-width: 520px; font-size: 15px; line-height: 1.95; color: #55505C">노래하는 사람, 연주하는 사람, 영상과 음향으로 섬기는 사람 모두 환영합니다. 실력보다 예배하는 마음이면 충분합니다.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 12px">
-<a href="mailto:[이메일]" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 30px; border-radius: 999px; background: #1F1D24; color: #FFFFFF; text-decoration: none; font-size: 14px; letter-spacing: 0.06em">팀 지원하기</a>
-<a href="mailto:[이메일]" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 30px; border-radius: 999px; border: 1px solid #1F1D24; color: #1F1D24; text-decoration: none; font-size: 14px; letter-spacing: 0.06em">사역 초청 문의</a>
-</div>
-</div>
-<div style="flex: 2 1 300px; display: flex; flex-direction: column; gap: 28px; padding-left: 32px; border-left: 1px solid #EEEAE5">
-<div>
-<p style="margin: 0 0 6px; font-size: 11px; letter-spacing: 0.3em; color: #6B6573">PRACTICE</p>
-<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 19px">[연습 요일 · 시간]</p>
-</div>
-<div>
-<p style="margin: 0 0 6px; font-size: 11px; letter-spacing: 0.3em; color: #6B6573">PLACE</p>
-<p style="margin: 0; font-family: 'Gowun Batang', serif; font-size: 19px">은혜교회</p>
-<p style="margin: 4px 0 0; font-size: 14px; color: #55505C">대전 유성구 안금로 15번길 49-26</p>
-<a href="https://map.naver.com/p/search/대전 유성구 안금로15번길 49-26" style="display: inline-flex; align-items: center; gap: 6px; min-height: 44px; margin-top: 4px; font-size: 13px; letter-spacing: 0.06em; color: #1F1D24"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>지도에서 보기</a>
-</div>
-<div style="display: flex; flex-wrap: wrap; gap: 10px">
-<a href="https://www.youtube.com/@[채널아이디]" aria-label="유튜브" style="display: flex; align-items: center; justify-content: center; width: 46px; height: 46px; border-radius: 50%; border: 1px solid #DCD7D1; color: #1F1D24">
-<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="4"></rect><polygon points="10 9 15 12 10 15 10 9"></polygon></svg>
-</a>
-<a href="https://www.instagram.com/[계정]" aria-label="인스타그램" style="display: flex; align-items: center; justify-content: center; width: 46px; height: 46px; border-radius: 50%; border: 1px solid #DCD7D1; color: #1F1D24">
-<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.8"></circle></svg>
-</a>
-<a href="mailto:[이메일]" aria-label="이메일" style="display: flex; align-items: center; justify-content: center; width: 46px; height: 46px; border-radius: 50%; border: 1px solid #DCD7D1; color: #1F1D24">
-<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"></rect><polyline points="3 7 12 13 21 7"></polyline></svg>
-</a>
 </div>
 </div>
 </div>
 </section>
 
-<!-- FOOTER -->
-<footer style="display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 56px 48px; border-top: 1px solid #EEEAE5; color: #6B6573; font-size: 13px; text-align: center">
-<p style="margin: 0; font-family: 'Great Vibes', cursive; font-size: 40px; line-height: 1; color: #1F1D24">Grace Worship</p>
-<p style="margin: 0">은혜교회 찬양사역팀 · 대전 유성구 · © 2026</p>
+<!-- 함께하기 -->
+<section id="join" class="sec">
+<div class="wrap">
+<div class="join">
+<div class="join-main">
+<span class="tag" style="align-self:flex-start">JOIN US · 함께하기</span>
+<h2>당신의 목소리가<br><span style="color:var(--accent)">이 노래에 필요합니다</span></h2>
+<p>노래하는 사람, 연주하는 사람, 영상과 음향으로 섬기는 사람 모두 환영합니다. 실력보다 예배하는 마음이면 충분해요.</p>
+<div class="btns">
+<a href="https://sejonggrace.com/#serve" class="btn btn-primary">섬김 신청하기 <span aria-hidden="true">›</span></a>
+<a href="https://sejonggrace.com/#visit" class="btn btn-ghost">처음 방문하기</a>
+</div>
+</div>
+<div class="join-side">
+<span class="k">SERVICE TIMES</span>
+<div class="row"><span>주일예배</span><b>오전 11시</b></div>
+<div class="row"><span>수요말씀코이노니아</span><b>오후 7시</b></div>
+<p class="addr"><b style="color:var(--ink)">은혜교회</b><br>대전 유성구 안금로15번길 49-26</p>
+<a class="map" href="https://map.naver.com/p/search/대전 유성구 안금로15번길 49-26" target="_blank" rel="noopener"><svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>지도에서 보기</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 푸터 -->
+<footer>
+<div class="ft">
+<div class="ft-grid">
+<div class="ft-col ft-brand">
+<span class="script">Grace Worship</span>
+<span>은혜교회 예배팀 그레이스워십</span>
+<span style="color:var(--footer-muted)">기독교한국침례회 은혜교회</span>
+</div>
+<div class="ft-col">
+<span class="t">Grace Worship</span>
+<a href="#about">소개</a>
+<a href="#members">멤버</a>
+<a href="#ministry">사역</a>
+<a href="#join">함께하기</a>
+</div>
+<div class="ft-col">
+<span class="t">Church · 은혜교회</span>
+<a href="https://sejonggrace.com/">은혜교회 홈</a>
+<a href="https://sejonggrace.com/#about">교회 소개</a>
+<a href="https://sejonggrace.com/#serve">섬김 · 한 사람 한 자리</a>
+<a href="https://www.youtube.com/@sjgrace" target="_blank" rel="noopener">유튜브</a>
+</div>
+<div class="ft-col">
+<span class="t">Visit · 오시는 길</span>
+<span>대전 유성구 안금로15번길 49-26</span>
+<span>주일예배 오전 11시</span>
+</div>
+</div>
+<div class="ft-copy">© Grace Worship · 은혜교회. All rights reserved.</div>
+</div>
 </footer>
 
-</div>
-
+<script>
+(function(){
+  var header = document.getElementById('site-header');
+  var burger = document.getElementById('burger');
+  function setMenu(open){
+    header.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+  }
+  burger.addEventListener('click', function(){ setMenu(!header.classList.contains('open')); });
+  document.querySelectorAll('[data-close-menu]').forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
+})();
+</script>
 </body>
 </html>
