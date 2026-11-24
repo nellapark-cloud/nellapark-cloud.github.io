@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>박동준 — 노래와 작품</title>
+<meta name="description" content="싱어송라이터 박동준의 노래와 작품">
+<meta property="og:title" content="박동준 — 노래와 작품">
+<meta property="og:description" content="하루 끝에 머무는 한 곡의 위로">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#FBFAFF;color:#16152B;font-family:Pretendard,'Noto Sans KR',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto}
+.eyebrow{margin:0 0 14px;font-size:14px;font-weight:700;letter-spacing:.18em;color:#4B3FE0}
+h2.title{margin:0;font-size:clamp(34px,5vw,48px);font-weight:900;letter-spacing:-.03em;line-height:1.25}
+.serif{font-family:'Noto Serif KR',serif}
+.muted{color:#5A5876}
+
+/* nav */
+header{position:relative;z-index:2;padding:28px 32px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+.brand{display:flex;align-items:baseline;gap:10px}
+.brand b{font-size:20px;font-weight:900;letter-spacing:-.02em}
+.brand span{font-size:13px;font-weight:500;color:#6A6886;letter-spacing:.12em}
+nav{display:flex;flex-wrap:wrap;gap:28px}
+nav a{font-size:15px;font-weight:500;color:#3A3956}
+nav a:hover{color:#4B3FE0}
+
+/* hero */
+.hero{position:relative;padding:72px 32px 120px}
+.hero-bg{position:absolute;inset:-160px 0 0 0;z-index:0;background:
+ radial-gradient(40% 50% at 18% 30%,#E6E0FF 0%,rgba(230,224,255,0) 70%),
+ radial-gradient(36% 46% at 82% 20%,#DCEFFF 0%,rgba(220,239,255,0) 70%),
+ radial-gradient(40% 45% at 62% 80%,#FFE8E1 0%,rgba(255,232,225,0) 70%)}
+.hero .wrap{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:56px;align-items:center}
+.hero-text{flex:999 1 520px;min-width:0}
+.hero h1{margin:0;font-size:clamp(42px,7vw,72px);line-height:1.12;font-weight:900;letter-spacing:-.035em}
+.hero p.lead{margin:28px 0 0;max-width:560px;font-size:19px;line-height:1.75;color:#4A4866}
+.btns{margin-top:40px;display:flex;flex-wrap:wrap;gap:14px}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 28px;border-radius:999px;font-size:16px;font-weight:700}
+.btn.dark{background:#16152B;color:#fff}
+.btn.light{background:rgba(255,255,255,.7);border:1px solid #D9D5F2}
+.btn:hover{transform:translateY(-1px)}
+
+/* player */
+.player-col{flex:1 1 340px;min-width:0;max-width:440px}
+.player{background:#16152B;color:#fff;border-radius:28px;padding:32px;box-shadow:0 30px 70px rgba(30,20,90,.22)}
+.player-top{display:flex;justify-content:space-between;align-items:center;min-height:22px}
+.player-top small{font-size:12px;font-weight:700;letter-spacing:.16em;color:#B9B2FF}
+.cover{margin-top:26px;aspect-ratio:1/1;border-radius:20px;background:
+ radial-gradient(60% 60% at 30% 30%,#CFC8FF 0%,rgba(207,200,255,0) 70%),
+ radial-gradient(60% 60% at 75% 70%,#FFD9CC 0%,rgba(255,217,204,0) 70%),#EDEAFF;display:flex;align-items:flex-end;padding:24px}
+.cover span{font-size:34px;font-weight:700;color:#16152B;line-height:1.25}
+.p-title{margin:22px 0 4px;font-size:22px;font-weight:700}
+.p-sub{margin:0;font-size:14px;color:#B5B3CC}
+.bar{margin-top:22px;height:4px;border-radius:2px;background:#33314F;overflow:hidden}
+.bar div{height:4px;width:0;background:#B9B2FF;transition:width .3s linear}
+.controls{margin-top:22px;display:flex;justify-content:center;align-items:center;gap:28px}
+.controls button{border:0;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;background:transparent;width:48px;height:48px}
+.controls button.play{width:64px;height:64px;background:#fff}
+.controls button:focus-visible{outline:2px solid #B9B2FF;outline-offset:3px}
+@keyframes eq{0%,100%{height:6px}50%{height:22px}}
+.eq{display:none;align-items:flex-end;height:22px}
+.eq.on{display:inline-flex}
+.eq i{display:inline-block;width:4px;margin-right:3px;border-radius:2px;background:#B9B2FF;animation:eq 1s ease-in-out infinite}
+.eq i:nth-child(2){animation-delay:.2s}.eq i:nth-child(3){animation-delay:.4s}.eq i:nth-child(4){animation-delay:.1s}
+
+/* songs */
+section{padding:112px 32px}
+.white{background:#fff}
+.songs-head{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-end}
+.songs-head p{margin:0;max-width:420px;font-size:16px;line-height:1.7}
+.songs-body{margin-top:56px;display:flex;flex-wrap:wrap;gap:40px}
+.list{flex:999 1 520px;min-width:0;display:flex;flex-direction:column;gap:6px}
+.row{width:100%;min-height:84px;padding:18px 22px;border:0;border-radius:18px;background:transparent;text-align:left;cursor:pointer;display:flex;align-items:center;gap:22px;font-family:inherit;color:#16152B;transition:background .2s}
+.row:hover{background:#F1EFFF}
+.row.on{background:#EDEAFF}
+.row .no{width:32px;font-size:15px;font-weight:700;color:#9A98B4}
+.row.on .no{color:#4B3FE0}
+.row .t{flex:1 1 auto;min-width:0}
+.row .t b{display:block;font-size:20px;font-weight:700}
+.row .t span{display:block;margin-top:4px;font-size:14px;color:#6A6886}
+.badge{padding:6px 12px;border-radius:999px;background:#F1EFFA;color:#5A5876;font-size:13px;font-weight:700;white-space:nowrap}
+.badge.done{background:#16152B;color:#fff}
+.story{flex:1 1 340px;min-width:0;max-width:460px;padding:36px;border-radius:24px;background:#F5F3FF}
+.story h3{margin:16px 0 0;font-size:30px;font-weight:700;line-height:1.35}
+.story p.body{margin:18px 0 0;font-size:16px;line-height:1.85;color:#3A3956;white-space:pre-line}
+.story .meta{margin-top:28px;padding-top:22px;border-top:1px solid #DDD8F5;display:flex;flex-wrap:wrap;gap:10px 24px;font-size:14px;color:#5A5876}
+.story .meta strong{color:#16152B}
+
+/* works */
+.grid{margin-top:56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.card{padding:32px;border-radius:24px;background:#fff;border:1px solid #ECE9FA;transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(40,30,120,.10)}
+.icon{width:52px;height:52px;border-radius:16px;display:flex;align-items:center;justify-content:center}
+.card small{display:block;margin:22px 0 6px;font-size:13px;font-weight:700;color:#6A6886}
+.card h3{margin:0;font-size:22px;font-weight:700}
+.card p{margin:12px 0 0;font-size:15px;line-height:1.7;color:#4A4866}
+.card.dark{background:#16152B;color:#fff;border-color:#16152B;display:flex;flex-direction:column;justify-content:space-between}
+.card.dark small{margin-top:0;color:#B9B2FF}
+.card.dark p{color:#CFCDE3}
+.card.dark a{margin-top:24px;display:inline-flex;align-items:center;gap:8px;min-height:44px;font-size:15px;font-weight:700}
+
+/* about */
+.about{display:flex;flex-wrap:wrap;gap:64px;align-items:flex-start}
+.photo{flex:1 1 320px;min-width:0;max-width:440px;aspect-ratio:4/5;border-radius:28px;background:
+ radial-gradient(60% 50% at 30% 25%,#E6E0FF 0%,rgba(230,224,255,0) 70%),
+ radial-gradient(60% 50% at 75% 80%,#DCEFFF 0%,rgba(220,239,255,0) 70%),#F4F2FB;border:1px dashed #CFCAEB;display:flex;align-items:center;justify-content:center;text-align:center;color:#7A7896;font-size:15px;line-height:1.6}
+.about-text{flex:999 1 480px;min-width:0}
+.about-text p.lead{margin:28px 0 0;font-size:18px;line-height:1.85;color:#3A3956}
+.facts{margin-top:44px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px 40px}
+.facts h4{margin:0 0 12px;font-size:13px;font-weight:700;letter-spacing:.12em;color:#6A6886}
+.facts ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;font-size:16px;line-height:1.5}
+
+/* contact */
+.contact{position:relative;padding:72px 56px;border-radius:36px;background:
+ radial-gradient(45% 70% at 15% 20%,#E6E0FF 0%,rgba(230,224,255,0) 70%),
+ radial-gradient(45% 70% at 90% 85%,#FFE8E1 0%,rgba(255,232,225,0) 70%),#F3F6FF;display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;align-items:center}
+.contact h2{margin:0;font-size:clamp(30px,4.5vw,44px);font-weight:900;letter-spacing:-.03em;line-height:1.3}
+.contact .links{flex:1 1 280px;min-width:0;display:flex;flex-direction:column;gap:12px}
+.clink{display:flex;align-items:center;gap:14px;min-height:60px;padding:0 24px;border-radius:18px;background:#fff;border:1px solid #DCD8F2;font-size:16px;font-weight:700}
+.clink.dark{background:#16152B;border-color:#16152B;color:#fff}
+.clink:hover{transform:translateY(-1px)}
+footer{padding:32px 32px 56px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:14px;color:#6A6886}
+
+@media (max-width:640px){
+ header{padding:20px}
+ nav{gap:18px}
+ .hero{padding:40px 20px 80px}
+ section{padding:80px 20px}
+ .contact{padding:44px 24px}
+ .player{padding:24px}
+ .story{padding:28px}
+}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <a class="brand" href="#top"><b>박동준</b><span>SONGS &amp; WORKS</span></a>
+  <nav>
+    <a href="#songs">노래</a>
+    <a href="#works">작품</a>
+    <a href="#about">소개</a>
+    <a href="#contact">연락</a>
+  </nav>
+</header>
+
+<div class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hero-text">
+      <p class="eyebrow">SINGER · SONGWRITER · PRODUCER</p>
+      <h1>하루 끝에 머무는<br>한 곡의 위로</h1>
+      <p class="lead">예배의 자리에서 시작된 노래를 씁니다. 천천히, 그러나 분명하게 — 그분의 사랑에 물들어가는 삶을 노래로 담아냅니다.</p>
+      <div class="btns">
+        <a class="btn dark" href="#songs"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>노래 듣기</a>
+        <a class="btn light" href="#works">작품 보기</a>
+      </div>
+    </div>
+
+    <div class="player-col">
+      <div class="player">
+        <div class="player-top">
+          <small>NOW PLAYING</small>
+          <span class="eq" id="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        </div>
+        <div class="cover"><span class="serif" id="coverTitle"></span></div>
+        <p class="p-title" id="pTitle"></p>
+        <p class="p-sub" id="pSub"></p>
+        <div class="bar"><div id="prog"></div></div>
+        <div class="controls">
+          <button type="button" id="prev" aria-label="이전 곡"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 5 9 12l10 7z"/><path d="M5 5v14"/></svg></button>
+          <button type="button" id="play" class="play" aria-label="재생"></button>
+          <button type="button" id="next" aria-label="다음 곡"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 5 10 7-10 7z"/><path d="M19 5v14"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="songs" class="white">
+  <div class="wrap">
+    <div class="songs-head">
+      <div>
+        <p class="eyebrow">SONGS</p>
+        <h2 class="title">나의 노래</h2>
+      </div>
+      <p class="muted">곡을 누르면 위 플레이어에서 재생됩니다. 각 곡에 담긴 이야기도 함께 읽어보세요.</p>
+    </div>
+    <div class="songs-body">
+      <div class="list" id="list"></div>
+      <div class="story">
+        <p class="eyebrow" style="font-size:13px;margin:0">곡 이야기</p>
+        <h3 class="serif" id="sTitle"></h3>
+        <p class="body" id="sBody"></p>
+        <div class="meta"><span>작사·작곡 <strong>박동준</strong></span><span id="sMeta"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="works">
+  <div class="wrap">
+    <p class="eyebrow">WORKS</p>
+    <h2 class="title">함께 만든 작품들</h2>
+    <p class="muted" style="margin:18px 0 0;max-width:620px;font-size:17px;line-height:1.75">무대와 방송, 예배 현장에서 노래하고 만들어온 일들입니다.</p>
+    <div class="grid">
+      <article class="card">
+        <div class="icon" style="background:#EDEAFF"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4B3FE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+        <small>PRODUCING</small><h3>쉘위워십</h3>
+        <p>중부 지역을 맡아 예배 모임을 함께 세우고 섬깁니다.</p>
+      </article>
+      <article class="card">
+        <div class="icon" style="background:#DFF0FF"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F6FB8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="m10 9 5 3-5 3z"/></svg></div>
+        <small>YOUTUBE LIVE</small><h3>더 그레이스</h3>
+        <p>화요일 밤, 찬양과 이야기로 함께하는 라이브 방송입니다.</p>
+      </article>
+      <article class="card">
+        <div class="icon" style="background:#FFE8E1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B4492A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/></svg></div>
+        <small>RADIO</small><h3>극동방송</h3>
+        <p>밤 9시 '주님과 함께 이 밤에' 묵상으로 하루를 닫아드립니다.</p>
+      </article>
+      <article class="card">
+        <div class="icon" style="background:#E6F5EC"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#237A4B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M15 14.5c3 0 6 2 6 5.5"/></svg></div>
+        <small>COMMUNITY</small><h3>GIVEN MINISTRY</h3>
+        <p>문화사역 공동체의 대표로 사람과 사역을 잇습니다.</p>
+      </article>
+      <article class="card">
+        <div class="icon" style="background:#FFF3D6"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8A6100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h2l2-6 4 12 3-9 2 3h5"/></svg></div>
+        <small>WORSHIP TEAM</small><h3>그레이스워십</h3>
+        <p>찬양팀의 소리를 만지며 예배의 공기를 함께 빚습니다.</p>
+      </article>
+      <article class="card dark">
+        <div>
+          <small>VOCAL</small><h3>CCM 보컬리스트</h3>
+          <p>꾸밈보다 진심으로, 가사가 먼저 들리는 노래를 부릅니다.</p>
+        </div>
+        <a href="#contact">공연·협업 문의 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="white">
+  <div class="wrap about">
+    <div class="photo">[프로필 사진]<br>세로 4:5 비율 권장</div>
+    <div class="about-text">
+      <p class="eyebrow">ABOUT</p>
+      <h2 class="title">노래하는 목사,<br>박동준입니다</h2>
+      <p class="lead">대전 유성의 은혜교회를 섬기며, 예배의 자리에서 길어 올린 고백을 노래로 씁니다. 화려한 기교보다 따라 부르기 쉽고 오래 남는 노래, 교회가 함께 부를 수 있는 노래를 꿈꿉니다.</p>
+      <div class="facts">
+        <div><h4>사역</h4><ul><li>은혜교회 담임목사</li><li>GIVEN MINISTRY 대표</li><li>쉘위워십 중부 담당</li></ul></div>
+        <div><h4>음악·방송</h4><ul><li>CCM 보컬리스트 · 작곡</li><li>프로듀싱 — 쉘위워십, 비컴퍼니</li><li>유튜브 '더 그레이스' · 극동방송</li></ul></div>
+        <div><h4>학력</h4><ul><li>침례신학대학교 및 동 대학원</li><li>리버티신학대학원 설교학</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact">
+    <div style="flex:999 1 440px;min-width:0">
+      <h2>함께 노래할 자리를<br>기다립니다</h2>
+      <p class="muted" style="margin:18px 0 0;font-size:17px;line-height:1.75">집회 찬양 인도, 곡 사용, 협업 문의는 편하게 연락 주세요.</p>
+    </div>
+    <div class="links">
+      <a class="clink dark" href="#contact"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>[이메일 주소]</a>
+      <a class="clink" href="#contact"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16152B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3z"/></svg>유튜브 '더 그레이스'</a>
+      <a class="clink" href="#contact"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16152B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5"/></svg>[인스타그램]</a>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <span>© 2026 박동준. All songs written with love.</span>
+  <span>대전 유성 · 은혜교회</span>
+</footer>
+
+<script>
+// 곡 목록 — 음원이 생기면 audio에 파일 경로(예: "audio/1.mp3")를 넣으면 실제로 재생됩니다.
+const songs = [
+  { title:'당신의 하루가', theme:'지친 하루 끝에 건네는 위로', status:'발표곡', meta:'[발매 연도] · [수록 앨범]', audio:'',
+    story:'하루를 버텨낸 누군가에게 꼭 들려주고 싶었던 노래입니다.\n수고했다는 말, 혼자가 아니라는 말을 하나님의 마음으로 담았습니다.\n[곡에 얽힌 이야기를 더 적어주세요]' },
+  { title:'물들어간다', theme:'천천히, 그분의 사랑을 닮아가는 삶', status:'작업 중', meta:'가제 · 2026 작업', audio:'',
+    story:'예수님을 닮는다는 건 한순간의 변화가 아니라\n삶과 모습과 인격이 그분의 사랑에 천천히 물들어가는 일입니다.\n그 느린 아름다움을 노래로 담고 있습니다.' },
+  { title:'[환영의 노래]', theme:'처음 온 이를 반갑게 맞는 교제의 찬양', status:'작업 중', meta:'가제 · 은혜교회 환영 찬양', audio:'',
+    story:'예배당 문을 처음 연 사람이 따뜻하게 웃을 수 있도록,\n교회가 함께 부르는 환영과 교제의 노래입니다.' },
+  { title:'[다음 곡 제목]', theme:'[곡 주제를 적어주세요]', status:'준비 중', meta:'[정보]', audio:'',
+    story:'[곡 이야기를 적어주세요]' }
+];
+
+const PLAY = '<svg width="22" height="22" viewBox="0 0 24 24" fill="#16152B" aria-hidden="true"><path d="M8 4.5v15l12-7.5z"/></svg>';
+const PAUSE = '<svg width="22" height="22" viewBox="0 0 24 24" fill="#16152B" aria-hidden="true"><rect x="6" y="4.5" width="4" height="15" rx="1"/><rect x="14" y="4.5" width="4" height="15" rx="1"/></svg>';
+const $ = id => document.getElementById(id);
+const audio = new Audio();
+let cur = 0, playing = false, fake = null, fakePos = 0;
+
+const list = $('list');
+songs.forEach((s, i) => {
+  const b = document.createElement('button');
+  b.type = 'button'; b.className = 'row';
+  b.innerHTML = `<span class="no">${String(i+1).padStart(2,'0')}</span>
+    <span class="t"><b></b><span></span></span>
+    <span class="badge ${s.status==='발표곡'?'done':''}"></span>`;
+  b.querySelector('.t b').textContent = s.title;
+  b.querySelector('.t span').textContent = s.theme;
+  b.querySelector('.badge').textContent = s.status;
+  b.addEventListener('click', () => { select(i); play(); });
+  list.appendChild(b);
+});
+
+function render(){
+  const s = songs[cur];
+  $('coverTitle').textContent = s.title;
+  $('pTitle').textContent = s.title;
+  $('pSub').textContent = '박동준 · ' + s.status;
+  $('sTitle').textContent = s.title;
+  $('sBody').textContent = s.story;
+  $('sMeta').textContent = s.meta;
+  [...list.children].forEach((r, i) => r.classList.toggle('on', i === cur));
+  $('play').innerHTML = playing ? PAUSE : PLAY;
+  $('play').setAttribute('aria-label', playing ? '일시정지' : '재생');
+  $('eq').classList.toggle('on', playing);
+}
+function select(i){
+  stop();
+  cur = (i + songs.length) % songs.length;
+  fakePos = 0; $('prog').style.width = '0%';
+  if (songs[cur].audio) audio.src = songs[cur].audio; else audio.removeAttribute('src');
+  render();
+}
+function play(){
+  playing = true;
+  if (songs[cur].audio) { audio.play().catch(()=>{}); }
+  else { fake = setInterval(() => { fakePos = (fakePos + 0.5) % 100; $('prog').style.width = fakePos + '%'; }, 300); }
+  render();
+}
+function stop(){
+  playing = false; audio.pause(); clearInterval(fake); fake = null; render();
+}
+audio.addEventListener('timeupdate', () => {
+  if (audio.duration) $('prog').style.width = (audio.currentTime / audio.duration * 100) + '%';
+});
+audio.addEventListener('ended', () => { select(cur + 1); play(); });
+
+$('play').addEventListener('click', () => playing ? stop() : play());
+$('prev').addEventListener('click', () => { select(cur - 1); play(); });
+$('next').addEventListener('click', () => { select(cur + 1); play(); });
+render();
+</script>
+</body>
+</html>
