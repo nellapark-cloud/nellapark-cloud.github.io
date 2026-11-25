@@ -327,13 +327,13 @@ const PINNED = [
   { id:'NvLXvf-1q2I', title:'I come to You, Lord', badge:'듀엣 · 전선아' }
 ];
 
-const norm = s => (s||'').toLowerCase().replace(/[\s\(\)\[\]'"`’·,.\-_:!?~]/g,'');
+const norm = s => (s||'').normalize('NFC').toLowerCase().replace(/[\u200B-\u200D\uFEFF]/g,'').replace(/[^0-9a-z\uAC00-\uD7A3]/g,'');
 function albumOf(title){
   const n = norm(title);
   return ALBUMS.find(a => a.tracks.some(t => { const m = norm(t); return m && (n === m || n.includes(m) || (n.length > 3 && m.includes(n))); })) || null;
 }
 function cleanTitle(t){
-  return (t || '')
+  return (t || '').normalize('NFC').replace(/[\u200B-\u200D\uFEFF]/g,'')
     .replace(/\s*[\[\(（【<〈「『][^\]\)）】>〉」』]*박동준[^\]\)）】>〉」』]*[\]\)）】>〉」』]\s*/g,' ')
     .replace(/^\s*박동준\s*[-–—:|·]\s*/,'').replace(/\s*[-–—:|·]\s*박동준\s*$/,'')
     .replace(/\s*[\[\(（【].*?(official|lyric|audio|mv|가사|공식|M\/V).*?[\]\)）】]\s*/gi,' ')
