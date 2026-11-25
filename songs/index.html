@@ -74,7 +74,11 @@ nav a:hover{color:var(--forest);border-color:var(--mint)}
 .feat-cover{position:relative;aspect-ratio:1/1;border-radius:8px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(30,50,35,.45)}
 .feat-cover .img{position:absolute;inset:0;background:url("https://images.unsplash.com/photo-1758940887182-bfd3d2efa4d8?fm=jpg&q=75&w=1600&auto=format&fit=crop") center/cover;transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
 .feat-cover:hover .img{transform:scale(1.05)}
-.feat-cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,0) 50%,rgba(255,255,255,.75) 100%)}
+.feat-cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.05) 0%,rgba(255,255,255,.25) 100%)}
+.feat-cover .jacket{position:absolute;z-index:2;left:50%;top:50%;width:58%;aspect-ratio:1/1;transform:translate(-50%,-52%);border-radius:4px;background:#E4ECE2 center/cover;box-shadow:0 30px 60px -20px rgba(20,35,25,.55),0 0 0 1px rgba(255,255,255,.4);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.feat-cover:hover .jacket{transform:translate(-50%,-54%) scale(1.02)}
+.feat-cover .jacket.hq{background-size:auto 134%}
+.feat-text .year{margin-left:10px;color:var(--muted)}
 .feat-cover .cap{position:absolute;left:28px;bottom:26px;z-index:2;font-family:var(--latin);font-style:italic;font-size:22px;color:var(--forest)}
 .feat-text .tag{display:inline-flex;gap:8px;align-items:center;font-family:var(--sans);font-size:13px;font-weight:600;color:var(--forest);padding:6px 12px;border:1px solid var(--mint);border-radius:4px;background:#EEF4EE}
 .feat-text h2{margin:22px 0 0;font-family:var(--serif);font-size:clamp(40px,5.6vw,68px);line-height:1.2;letter-spacing:-.03em}
@@ -91,15 +95,15 @@ nav a:hover{color:var(--forest);border-color:var(--mint)}
 .card{display:block;width:100%;padding:0;border:0;background:transparent;text-align:left;cursor:pointer;color:var(--ink)}
 .card .art{position:relative;aspect-ratio:1/1;border-radius:6px;overflow:hidden;background:#E4ECE2;box-shadow:0 18px 34px -22px rgba(30,50,35,.45);transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}
 .card .art .img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
-.card .art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,0) 40%,rgba(253,253,250,.82) 100%)}
-.card .art .t{position:absolute;left:16px;right:16px;bottom:14px;z-index:2;font-family:var(--serif);font-size:19px;font-weight:700;line-height:1.35;color:var(--ink)}
+.card .t{display:block;margin-top:16px;font-family:var(--serif);font-size:19px;font-weight:700;line-height:1.35;color:var(--ink)}
+.card .art .img.hq{background-size:auto 134%}
 .card .art .num{position:absolute;top:12px;left:14px;z-index:2;font-family:var(--latin);font-style:italic;font-size:18px;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.3)}
 .card .art .pbtn{position:absolute;top:12px;right:12px;z-index:2;width:44px;height:44px;border-radius:50%;background:rgba(253,253,250,.92);display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s}
 .card:hover .art{transform:translateY(-6px);box-shadow:0 28px 44px -24px rgba(30,50,35,.55)}
 .card:hover .art .img{transform:scale(1.07)}
 .card:hover .pbtn,.card.on .pbtn,.card:focus-visible .pbtn{opacity:1;transform:none}
 .card:focus-visible{outline:2px solid var(--sage);outline-offset:6px;border-radius:6px}
-.card .meta{margin-top:14px;display:flex;justify-content:space-between;gap:10px;align-items:center}
+.card .meta{margin-top:6px;display:flex;justify-content:space-between;gap:10px;align-items:center}
 .card .meta span{font-size:14px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .badge{flex:none;padding:4px 9px;border-radius:4px;border:1px solid #CBD0C3;color:var(--muted);font-family:var(--sans);font-size:12px;font-weight:600}
 .badge.own{background:var(--sage);border-color:var(--sage);color:#fff}
@@ -161,6 +165,7 @@ footer{padding:36px 32px 40px;max-width:1200px;margin:0 auto;display:flex;flex-w
 .dock .bar div{height:3px;width:0;background:var(--mint);transition:width .3s linear}
 .dock .in{max-width:1200px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;gap:18px}
 .dock .th{flex:none;width:52px;height:52px;border-radius:4px;background:#3E4F43 center/cover}
+.dock .th.hq{background-size:auto 134%}
 .dock .info{flex:1 1 auto;min-width:0}
 .dock .info b{display:block;font-family:var(--serif);font-size:17px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .dock .info span{display:flex;align-items:center;gap:10px;margin-top:3px;font-family:var(--sans);font-size:13px;color:#B4C2B6}
@@ -187,7 +192,7 @@ footer{padding:36px 32px 40px;max-width:1200px;margin:0 auto;display:flex;flex-w
  .featured,.songs,.works,.about,.contact{padding:84px 0}
  .band{padding:110px 0}
  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 16px}
- .card .art .t{font-size:16px;left:12px;right:12px}
+ .card .t{font-size:16px}
  .cbox{padding:48px 26px}
  .dock .in{padding:12px 16px;gap:12px}
  .dock .time,.dock .ctl .prev{display:none}
@@ -232,14 +237,14 @@ footer{padding:36px 32px 40px;max-width:1200px;margin:0 auto;display:flex;flex-w
 
 <section class="featured" id="featured">
   <div class="wrap feat">
-    <div class="feat-cover rv"><div class="img"></div><span class="cap">Morning devotion</span></div>
+    <div class="feat-cover rv"><div class="img"></div><div class="jacket" id="featJacket" role="img" aria-label="당신의 하루가 앨범 표지"></div><span class="cap">Morning devotion</span></div>
     <div class="feat-text">
       <span class="tag rv">자작곡 · 아침 묵상</span>
       <h2 class="rv d1">당신의 하루가</h2>
       <p class="quote rv d2">새 아침, 눈을 뜨며 하나님께 드리는 첫 고백.
 오늘 하루도 주님과 함께라면 괜찮다는 소망을
 싱그러운 아침 햇살처럼 담았습니다.</p>
-      <p class="credit rv d2">작사 · 작곡 · 노래 박동준</p>
+      <p class="credit rv d2">작사 · 작곡 · 노래 박동준<span class="year" id="featYear"></span></p>
       <div class="btns rv d3">
         <button type="button" class="btn dark" id="featPlay"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>당신의 하루가 듣기</button>
       </div>
@@ -371,14 +376,14 @@ const COVERS = [
   'https://images.unsplash.com/photo-1560880944-796251b78b4c'+Q,
   'https://images.unsplash.com/photo-1767601047966-8b5ea4885007'+Q
 ];
-// 맨 앞에 고정되는 곡들 — own:true 는 자작곡입니다.
+// 맨 앞에 고정되는 곡들 — own:true 는 자작곡, year 에 발매 연도를 적으면 표시됩니다.
 const PINNED = [
-  { id:'Y_qsb30lA_E', title:'당신의 하루가', own:true, sub:'자작곡 · 아침 묵상', cover:COVERS[0] },
-  { id:'EkyXA3-pdps', title:'I belong to you' },
-  { id:'AOKm2ypB5cM', title:'아버지의 노래' },
-  { id:'xnED6G_gqJg', title:'생기를 부으소서' },
-  { id:'L7qn9_TReu8', title:'나의 사랑 나의 예수' },
-  { id:'NvLXvf-1q2I', title:'I come to you Lord', badge:'듀엣', sub:'전선아(옥합) 듀엣 · 우은경 피아노 앨범' }
+  { id:'Y_qsb30lA_E', title:'당신의 하루가', own:true, sub:'자작곡 · 아침 묵상', year:'' },
+  { id:'EkyXA3-pdps', title:'I belong to you', year:'' },
+  { id:'AOKm2ypB5cM', title:'아버지의 노래', sub:'The Father\'s Song', year:'' },
+  { id:'xnED6G_gqJg', title:'생기를 부으소서', year:'' },
+  { id:'L7qn9_TReu8', title:'나의 사랑 나의 예수', year:'' },
+  { id:'NvLXvf-1q2I', title:'I come to you Lord', badge:'듀엣', sub:'전선아(옥합) 듀엣 · 우은경 피아노 앨범', year:'' }
 ];
 
 const PLAY_I = '<svg width="20" height="20" viewBox="0 0 24 24" fill="#1E2C23" aria-hidden="true"><path d="M8 4.5v15l12-7.5z"/></svg>';
@@ -400,6 +405,20 @@ async function fetchTitle(id){
   }
   return '';
 }
+// 유튜브 썸네일 = 앨범 표지. 고화질이 없으면 일반 화질로 대체합니다.
+const jacketCache = {};
+function jacket(id){
+  if (jacketCache[id]) return jacketCache[id];
+  return jacketCache[id] = new Promise(res => {
+    const im = new Image();
+    im.onload = () => res(im.naturalWidth > 200 ? { url: im.src, hq:false } : { url: 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg', hq:true });
+    im.onerror = () => res({ url: 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg', hq:true });
+    im.src = 'https://i.ytimg.com/vi/' + id + '/maxresdefault.jpg';
+  });
+}
+function paint(el, id){
+  jacket(id).then(j => { el.style.backgroundImage = 'url("' + j.url + '")'; el.classList.toggle('hq', j.hq); });
+}
 const fmt = t => { t = Math.max(0, Math.floor(t||0)); return Math.floor(t/60) + ':' + String(t%60).padStart(2,'0'); };
 
 function buildGrid(){
@@ -407,11 +426,11 @@ function buildGrid(){
   songs.forEach((s, i) => {
     const b = document.createElement('button');
     b.type = 'button'; b.className = 'card';
-    b.innerHTML = '<div class="art"><div class="img"></div><span class="num"></span><span class="pbtn">'+PLAY_I+'</span><span class="t"></span></div><div class="meta"><span></span><em class="badge" hidden></em></div>';
-    b.querySelector('.img').style.backgroundImage = 'url("' + s.cover + '")';
+    b.innerHTML = '<div class="art"><div class="img"></div><span class="num"></span><span class="pbtn">'+PLAY_I+'</span></div><span class="t"></span><div class="meta"><span></span><em class="badge" hidden></em></div>';
+    paint(b.querySelector('.img'), s.id);
     b.querySelector('.num').textContent = String(i+1).padStart(2,'0');
     b.querySelector('.t').textContent = s.title;
-    b.querySelector('.meta span').textContent = s.sub;
+    b.querySelector('.meta span').textContent = s.year ? s.sub + ' · ' + s.year : s.sub;
     const bd = b.querySelector('.badge');
     if (s.own || s.badge) { bd.hidden = false; bd.textContent = s.own ? '자작곡' : s.badge; bd.classList.toggle('own', !!s.own); }
     b.setAttribute('aria-label', s.title + ' 재생');
@@ -428,7 +447,7 @@ function render(){
   if (!s) return;
   $('dTitle').textContent = s.title;
   $('dSubText').textContent = started ? s.sub : '곡을 골라 들어보세요';
-  $('dThumb').style.backgroundImage = 'url("' + s.cover + '")';
+  paint($('dThumb'), s.id);
   [...$('grid').children].forEach((c, i) => {
     c.classList.toggle('on', i === cur && started);
     const pb = c.querySelector('.pbtn'); if (pb) pb.innerHTML = (i === cur && playing) ? PAUSE_I : PLAY_I;
@@ -458,7 +477,7 @@ async function loadSongs(){
   const ids = pinIds.concat(plIds.filter(id => !pinIds.includes(id)));
   songs = ids.map((id, i) => {
     const p = PINNED.find(x => x.id === id);
-    return { id, pinned: !!p, own: !!(p && p.own), badge: p && p.badge,
+    return { id, pinned: !!p, own: !!(p && p.own), badge: p && p.badge, year: (p && p.year) || '',
       title: p ? p.title : '곡 ' + (i+1), sub: (p && p.sub) || 'The Songs',
       cover: (p && p.cover) || COVERS[i % COVERS.length] };
   });
@@ -506,7 +525,9 @@ $('bar').addEventListener('click', e => {
   if (d) player.seekTo((e.clientX - r.left) / r.width * d, true);
 });
 $('play').innerHTML = PLAY_I;
-$('dThumb').style.backgroundImage = 'url("' + COVERS[0] + '")';
+paint($('dThumb'), PINNED[0].id);
+paint($('featJacket'), PINNED[0].id);
+if (PINNED[0].year) $('featYear').textContent = ' · ' + PINNED[0].year;
 
 // 스크롤 효과
 const hdr = $('hdr'), band = $('bandImg');
