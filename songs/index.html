@@ -260,7 +260,7 @@ footer{max-width:1160px;margin:0 auto;padding:24px 32px 36px;display:flex;flex-w
       <p class="lead rv">CCM 보컬리스트로 여러 앨범에 목소리를 보탰고, 직접 쓴 노래 「당신의 하루가」로 아침을 여는 고백을 노래합니다. 화려한 기교보다 오래 남는 노래, 함께 부를 수 있는 노래를 꿈꿉니다.</p>
     </div>
     <ul class="credits rv">
-      <li><em>보컬</em><span>『아버지의 노래 (The Father's Song)』 EP<br>예수원 가는 길 4집 『일상의 예배』 · 3집 『아름다운 사람』<br>좋은씨앗 6집 『Worship』 · 『필데이브와 찬양하는 친구들』<br>손영지 『내가 서 있는 풍경』<br>말씀대로 찬양 『주를 예배함이』 외</span></li>
+      <li><em>보컬</em><span>『아버지의 노래 (The Father's Song)』 EP<br>예수원 가는 길 4집 『일상의 예배』 · 3집 『아름다운 사람』<br>좋은씨앗 6집 『Worship』 · 『필데이브와 찬양하는 친구들』<br>손영지 『내가 서 있는 풍경』 · 아크워십 『ARK Worship 2nd』<br>말씀대로 찬양 『주를 예배함이』 외</span></li>
       <li><em>작사·작곡</em><span>당신의 하루가</span></li>
       <li><em>듀엣</em><span>I come to You, Lord — 전선아(옥합) · 우은경 『Worship Piano Vol.1』</span></li>
       <li><em>프로듀싱</em><span>쉘위워십 · 비컴퍼니</span></li>
@@ -329,6 +329,9 @@ const ALBUMS = [
   { key:'philday', title:'필데이브와 찬양하는 친구들', type:'솔로 참여', year:'', artist:'필데이브',
     cover:'covers/philday.png',
     tracks:['좋으신 주'] },
+  { key:'ark2', title:'ARK Worship 2nd', type:'아크워십', year:'2016', artist:'아크워십',
+    cover:'covers/ark2.png',
+    tracks:['바울의 축복'] },
   { key:'woo', title:'Worship Piano Vol.1', type:'우은경 · 듀엣 참여', year:'', artist:'우은경', cover:'covers/woo.png',
     tracks:['I come to You Lord'] }
 ];
@@ -339,7 +342,8 @@ const PINNED = [
   { id:'AOKm2ypB5cM', title:'아버지의 노래' },
   { id:'xnED6G_gqJg', title:'생기를 부으소서' },
   { id:'L7qn9_TReu8', title:'나의 사랑 나의 예수' },
-  { id:'NvLXvf-1q2I', title:'I come to You, Lord', badge:'듀엣 · 전선아' }
+  { id:'NvLXvf-1q2I', title:'I come to You, Lord', badge:'듀엣 · 전선아' },
+  { id:'UDV4QtVf0qE', title:'바울의 축복' }
 ];
 
 const norm = s => (s||'').normalize('NFC').toLowerCase().replace(/[\u200B-\u200D\uFEFF]/g,'').replace(/[^0-9a-z\uAC00-\uD7A3]/g,'');
