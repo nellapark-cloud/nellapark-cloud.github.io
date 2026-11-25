@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>사진 보관함 · 박동준 PARK DONG JUN</title>
+<style>
+  :root { --bg:#fafaf8; --ink:#1d1d1f; --sub:#86868b; --line:#e8e8e4; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"Pretendard","Apple SD Gothic Neo",sans-serif; background:var(--bg); color:var(--ink); padding:48px 20px 80px; }
+  header { max-width:1100px; margin:0 auto 32px; }
+  h1 { font-size:20px; font-weight:600; letter-spacing:-.01em; }
+  p.sub { color:var(--sub); font-size:13px; margin-top:6px; }
+  .grid { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:14px; }
+  figure { background:#fff; border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+  figure img { width:100%; aspect-ratio:3/2; object-fit:cover; display:block; }
+  figure.tall img { aspect-ratio:3/4; object-position:top; }
+  figcaption { font-size:12px; color:var(--sub); padding:8px 10px; font-family:ui-monospace,Menlo,monospace; }
+  a { color:inherit; text-decoration:none; }
+</style>
+</head>
+<body>
+<header>
+  <h1>사진 보관함</h1>
+  <p class="sub">박동준 PARK DONG JUN · 프로필과 방송·찬양 무대 사진 · 홈페이지용(1600px)</p>
+</header>
+<main class="grid" id="g"></main>
+<script>
+  const names = ["00-profile","01-mint-talk","02-mint-talk","03-mint-talk","04-mint-talk","05-pink-talk","06-pink-sing","07-pink-sing","08-pink-sing","09-pink-sing","10-mint-talk","11-mint-talk","12-mint-talk","13-mint-talk","14-mint-talk","15-mint-talk","16-mint-talk","17-green-sing","18-green-sing","19-green-sing"];
+  document.getElementById('g').innerHTML = names.map(n =>
+    `<figure class="${n==='00-profile'?'tall':''}"><a href="${n}.jpg" target="_blank"><img src="${n}.jpg" alt="${n}" loading="lazy"></a><figcaption>${n}.jpg</figcaption></figure>`
+  ).join('');
+</script>
+</body>
+</html>
