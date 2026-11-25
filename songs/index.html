@@ -208,7 +208,7 @@ footer{padding:32px 32px 56px;display:flex;flex-wrap:wrap;gap:12px;justify-conte
         <p class="eyebrow" style="font-size:13px;margin:0">곡 이야기</p>
         <h3 class="serif" id="sTitle"></h3>
         <p class="body" id="sBody"></p>
-        <div class="meta"><span>작사·작곡 <strong>박동준</strong></span><span id="sMeta"></span></div>
+        <div class="meta"><span id="sCredit">노래 <strong>박동준</strong></span><span id="sMeta"></span></div>
       </div>
     </div>
   </div>
@@ -298,9 +298,11 @@ const PLAYLIST = 'PLlQGGta1UGsHstlRAiuBDON326GNK1-4N';
 const COVERS = ['https://images.unsplash.com/photo-1758940887182-bfd3d2efa4d8?fm=jpg&q=70&w=1200&auto=format&fit=crop','https://images.unsplash.com/photo-1543051932-6ef9fecfbc80?fm=jpg&q=70&w=1200&auto=format&fit=crop','https://images.unsplash.com/photo-1620308189773-41a11b5472fc?fm=jpg&q=70&w=1200&auto=format&fit=crop','https://images.unsplash.com/photo-1560880944-796251b78b4c?fm=jpg&q=70&w=1200&auto=format&fit=crop','https://images.unsplash.com/photo-1767601047966-8b5ea4885007?fm=jpg&q=70&w=1200&auto=format&fit=crop'];
 // 곡별 이야기 — 제목에 들어간 단어로 찾아 붙입니다. 필요한 곡을 여기에 더 적어주세요.
 const STORIES = [
-  { match:'당신의 하루가', cover:'https://images.unsplash.com/photo-1758940887182-bfd3d2efa4d8?fm=jpg&q=70&w=1200&auto=format&fit=crop',
+  { match:'당신의 하루가', own:true, cover:'https://images.unsplash.com/photo-1758940887182-bfd3d2efa4d8?fm=jpg&q=70&w=1200&auto=format&fit=crop',
     text:'새 아침, 눈을 뜨며 하나님께 드리는 첫 고백입니다.\n오늘 하루도 주님과 함께라면 괜찮다는 소망을\n싱그러운 아침 햇살처럼 담았습니다.' }
 ];
+// 목사님 자작곡 — 목록 맨 앞에 고정됩니다.
+const OWN = [ { id:'Y_qsb30lA_E', title:'당신의 하루가' } ];
 const DEFAULT_STORY = '예배의 자리에서 길어 올린 고백을 노래로 담았습니다.\n편안히 귀 기울여 들어주세요.';
 
 const PLAY = '<svg width="22" height="22" viewBox="0 0 24 24" fill="#2B2520" aria-hidden="true"><path d="M8 4.5v15l12-7.5z"/></svg>';
@@ -343,13 +345,14 @@ function render(){
   $('coverTitle').textContent = s.title;
   $('cover').style.setProperty('--cover', 'url("' + s.cover + '")');
   $('pTitle').textContent = s.title;
-  $('pSub').textContent = '박동준 · The Songs';
   $('sTitle').textContent = s.title;
   $('sBody').textContent = s.story;
   $('sMeta').textContent = 'The Songs · ' + (cur+1) + ' / ' + songs.length;
+  $('sCredit').innerHTML = s.own ? '작사·작곡·노래 <strong>박동준</strong>' : '노래 <strong>박동준</strong>';
+  $('pSub').textContent = s.own ? '박동준 · 자작곡' : '박동준 · The Songs';
   [...$('list').children].forEach((r, i) => {
     r.classList.toggle('on', i === cur);
-    const bd = r.querySelector('.badge'); if (bd) { bd.textContent = (i === cur && playing) ? '재생 중' : '듣기'; bd.classList.toggle('done', i === cur && playing); }
+    const bd = r.querySelector('.badge'); if (bd) { const on = i === cur && playing; bd.textContent = on ? '재생 중' : (songs[i].own ? '자작곡' : '듣기'); bd.classList.toggle('done', on || songs[i].own); }
   });
   $('play').innerHTML = playing ? PAUSE : PLAY;
   $('play').setAttribute('aria-label', playing ? '일시정지' : '재생');
@@ -375,16 +378,26 @@ function tick(){
 }
 
 async function loadSongs(){
-  const ids = player.getPlaylist() || [];
-  songs = ids.map((id, i) => ({ id, title:'곡 ' + (i+1), theme:'The Songs', cover: COVERS[i % COVERS.length], story: DEFAULT_STORY }));
+  const plIds = player.getPlaylist() || [];
+  const ownIds = OWN.map(o => o.id);
+  const ids = ownIds.concat(plIds.filter(id => !ownIds.includes(id)));
+  songs = ids.map((id, i) => {
+    const o = OWN.find(x => x.id === id);
+    const st = o ? storyFor(o.title) : null;
+    return { id, own: !!o, title: o ? o.title : '곡 ' + (i+1),
+      theme: st ? '하루를 여는 아침 묵상' : 'The Songs',
+      cover: (st && st.cover) || COVERS[i % COVERS.length], story: st ? st.text : DEFAULT_STORY };
+  });
+  player.cuePlaylist(ids);
   buildList(); render();
   await Promise.all(ids.map(async (id, i) => {
+    if (songs[i].own) return;
     const raw = await fetchTitle(id);
     if (!raw) return;
     const title = cleanTitle(raw) || raw;
     const st = storyFor(title);
     songs[i].title = title;
-    if (st) { songs[i].story = st.text; songs[i].cover = st.cover || songs[i].cover; songs[i].theme = '하루를 여는 아침 묵상'; }
+    if (st) { songs[i].own = songs[i].own || !!st.own; songs[i].story = st.text; songs[i].cover = st.cover || songs[i].cover; songs[i].theme = '하루를 여는 아침 묵상'; }
     const row = $('list').children[i];
     if (row) row.querySelector('.t b').textContent = title;
     if (row && st) row.querySelector('.t span').textContent = songs[i].theme;
