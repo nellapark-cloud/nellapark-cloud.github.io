@@ -4,325 +4,394 @@
 <meta charset="utf-8">
 <meta name="theme-color" content="#F7F6F1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>박동준 — 노래와 작품</title>
-<meta name="description" content="싱어송라이터 박동준의 노래와 작품">
-<meta property="og:title" content="박동준 — 노래와 작품">
+<title>박동준 — The Songs</title>
+<meta name="description" content="하루를 여는 한 곡의 아침 — 박동준의 노래">
+<meta property="og:title" content="박동준 — The Songs">
 <meta property="og:description" content="하루를 여는 한 곡의 아침">
+<meta property="og:image" content="https://images.unsplash.com/photo-1560880944-796251b78b4c?fm=jpg&q=70&w=1200&auto=format&fit=crop">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&family=Cormorant+Garamond:ital,wght@0,500;1,500;1,600&display=swap" rel="stylesheet">
 <style>
+:root{
+  --ground:#F7F6F1; --paper:#FDFDFA; --ink:#1F2A23; --ink2:#4A554D; --muted:#6B746C;
+  --forest:#2F5139; --sage:#4F7457; --mint:#B9D0BC; --line:#DFE3D8; --deep:#1E2C23;
+  --serif:'Gowun Batang',serif; --sans:Pretendard,'Noto Sans KR',system-ui,sans-serif; --latin:'Cormorant Garamond',serif;
+}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:#F7F6F1;color:#2B2520;font-family:'Gowun Dodum',Pretendard,'Noto Sans KR',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;word-break:keep-all}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:'Gowun Dodum',var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden;word-break:keep-all;padding-bottom:96px}
 a{color:inherit;text-decoration:none}
-.wrap{max-width:1160px;margin:0 auto}
-.eyebrow{margin:0 0 14px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;font-weight:600;letter-spacing:.06em;color:#3F6248}
-h2.title{margin:0;font-family:'Gowun Batang',serif;font-size:clamp(32px,4.6vw,44px);font-weight:700;letter-spacing:-.02em;line-height:1.35}
-.serif{font-family:'Gowun Batang',serif}
-.muted{color:#6E645A}
+button{font-family:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+.eyebrow{margin:0 0 14px;font-family:var(--latin);font-style:italic;font-size:20px;font-weight:600;letter-spacing:.04em;color:var(--sage)}
+.title{margin:0;font-family:var(--serif);font-size:clamp(34px,5vw,52px);font-weight:700;letter-spacing:-.02em;line-height:1.3}
+.muted{color:var(--muted)}
 
-.btn,nav a,.badge,.clink,.p-title,.row .t b,.facts h4,.card small,.player-top small{font-family:Pretendard,'Noto Sans KR',system-ui,sans-serif}
-.row .t b{font-family:'Gowun Batang',serif;font-weight:700}
-/* nav */
-header{position:relative;z-index:2;padding:26px 32px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;border-bottom:1px solid #E2E3DA}
+/* reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.12s}.rv.d2{transition-delay:.24s}.rv.d3{transition-delay:.36s}
+
+/* header */
+header{position:fixed;top:0;left:0;right:0;z-index:30;transition:background .4s,box-shadow .4s,padding .4s}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:24px;padding-bottom:24px;transition:padding .4s}
+header.solid{background:rgba(247,246,241,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
+header.solid .wrap{padding-top:14px;padding-bottom:14px}
 .brand{display:flex;align-items:baseline;gap:12px}
-.brand b{font-family:'Gowun Batang',serif;font-size:21px;font-weight:700}
-.brand span{font-size:12px;font-weight:500;color:#8A7F73;letter-spacing:.2em}
-nav{display:flex;flex-wrap:wrap;gap:30px}
-nav a{font-size:15px;font-weight:500;color:#4A423B;padding:6px 0;border-bottom:1px solid transparent}
-nav a:hover{color:#3F6248;border-color:#9DB8A2}
+.brand b{font-family:var(--serif);font-size:22px;font-weight:700}
+.brand span{font-family:var(--latin);font-style:italic;font-size:17px;color:var(--sage)}
+nav{display:flex;gap:30px;font-family:var(--sans)}
+nav a{font-size:15px;font-weight:500;color:var(--ink2);padding:6px 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+nav a:hover{color:var(--forest);border-color:var(--mint)}
 
 /* hero */
-.hero{position:relative;padding:96px 32px 120px}
-.hero{min-height:760px}
-.hero-bg{position:absolute;inset:0;z-index:0;background:linear-gradient(90deg,rgba(247,246,241,.97) 0%,rgba(247,246,241,.88) 42%,rgba(247,246,241,.12) 100%),url("https://images.unsplash.com/photo-1560880944-796251b78b4c?fm=jpg&q=70&w=2400&auto=format&fit=crop") center/cover no-repeat}
-.hero .wrap{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:72px;align-items:center}
-.hero-text{flex:999 1 520px;min-width:0}
-.hero h1{margin:0;font-family:'Gowun Batang',serif;font-size:clamp(40px,6.2vw,66px);line-height:1.3;font-weight:700;letter-spacing:-.025em}
-.hero h1 em{font-style:normal;color:#3F6248}
-.hero p.lead{margin:30px 0 0;max-width:540px;font-size:18px;line-height:1.85;color:#5A5148}
-.btns{margin-top:44px;display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 26px;border-radius:6px;font-size:16px;font-weight:600;transition:background .2s,color .2s}
-.btn.dark{background:#2B2520;color:#F7F6F1}
-.btn.dark:hover{background:#3F6248}
-.btn.light{background:transparent;border:1px solid #C2C8BB;color:#2B2520}
-.btn.light:hover{border-color:#2B2520}
+.hero{position:relative;height:100vh;min-height:680px;max-height:1100px;overflow:hidden;display:flex;align-items:center}
+.hero-img{position:absolute;inset:-4%;background:url("https://images.unsplash.com/photo-1560880944-796251b78b4c?fm=jpg&q=75&w=2600&auto=format&fit=crop") center 60%/cover no-repeat;animation:drift 32s ease-in-out infinite alternate;will-change:transform}
+@keyframes drift{from{transform:scale(1.02) translate3d(0,0,0)}to{transform:scale(1.12) translate3d(-1.5%,-1%,0)}}
+.hero-veil{position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(247,246,241,.86) 0%,rgba(247,246,241,.55) 34%,rgba(247,246,241,.05) 62%,rgba(247,246,241,0) 78%,var(--ground) 100%)}
+.mist{position:absolute;left:-20%;right:-20%;bottom:14%;height:38%;background:radial-gradient(50% 60% at 50% 50%,rgba(255,255,255,.55),rgba(255,255,255,0) 70%);filter:blur(10px);animation:mist 18s ease-in-out infinite alternate;pointer-events:none}
+@keyframes mist{from{transform:translateX(-6%)}to{transform:translateX(6%)}}
+.hero .wrap{position:relative;z-index:2;width:100%;text-align:center;margin-top:-6vh}
+.hero .eyebrow{font-size:22px}
+.hero h1{margin:0;font-family:var(--serif);font-weight:700;font-size:clamp(46px,8.4vw,104px);line-height:1.18;letter-spacing:-.03em;color:var(--ink)}
+.hero h1 em{font-style:normal;color:var(--forest)}
+.hero p.lead{margin:28px auto 0;max-width:560px;font-size:clamp(16px,1.7vw,19px);line-height:1.9;color:var(--ink2)}
+.hero .btns{margin-top:40px;display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:54px;padding:0 28px;border-radius:6px;font-family:var(--sans);font-size:16px;font-weight:600;border:0;cursor:pointer;transition:background .25s,transform .25s,color .25s,border-color .25s}
+.btn.dark{background:var(--deep);color:#fff}
+.btn.dark:hover{background:var(--forest);transform:translateY(-2px)}
+.btn.light{background:rgba(253,253,250,.7);border:1px solid #C9CFC2;color:var(--ink);backdrop-filter:blur(6px)}
+.btn.light:hover{border-color:var(--ink)}
+.scroll-cue{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px;font-family:var(--latin);font-style:italic;font-size:16px;color:var(--ink2)}
+.scroll-cue i{width:1px;height:46px;background:linear-gradient(var(--ink2),transparent);animation:cue 2.4s ease-in-out infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
-/* player */
-.player-col{flex:1 1 340px;min-width:0;max-width:420px}
-.player{background:#25332A;color:#F7F6F1;border-radius:10px;padding:28px;box-shadow:0 24px 50px rgba(30,50,35,.20)}
-.player-top{display:flex;justify-content:space-between;align-items:center;min-height:22px}
-.player-top small{font-size:12px;font-weight:600;letter-spacing:.2em;color:#B9D0BC}
-.cover{margin-top:22px;aspect-ratio:1/1;border-radius:6px;background:linear-gradient(180deg,rgba(255,255,255,0) 45%,rgba(255,255,255,.88) 100%),var(--cover) center/cover;transition:background .4s;display:flex;flex-direction:column;justify-content:space-between;padding:24px}
-.cover::before{content:"";width:40px;height:2px;background:#fff;box-shadow:0 0 8px rgba(0,0,0,.15)}
-.cover span{font-size:32px;font-weight:700;color:#22302A;line-height:1.3}
-.p-title{margin:22px 0 4px;font-size:20px;font-weight:600}
-.p-sub{margin:0;font-size:14px;color:#B4C2B6}
-.bar{margin-top:22px;height:3px;background:#3E4F43;overflow:hidden}
-.bar div{height:3px;width:0;background:#B9D0BC;transition:width .3s linear}
-.controls{margin-top:20px;display:flex;justify-content:center;align-items:center;gap:28px}
-.controls button{border:0;border-radius:6px;cursor:pointer;display:flex;align-items:center;justify-content:center;background:transparent;width:48px;height:48px}
-.controls button.play{width:60px;height:60px;border-radius:50%;background:#F7F6F1}
-.controls button:focus-visible{outline:2px solid #B9D0BC;outline-offset:3px}
-@keyframes eq{0%,100%{height:5px}50%{height:18px}}
-.eq{display:none;align-items:flex-end;height:18px}
-.eq.on{display:inline-flex}
-.eq i{display:inline-block;width:3px;margin-right:3px;background:#B9D0BC;animation:eq 1.1s ease-in-out infinite}
-.eq i:nth-child(2){animation-delay:.2s}.eq i:nth-child(3){animation-delay:.4s}.eq i:nth-child(4){animation-delay:.1s}
+/* featured */
+.featured{padding:120px 0 130px}
+.feat{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:72px;align-items:center}
+.feat-cover{position:relative;aspect-ratio:1/1;border-radius:8px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(30,50,35,.45)}
+.feat-cover .img{position:absolute;inset:0;background:url("https://images.unsplash.com/photo-1758940887182-bfd3d2efa4d8?fm=jpg&q=75&w=1600&auto=format&fit=crop") center/cover;transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
+.feat-cover:hover .img{transform:scale(1.05)}
+.feat-cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,0) 50%,rgba(255,255,255,.75) 100%)}
+.feat-cover .cap{position:absolute;left:28px;bottom:26px;z-index:2;font-family:var(--latin);font-style:italic;font-size:22px;color:var(--forest)}
+.feat-text .tag{display:inline-flex;gap:8px;align-items:center;font-family:var(--sans);font-size:13px;font-weight:600;color:var(--forest);padding:6px 12px;border:1px solid var(--mint);border-radius:4px;background:#EEF4EE}
+.feat-text h2{margin:22px 0 0;font-family:var(--serif);font-size:clamp(40px,5.6vw,68px);line-height:1.2;letter-spacing:-.03em}
+.feat-text .quote{margin:28px 0 0;font-family:var(--serif);font-size:clamp(18px,2vw,22px);line-height:1.9;color:var(--ink2);white-space:pre-line}
+.feat-text .credit{margin:26px 0 0;font-family:var(--sans);font-size:14px;color:var(--muted)}
+.feat-text .btns{margin-top:36px;display:flex;flex-wrap:wrap;gap:12px}
 
 /* songs */
-section{padding:112px 32px}
-.white{background:#FDFDFA;border-top:1px solid #E6E7DF;border-bottom:1px solid #E6E7DF}
-.songs-head{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-end}
-.songs-head p{margin:0;max-width:400px;font-size:16px;line-height:1.75}
-.songs-body{margin-top:56px;display:flex;flex-wrap:wrap;gap:48px}
-.list{flex:999 1 520px;min-width:0;display:flex;flex-direction:column;border-top:1px solid #2B2520}
-.row{width:100%;min-height:88px;padding:20px 16px;border:0;border-bottom:1px solid #DFE1D7;background:transparent;text-align:left;cursor:pointer;display:flex;align-items:center;gap:24px;font-family:inherit;color:#2B2520;transition:background .2s}
-.row:hover{background:#F2F5EF}
-.row.on{background:#E7EEE5}
-.row .no{width:30px;font-family:'Gowun Batang',serif;font-size:16px;font-weight:700;color:#B3A797}
-.row.on .no{color:#3F6248}
-.row .t{flex:1 1 auto;min-width:0}
-.row .t b{display:block;font-size:19px;font-weight:600}
-.row .t span{display:block;margin-top:5px;font-size:14px;color:#7A7064}
-.badge{padding:5px 10px;border-radius:4px;border:1px solid #CBD0C3;color:#6E645A;font-size:12px;font-weight:600;white-space:nowrap}
-.badge.done{background:#4F7457;border-color:#4F7457;color:#fff}
-.story{flex:1 1 340px;min-width:0;max-width:440px;padding:36px;border-radius:8px;background:#EEF1EA}
-.story h3{margin:14px 0 0;font-size:28px;font-weight:700;line-height:1.4}
-.story p.body{margin:18px 0 0;font-size:16px;line-height:1.9;color:#4A423B;white-space:pre-line}
-.story .meta{margin-top:28px;padding-top:20px;border-top:1px solid #D5DACE;display:flex;flex-wrap:wrap;gap:10px 24px;font-size:14px;color:#6E645A}
-.story .meta strong{color:#2B2520}
+.songs{padding:120px 0;background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.songs-head{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:flex-end}
+.songs-head p{margin:0;max-width:380px;font-size:16px;line-height:1.8}
+.count{font-family:var(--sans);font-size:15px;color:var(--muted);margin-left:12px;font-weight:500;letter-spacing:0}
+.grid{margin-top:56px;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:40px 28px}
+.card{display:block;width:100%;padding:0;border:0;background:transparent;text-align:left;cursor:pointer;color:var(--ink)}
+.card .art{position:relative;aspect-ratio:1/1;border-radius:6px;overflow:hidden;background:#E4ECE2;box-shadow:0 18px 34px -22px rgba(30,50,35,.45);transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}
+.card .art .img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.card .art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,0) 40%,rgba(253,253,250,.82) 100%)}
+.card .art .t{position:absolute;left:16px;right:16px;bottom:14px;z-index:2;font-family:var(--serif);font-size:19px;font-weight:700;line-height:1.35;color:var(--ink)}
+.card .art .num{position:absolute;top:12px;left:14px;z-index:2;font-family:var(--latin);font-style:italic;font-size:18px;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.3)}
+.card .art .pbtn{position:absolute;top:12px;right:12px;z-index:2;width:44px;height:44px;border-radius:50%;background:rgba(253,253,250,.92);display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s}
+.card:hover .art{transform:translateY(-6px);box-shadow:0 28px 44px -24px rgba(30,50,35,.55)}
+.card:hover .art .img{transform:scale(1.07)}
+.card:hover .pbtn,.card.on .pbtn,.card:focus-visible .pbtn{opacity:1;transform:none}
+.card:focus-visible{outline:2px solid var(--sage);outline-offset:6px;border-radius:6px}
+.card .meta{margin-top:14px;display:flex;justify-content:space-between;gap:10px;align-items:center}
+.card .meta span{font-size:14px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.badge{flex:none;padding:4px 9px;border-radius:4px;border:1px solid #CBD0C3;color:var(--muted);font-family:var(--sans);font-size:12px;font-weight:600}
+.badge.own{background:var(--sage);border-color:var(--sage);color:#fff}
+.card.on .art{box-shadow:0 0 0 2px var(--sage),0 28px 44px -24px rgba(30,50,35,.55)}
+.grid .empty{grid-column:1/-1;color:var(--muted);font-size:16px}
+.eq{display:inline-flex;align-items:flex-end;gap:3px;height:16px}
+.eq i{display:block;width:3px;background:var(--sage);animation:eq 1.1s ease-in-out infinite;height:6px}
+.eq i:nth-child(2){animation-delay:.2s}.eq i:nth-child(3){animation-delay:.4s}
+@keyframes eq{0%,100%{height:4px}50%{height:16px}}
+
+/* verse band */
+.band{position:relative;padding:150px 0;overflow:hidden;color:#fff;text-align:center}
+.band .img{position:absolute;inset:-10% 0;background:url("https://images.unsplash.com/photo-1767601047966-8b5ea4885007?fm=jpg&q=70&w=2400&auto=format&fit=crop") center/cover;will-change:transform}
+.band::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(rgba(24,38,29,.62),rgba(24,38,29,.72))}
+.band .wrap{position:relative;z-index:2}
+.band p.v{margin:0 auto;max-width:820px;font-family:var(--serif);font-size:clamp(26px,3.6vw,42px);line-height:1.65;letter-spacing:-.01em}
+.band p.r{margin:26px 0 0;font-family:var(--latin);font-style:italic;font-size:20px;color:var(--mint)}
 
 /* works */
-.grid{margin-top:56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:#DFE1D7;border:1px solid #DFE1D7}
-.card{padding:34px 32px;background:#F7F6F1;transition:background .25s}
-.card:hover{background:#FDFDFA}
-.icon{width:44px;height:44px;border-radius:6px;display:flex;align-items:center;justify-content:center;background:#E4ECE2 !important}
-.card small{display:block;margin:24px 0 8px;font-size:12px;font-weight:600;letter-spacing:.14em;color:#8A7F73}
-.card h3{margin:0;font-family:'Gowun Batang',serif;font-size:21px;font-weight:700}
-.card p{margin:12px 0 0;font-size:15px;line-height:1.75;color:#5A5148}
-.card.dark{background:#4F7457;color:#fff;display:flex;flex-direction:column;justify-content:space-between}
-.card.dark:hover{background:#466A4E}
-.card.dark small{margin-top:0;color:#E4EEDC}
-.card.dark p{color:#EEF3EA}
-.card.dark a{margin-top:24px;display:inline-flex;align-items:center;gap:8px;min-height:44px;font-size:15px;font-weight:600}
+.works{padding:120px 0}
+.wgrid{margin-top:56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.wcard{padding:36px 32px;background:var(--ground);transition:background .3s}
+.wcard:hover{background:var(--paper)}
+.wcard .ic{width:44px;height:44px;border-radius:6px;background:#E4ECE2;display:flex;align-items:center;justify-content:center}
+.wcard small{display:block;margin:24px 0 8px;font-family:var(--latin);font-style:italic;font-size:17px;color:var(--sage)}
+.wcard h3{margin:0;font-family:var(--serif);font-size:22px;font-weight:700}
+.wcard p{margin:12px 0 0;font-size:15px;line-height:1.8;color:var(--ink2)}
+.wcard.accent{background:var(--sage);color:#fff}
+.wcard.accent:hover{background:#466A4E}
+.wcard.accent small{color:#E4EEDC}.wcard.accent p{color:#EEF3EA}
+.wcard.accent a{margin-top:22px;display:inline-flex;align-items:center;gap:8px;min-height:44px;font-family:var(--sans);font-size:15px;font-weight:600}
 
 /* about */
-.about{display:flex;flex-wrap:wrap;gap:72px;align-items:flex-start}
-.photo{flex:1 1 320px;min-width:0;max-width:420px;aspect-ratio:4/5;border-radius:8px;background:linear-gradient(rgba(247,246,241,.55),rgba(247,246,241,.55)),url("https://images.unsplash.com/photo-1767601047966-8b5ea4885007?fm=jpg&q=65&w=2000&auto=format&fit=crop") center/cover;display:flex;align-items:center;justify-content:center;text-align:center;color:#5C6B5E;font-size:15px;line-height:1.6}
-.about-text{flex:999 1 480px;min-width:0}
-.about-text p.lead{margin:28px 0 0;font-size:18px;line-height:1.9;color:#4A423B}
-.facts{margin-top:44px;padding-top:32px;border-top:1px solid #DFE1D7;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px 40px}
-.facts h4{margin:0 0 12px;font-size:12px;font-weight:600;letter-spacing:.16em;color:#3F6248}
+.about{padding:120px 0;background:var(--paper);border-top:1px solid var(--line)}
+.about .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:72px;align-items:center}
+.photo{aspect-ratio:4/5;border-radius:8px;background:linear-gradient(rgba(247,246,241,.5),rgba(247,246,241,.5)),url("https://images.unsplash.com/photo-1543051932-6ef9fecfbc80?fm=jpg&q=70&w=1200&auto=format&fit=crop") center/cover;display:flex;align-items:center;justify-content:center;text-align:center;color:#4D5C50;font-size:15px;line-height:1.6}
+.about p.lead{margin:28px 0 0;font-size:18px;line-height:1.95;color:var(--ink2)}
+.facts{margin-top:40px;padding-top:32px;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px 40px}
+.facts h4{margin:0 0 12px;font-family:var(--latin);font-style:italic;font-size:18px;font-weight:600;color:var(--sage)}
 .facts ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;font-size:16px;line-height:1.5}
 
 /* contact */
-.contact{padding:72px 56px;border-radius:10px;background:linear-gradient(rgba(30,44,35,.86),rgba(30,44,35,.86)),url("https://images.unsplash.com/photo-1767601047966-8b5ea4885007?fm=jpg&q=65&w=2000&auto=format&fit=crop") center/cover;color:#F7F6F1;display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;align-items:center}
-.contact h2{margin:0;font-family:'Gowun Batang',serif;font-size:clamp(28px,4.2vw,40px);font-weight:700;letter-spacing:-.02em;line-height:1.4}
-.contact .muted{color:#C4D0C6 !important}
-.contact .links{flex:1 1 280px;min-width:0;display:flex;flex-direction:column;gap:10px}
-.clink{display:flex;align-items:center;gap:14px;min-height:58px;padding:0 22px;border-radius:6px;background:transparent;border:1px solid #4C5E51;color:#F7F6F1;font-size:16px;font-weight:600;transition:border-color .2s,background .2s}
-.clink svg{stroke:#F7F6F1}
-.clink:hover{border-color:#B9D0BC}
-.clink.dark{background:#B9D0BC;border-color:#B9D0BC;color:#2B2520}
-.clink.dark svg{stroke:#2B2520}
-.clink.dark:hover{background:#CFE0D1}
-footer{padding:32px 32px 56px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:14px;color:#8A7F73}
+.contact{padding:120px 0}
+.cbox{position:relative;overflow:hidden;padding:80px 64px;border-radius:10px;color:#fff;display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;align-items:center}
+.cbox::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(30,44,35,.84),rgba(30,44,35,.84)),url("https://images.unsplash.com/photo-1560880944-796251b78b4c?fm=jpg&q=60&w=2000&auto=format&fit=crop") center/cover}
+.cbox>*{position:relative}
+.cbox h2{margin:0;font-family:var(--serif);font-size:clamp(30px,4.4vw,46px);line-height:1.4;letter-spacing:-.02em}
+.cbox p{margin:18px 0 0;font-size:17px;line-height:1.8;color:#D3DDD4}
+.links{flex:1 1 280px;max-width:380px;display:flex;flex-direction:column;gap:10px}
+.clink{display:flex;align-items:center;gap:14px;min-height:58px;padding:0 22px;border-radius:6px;border:1px solid rgba(255,255,255,.28);font-family:var(--sans);font-size:16px;font-weight:600;transition:border-color .2s,background .2s}
+.clink:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.clink.main{background:#fff;color:var(--deep);border-color:#fff}
+.clink.main:hover{background:#EEF4EE}
+footer{padding:36px 32px 40px;max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:14px;color:var(--muted)}
 
+/* bottom player */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(30,44,35,.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);color:#fff;transform:translateY(0);transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.dock .bar{position:absolute;top:0;left:0;right:0;height:3px;background:rgba(255,255,255,.12);cursor:pointer}
+.dock .bar div{height:3px;width:0;background:var(--mint);transition:width .3s linear}
+.dock .in{max-width:1200px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;gap:18px}
+.dock .th{flex:none;width:52px;height:52px;border-radius:4px;background:#3E4F43 center/cover}
+.dock .info{flex:1 1 auto;min-width:0}
+.dock .info b{display:block;font-family:var(--serif);font-size:17px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dock .info span{display:flex;align-items:center;gap:10px;margin-top:3px;font-family:var(--sans);font-size:13px;color:#B4C2B6}
+.dock .ctl{flex:none;display:flex;align-items:center;gap:8px}
+.dock .ctl button{width:46px;height:46px;border:0;border-radius:50%;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.dock .ctl button:hover{background:rgba(255,255,255,.08)}
+.dock .ctl button.play{width:52px;height:52px;background:#fff}
+.dock .ctl button.play:hover{background:#EEF4EE}
+.dock .ctl button:focus-visible{outline:2px solid var(--mint);outline-offset:2px}
+.dock .time{flex:none;font-family:var(--sans);font-size:13px;color:#B4C2B6;min-width:92px;text-align:right}
 
-.list{max-height:640px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:#C2C8BB transparent}
-.list .empty{padding:28px 16px;color:#6E645A;font-size:15px;line-height:1.7}
 #yt{position:fixed;left:-20px;bottom:0;width:1px;height:1px;opacity:0;pointer-events:none;overflow:hidden}
-.count{font-family:Pretendard,'Noto Sans KR',sans-serif;font-size:14px;color:#6E645A;margin-left:10px;font-weight:500}
+
+@media (max-width:900px){
+ .feat,.about .wrap{grid-template-columns:1fr;gap:44px}
+ .feat-cover{max-width:520px}
+}
 @media (max-width:640px){
- .hero{min-height:0}
- .hero-bg{background:linear-gradient(180deg,rgba(247,246,241,.92) 0%,rgba(247,246,241,.80) 100%),url("https://images.unsplash.com/photo-1560880944-796251b78b4c?fm=jpg&q=70&w=2400&auto=format&fit=crop") center/cover}
- header{padding:20px}
- nav{gap:18px}
- .hero{padding:56px 20px 80px}
- section{padding:80px 20px}
- .contact{padding:40px 24px}
- .player{padding:22px}
- .story{padding:28px}
+ .wrap{padding:0 20px}
+ nav{gap:16px}
+ nav a{font-size:14px}
+ .brand span{display:none}
+ .hero{min-height:620px}
+ .featured,.songs,.works,.about,.contact{padding:84px 0}
+ .band{padding:110px 0}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 16px}
+ .card .art .t{font-size:16px;left:12px;right:12px}
+ .cbox{padding:48px 26px}
+ .dock .in{padding:12px 16px;gap:12px}
+ .dock .time,.dock .ctl .prev{display:none}
+ .dock .th{width:44px;height:44px}
+}
+@media (prefers-reduced-motion:reduce){
+ .hero-img,.mist,.scroll-cue i,.eq i{animation:none}
+ .rv{opacity:1;transform:none;transition:none}
+ html{scroll-behavior:auto}
 }
 </style>
 </head>
 <body>
 
-<header class="wrap">
-  <a class="brand" href="#top"><b>박동준</b><span>SONGS &amp; WORKS</span></a>
-  <nav>
-    <a href="#songs">노래</a>
-    <a href="#works">작품</a>
-    <a href="#about">소개</a>
-    <a href="#contact">연락</a>
-  </nav>
+<header id="hdr">
+  <div class="wrap">
+    <a class="brand" href="#top"><b>박동준</b><span>The Songs</span></a>
+    <nav>
+      <a href="#songs">노래</a>
+      <a href="#works">작품</a>
+      <a href="#about">소개</a>
+      <a href="#contact">연락</a>
+    </nav>
+  </div>
 </header>
 
-<div class="hero" id="top">
-  <div class="hero-bg" aria-hidden="true"></div>
+<section class="hero" id="top">
+  <div class="hero-img" aria-hidden="true"></div>
+  <div class="mist" aria-hidden="true"></div>
+  <div class="hero-veil" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="hero-text">
-      <p class="eyebrow">SINGER · SONGWRITER · PRODUCER</p>
-      <h1>하루를 여는<br><em>한 곡의 아침</em></h1>
-      <p class="lead">예배의 자리에서 시작된 노래를 씁니다. 천천히, 그러나 분명하게 — 그분의 사랑에 물들어가는 삶을 노래로 담아냅니다.</p>
-      <div class="btns">
-        <a class="btn dark" href="#songs"><svg width="14" height="14" viewBox="0 0 24 24" fill="#F7F6F1" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>노래 듣기</a>
-        <a class="btn light" href="#works">작품 보기</a>
-      </div>
-    </div>
-
-    <div class="player-col">
-      <div class="player">
-        <div class="player-top">
-          <small>NOW PLAYING</small>
-          <span class="eq" id="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-        </div>
-        <div class="cover" id="cover"><span class="serif" id="coverTitle"></span></div>
-        <p class="p-title" id="pTitle"></p>
-        <p class="p-sub" id="pSub"></p>
-        <div class="bar"><div id="prog"></div></div>
-        <div class="controls">
-          <button type="button" id="prev" aria-label="이전 곡"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 5 9 12l10 7z"/><path d="M5 5v14"/></svg></button>
-          <button type="button" id="play" class="play" aria-label="재생"></button>
-          <button type="button" id="next" aria-label="다음 곡"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 5 10 7-10 7z"/><path d="M19 5v14"/></svg></button>
-        </div>
-      </div>
+    <p class="eyebrow rv">Songs for the morning</p>
+    <h1 class="rv d1">하루를 여는<br><em>한 곡의 아침</em></h1>
+    <p class="lead rv d2">예배의 자리에서 길어 올린 고백을 노래로 담았습니다.<br>숲길을 걷듯, 천천히 귀 기울여 주세요.</p>
+    <div class="btns rv d3">
+      <button type="button" class="btn dark" id="heroPlay"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>지금 들어보기</button>
+      <a class="btn light" href="#songs">모든 노래</a>
     </div>
   </div>
-</div>
+  <a class="scroll-cue" href="#featured" aria-label="아래로 내려가기">scroll<i></i></a>
+</section>
 
-<section id="songs" class="white">
-  <div class="wrap">
-    <div class="songs-head">
-      <div>
-        <p class="eyebrow">SONGS</p>
-        <h2 class="title">나의 노래<span class="count" id="count"></span></h2>
-      </div>
-      <p class="muted">곡을 누르면 위 플레이어에서 바로 흘러나옵니다. 편안히 틀어두고 하루를 걸어가세요.</p>
-    </div>
-    <div class="songs-body">
-      <div class="list" id="list"><p class="empty">노래를 불러오는 중입니다…</p></div>
-      <div class="story">
-        <p class="eyebrow" style="font-size:13px;margin:0">곡 이야기</p>
-        <h3 class="serif" id="sTitle"></h3>
-        <p class="body" id="sBody"></p>
-        <div class="meta"><span id="sCredit">노래 <strong>박동준</strong></span><span id="sMeta"></span></div>
+<section class="featured" id="featured">
+  <div class="wrap feat">
+    <div class="feat-cover rv"><div class="img"></div><span class="cap">Morning devotion</span></div>
+    <div class="feat-text">
+      <span class="tag rv">자작곡 · 아침 묵상</span>
+      <h2 class="rv d1">당신의 하루가</h2>
+      <p class="quote rv d2">새 아침, 눈을 뜨며 하나님께 드리는 첫 고백.
+오늘 하루도 주님과 함께라면 괜찮다는 소망을
+싱그러운 아침 햇살처럼 담았습니다.</p>
+      <p class="credit rv d2">작사 · 작곡 · 노래 박동준</p>
+      <div class="btns rv d3">
+        <button type="button" class="btn dark" id="featPlay"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>당신의 하루가 듣기</button>
       </div>
     </div>
   </div>
 </section>
 
-<section id="works">
+<section class="songs" id="songs">
   <div class="wrap">
-    <p class="eyebrow">WORKS</p>
-    <h2 class="title">함께 만든 작품들</h2>
-    <p class="muted" style="margin:18px 0 0;max-width:620px;font-size:17px;line-height:1.75">무대와 방송, 예배 현장에서 노래하고 만들어온 일들입니다.</p>
-    <div class="grid">
-      <article class="card">
-        <div class="icon" style="background:#EDEAFF"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3F6248" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
-        <small>PRODUCING</small><h3>쉘위워십</h3>
+    <div class="songs-head">
+      <div>
+        <p class="eyebrow rv">The Songs</p>
+        <h2 class="title rv d1">나의 노래<span class="count" id="count"></span></h2>
+      </div>
+      <p class="muted rv d2">표지를 누르면 아래 플레이어에서 바로 흘러나옵니다. 틀어두고 하루를 걸어가세요.</p>
+    </div>
+    <div class="grid" id="grid"><p class="empty">노래를 불러오는 중입니다…</p></div>
+  </div>
+</section>
+
+<section class="band" aria-label="말씀">
+  <div class="img" id="bandImg" aria-hidden="true"></div>
+  <div class="wrap">
+    <p class="v rv">이것이 내 마음에 생각한즉 오히려 소망이 있사옴은<br>여호와의 인자와 긍휼이 무궁하시므로 …<br>이것들이 아침마다 새로우니</p>
+    <p class="r rv d1">Lamentations 3:21–23</p>
+  </div>
+</section>
+
+<section class="works" id="works">
+  <div class="wrap">
+    <p class="eyebrow rv">Works</p>
+    <h2 class="title rv d1">함께 만든 작품들</h2>
+    <p class="muted rv d2" style="margin:18px 0 0;max-width:620px;font-size:17px;line-height:1.8">무대와 방송, 예배 현장에서 노래하고 만들어온 일들입니다.</p>
+    <div class="wgrid rv d2">
+      <article class="wcard">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2F5139" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+        <small>Producing</small><h3>쉘위워십</h3>
         <p>중부 지역을 맡아 예배 모임을 함께 세우고 섬깁니다.</p>
       </article>
-      <article class="card">
-        <div class="icon" style="background:#DFF0FF"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3F6248" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="m10 9 5 3-5 3z"/></svg></div>
-        <small>YOUTUBE LIVE</small><h3>더 그레이스</h3>
+      <article class="wcard">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2F5139" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="m10 9 5 3-5 3z"/></svg></div>
+        <small>YouTube Live</small><h3>더 그레이스</h3>
         <p>화요일 밤, 찬양과 이야기로 함께하는 라이브 방송입니다.</p>
       </article>
-      <article class="card">
-        <div class="icon" style="background:#FFE8E1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3F6248" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/></svg></div>
-        <small>RADIO</small><h3>극동방송</h3>
+      <article class="wcard">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2F5139" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/></svg></div>
+        <small>Radio</small><h3>극동방송</h3>
         <p>밤 9시 '주님과 함께 이 밤에' 묵상으로 하루를 닫아드립니다.</p>
       </article>
-      <article class="card">
-        <div class="icon" style="background:#E6F5EC"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3F6248" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M15 14.5c3 0 6 2 6 5.5"/></svg></div>
-        <small>COMMUNITY</small><h3>GIVEN MINISTRY</h3>
+      <article class="wcard">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2F5139" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M15 14.5c3 0 6 2 6 5.5"/></svg></div>
+        <small>Community</small><h3>GIVEN MINISTRY</h3>
         <p>문화사역 공동체의 대표로 사람과 사역을 잇습니다.</p>
       </article>
-      <article class="card">
-        <div class="icon" style="background:#FFF3D6"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3F6248" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h2l2-6 4 12 3-9 2 3h5"/></svg></div>
-        <small>WORSHIP TEAM</small><h3>그레이스워십</h3>
+      <article class="wcard">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2F5139" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h2l2-6 4 12 3-9 2 3h5"/></svg></div>
+        <small>Worship Team</small><h3>그레이스워십</h3>
         <p>찬양팀의 소리를 만지며 예배의 공기를 함께 빚습니다.</p>
       </article>
-      <article class="card dark">
-        <div>
-          <small>VOCAL</small><h3>CCM 보컬리스트</h3>
-          <p>꾸밈보다 진심으로, 가사가 먼저 들리는 노래를 부릅니다.</p>
-        </div>
+      <article class="wcard accent">
+        <small>Vocal</small><h3>CCM 보컬리스트</h3>
+        <p>꾸밈보다 진심으로, 가사가 먼저 들리는 노래를 부릅니다.</p>
         <a href="#contact">공연·협업 문의 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
       </article>
     </div>
   </div>
 </section>
 
-<section id="about" class="white">
-  <div class="wrap about">
-    <div class="photo">[프로필 사진]<br>세로 4:5 비율 권장</div>
-    <div class="about-text">
-      <p class="eyebrow">ABOUT</p>
-      <h2 class="title">노래하는 목사,<br>박동준입니다</h2>
-      <p class="lead">대전 유성의 은혜교회를 섬기며, 예배의 자리에서 길어 올린 고백을 노래로 씁니다. 화려한 기교보다 따라 부르기 쉽고 오래 남는 노래, 교회가 함께 부를 수 있는 노래를 꿈꿉니다.</p>
-      <div class="facts">
-        <div><h4>사역</h4><ul><li>은혜교회 담임목사</li><li>GIVEN MINISTRY 대표</li><li>쉘위워십 중부 담당</li></ul></div>
-        <div><h4>음악·방송</h4><ul><li>CCM 보컬리스트 · 작곡</li><li>프로듀싱 — 쉘위워십, 비컴퍼니</li><li>유튜브 '더 그레이스' · 극동방송</li></ul></div>
-        <div><h4>학력</h4><ul><li>침례신학대학교 및 동 대학원</li><li>리버티신학대학원 설교학</li></ul></div>
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="photo rv">[프로필 사진]<br>세로 4:5 비율 권장</div>
+    <div>
+      <p class="eyebrow rv">About</p>
+      <h2 class="title rv d1">노래하는 목사,<br>박동준입니다</h2>
+      <p class="lead rv d2">대전 유성의 은혜교회를 섬기며, 예배의 자리에서 길어 올린 고백을 노래로 부릅니다. 화려한 기교보다 따라 부르기 쉽고 오래 남는 노래, 교회가 함께 부를 수 있는 노래를 꿈꿉니다.</p>
+      <div class="facts rv d3">
+        <div><h4>Ministry</h4><ul><li>은혜교회 담임목사</li><li>GIVEN MINISTRY 대표</li><li>쉘위워십 중부 담당</li></ul></div>
+        <div><h4>Music</h4><ul><li>CCM 보컬리스트 · 작곡</li><li>프로듀싱 — 쉘위워십, 비컴퍼니</li><li>유튜브 '더 그레이스' · 극동방송</li></ul></div>
+        <div><h4>Study</h4><ul><li>침례신학대학교 및 동 대학원</li><li>리버티신학대학원 설교학</li></ul></div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="contact">
-  <div class="wrap contact">
-    <div style="flex:999 1 440px;min-width:0">
-      <h2>함께 노래할 자리를<br>기다립니다</h2>
-      <p class="muted" style="margin:18px 0 0;font-size:17px;line-height:1.75">집회 찬양 인도, 곡 사용, 협업 문의는 편하게 연락 주세요.</p>
-    </div>
-    <div class="links">
-      <a class="clink dark" href="#contact"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>[이메일 주소]</a>
-      <a class="clink" href="#contact"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F7F6F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3z"/></svg>유튜브 '더 그레이스'</a>
-      <a class="clink" href="#contact"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F7F6F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5"/></svg>[인스타그램]</a>
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="cbox rv">
+      <div style="flex:999 1 420px;min-width:0">
+        <h2>함께 노래할 자리를<br>기다립니다</h2>
+        <p>집회 찬양 인도, 곡 사용, 협업 문의는 편하게 연락 주세요.</p>
+      </div>
+      <div class="links">
+        <a class="clink main" href="#contact"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E2C23" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>[이메일 주소]</a>
+        <a class="clink" href="https://www.youtube.com/playlist?list=PLlQGGta1UGsHstlRAiuBDON326GNK1-4N" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3z"/></svg>유튜브에서 보기</a>
+        <a class="clink" href="#contact"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5"/></svg>[인스타그램]</a>
+      </div>
     </div>
   </div>
 </section>
 
-<footer class="wrap">
+<footer>
   <span>© 2026 박동준. All songs written with love.</span>
   <span>대전 유성 · 은혜교회 · Photos: Unsplash</span>
 </footer>
+
+<div class="dock" id="dock" role="region" aria-label="플레이어">
+  <div class="bar" id="bar"><div id="prog"></div></div>
+  <div class="in">
+    <div class="th" id="dThumb"></div>
+    <div class="info"><b id="dTitle">The Songs</b><span id="dSub"><span id="eq" class="eq" hidden><i></i><i></i><i></i></span><span id="dSubText">곡을 골라 들어보세요</span></span></div>
+    <span class="time" id="dTime">0:00 / 0:00</span>
+    <div class="ctl">
+      <button type="button" class="prev" id="prev" aria-label="이전 곡"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 5 9 12l10 7z"/><path d="M5 5v14"/></svg></button>
+      <button type="button" class="play" id="play" aria-label="재생"></button>
+      <button type="button" id="next" aria-label="다음 곡"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 5 10 7-10 7z"/><path d="M19 5v14"/></svg></button>
+    </div>
+  </div>
+</div>
 <div id="yt" aria-hidden="true"><div id="ytplayer"></div></div>
 
 <script>
 // 유튜브 재생목록 "The Songs" — 영상은 숨기고 소리만 재생합니다.
 const PLAYLIST = 'PLlQGGta1UGsHstlRAiuBDON326GNK1-4N';
-const COVERS = ['https://images.unsplash.com/photo-1758940887182-bfd3d2efa4d8?fm=jpg&q=70&w=1200&auto=format&fit=crop','https://images.unsplash.com/photo-1543051932-6ef9fecfbc80?fm=jpg&q=70&w=1200&auto=format&fit=crop','https://images.unsplash.com/photo-1620308189773-41a11b5472fc?fm=jpg&q=70&w=1200&auto=format&fit=crop','https://images.unsplash.com/photo-1560880944-796251b78b4c?fm=jpg&q=70&w=1200&auto=format&fit=crop','https://images.unsplash.com/photo-1767601047966-8b5ea4885007?fm=jpg&q=70&w=1200&auto=format&fit=crop'];
-// 곡별 이야기 — 제목에 들어간 단어로 찾아 붙입니다. 필요한 곡을 여기에 더 적어주세요.
-const STORIES = [
-  { match:'당신의 하루가', own:true, cover:'https://images.unsplash.com/photo-1758940887182-bfd3d2efa4d8?fm=jpg&q=70&w=1200&auto=format&fit=crop',
-    text:'새 아침, 눈을 뜨며 하나님께 드리는 첫 고백입니다.\n오늘 하루도 주님과 함께라면 괜찮다는 소망을\n싱그러운 아침 햇살처럼 담았습니다.' }
+const Q = '?fm=jpg&q=70&w=900&auto=format&fit=crop';
+const COVERS = [
+  'https://images.unsplash.com/photo-1758940887182-bfd3d2efa4d8'+Q,
+  'https://images.unsplash.com/photo-1543051932-6ef9fecfbc80'+Q,
+  'https://images.unsplash.com/photo-1620308189773-41a11b5472fc'+Q,
+  'https://images.unsplash.com/photo-1560880944-796251b78b4c'+Q,
+  'https://images.unsplash.com/photo-1767601047966-8b5ea4885007'+Q
 ];
-// 맨 앞에 고정되는 곡들 — 자작곡은 own을 빼고, 부른 곡은 own:false 로 둡니다.
-const OWN = [ { id:'Y_qsb30lA_E', title:'당신의 하루가' }, { id:'EkyXA3-pdps', title:'I belong to you', own:false, theme:'The Songs' }, { id:'AOKm2ypB5cM', title:'아버지의 노래', own:false, theme:'The Songs' }, { id:'xnED6G_gqJg', title:'생기를 부으소서', own:false, theme:'The Songs' }, { id:'L7qn9_TReu8', title:'나의 사랑 나의 예수', own:false, theme:'The Songs' },
-  { id:'NvLXvf-1q2I', title:'I come to you Lord', own:false, badge:'듀엣',
-    theme:'전선아(옥합)와 듀엣 · 우은경 피아노 앨범 수록',
-    credit:'듀엣 <strong>전선아</strong>(옥합)',
-    story:"'옥합'의 전선아와 함께 듀엣으로 부른 곡입니다.\n피아니스트 우은경의 피아노 앨범에 실렸던 노래예요." }
+// 맨 앞에 고정되는 곡들 — own:true 는 자작곡입니다.
+const PINNED = [
+  { id:'Y_qsb30lA_E', title:'당신의 하루가', own:true, sub:'자작곡 · 아침 묵상', cover:COVERS[0] },
+  { id:'EkyXA3-pdps', title:'I belong to you' },
+  { id:'AOKm2ypB5cM', title:'아버지의 노래' },
+  { id:'xnED6G_gqJg', title:'생기를 부으소서' },
+  { id:'L7qn9_TReu8', title:'나의 사랑 나의 예수' },
+  { id:'NvLXvf-1q2I', title:'I come to you Lord', badge:'듀엣', sub:'전선아(옥합) 듀엣 · 우은경 피아노 앨범' }
 ];
-const DEFAULT_STORY = '예배의 자리에서 길어 올린 고백을 노래로 담았습니다.\n편안히 귀 기울여 들어주세요.';
 
-const PLAY = '<svg width="22" height="22" viewBox="0 0 24 24" fill="#2B2520" aria-hidden="true"><path d="M8 4.5v15l12-7.5z"/></svg>';
-const PAUSE = '<svg width="22" height="22" viewBox="0 0 24 24" fill="#2B2520" aria-hidden="true"><rect x="6" y="4.5" width="4" height="15" rx="1"/><rect x="14" y="4.5" width="4" height="15" rx="1"/></svg>';
+const PLAY_I = '<svg width="20" height="20" viewBox="0 0 24 24" fill="#1E2C23" aria-hidden="true"><path d="M8 4.5v15l12-7.5z"/></svg>';
+const PAUSE_I = '<svg width="20" height="20" viewBox="0 0 24 24" fill="#1E2C23" aria-hidden="true"><rect x="6" y="4.5" width="4" height="15" rx="1"/><rect x="14" y="4.5" width="4" height="15" rx="1"/></svg>';
 const $ = id => document.getElementById(id);
-let player = null, ready = false, songs = [], cur = 0, playing = false, timer = null;
+let player = null, ready = false, songs = [], cur = 0, playing = false, started = false, timer = null;
 
 function cleanTitle(t){
   return (t || '')
     .replace(/\s*[\[\(（【<〈「『][^\]\)）】>〉」』]*박동준[^\]\)）】>〉」』]*[\]\)）】>〉」』]\s*/g,' ')
-    .replace(/^\s*박동준\s*[-–—:|·]\s*/,'').replace(/\s*[-–—:|·]\s*박동준\s*$/,'').replace(/\s*[\[\(（【].*?(official|lyric|audio|mv|가사|공식|M\/V).*?[\]\)）】]\s*/gi,' ').replace(/\s{2,}/g,' ').trim();
-}
-function storyFor(title){
-  const hit = STORIES.find(x => title.includes(x.match));
-  return hit || null;
+    .replace(/^\s*박동준\s*[-–—:|·]\s*/,'').replace(/\s*[-–—:|·]\s*박동준\s*$/,'')
+    .replace(/\s*[\[\(（【].*?(official|lyric|audio|mv|가사|공식|M\/V).*?[\]\)）】]\s*/gi,' ')
+    .replace(/\s{2,}/g,' ').trim();
 }
 async function fetchTitle(id){
   const url = 'https://www.youtube.com/watch?v=' + id;
@@ -331,83 +400,76 @@ async function fetchTitle(id){
   }
   return '';
 }
+const fmt = t => { t = Math.max(0, Math.floor(t||0)); return Math.floor(t/60) + ':' + String(t%60).padStart(2,'0'); };
 
-function buildList(){
-  const list = $('list');
-  list.innerHTML = '';
+function buildGrid(){
+  const g = $('grid'); g.innerHTML = '';
   songs.forEach((s, i) => {
     const b = document.createElement('button');
-    b.type = 'button'; b.className = 'row';
-    b.innerHTML = '<span class="no"></span><span class="t"><b></b><span></span></span><span class="badge">듣기</span>';
-    b.querySelector('.no').textContent = String(i+1).padStart(2,'0');
-    b.querySelector('.t b').textContent = s.title;
-    b.querySelector('.t span').textContent = s.theme;
-    b.addEventListener('click', () => playAt(i));
-    list.appendChild(b);
+    b.type = 'button'; b.className = 'card';
+    b.innerHTML = '<div class="art"><div class="img"></div><span class="num"></span><span class="pbtn">'+PLAY_I+'</span><span class="t"></span></div><div class="meta"><span></span><em class="badge" hidden></em></div>';
+    b.querySelector('.img').style.backgroundImage = 'url("' + s.cover + '")';
+    b.querySelector('.num').textContent = String(i+1).padStart(2,'0');
+    b.querySelector('.t').textContent = s.title;
+    b.querySelector('.meta span').textContent = s.sub;
+    const bd = b.querySelector('.badge');
+    if (s.own || s.badge) { bd.hidden = false; bd.textContent = s.own ? '자작곡' : s.badge; bd.classList.toggle('own', !!s.own); }
+    b.setAttribute('aria-label', s.title + ' 재생');
+    b.addEventListener('click', () => (i === cur && started) ? toggle() : playAt(i));
+    g.appendChild(b);
   });
   $('count').textContent = songs.length + '곡';
 }
 function render(){
-  const s = songs[cur]; if (!s) return;
-  $('coverTitle').textContent = s.title;
-  $('cover').style.setProperty('--cover', 'url("' + s.cover + '")');
-  $('pTitle').textContent = s.title;
-  $('sTitle').textContent = s.title;
-  $('sBody').textContent = s.story;
-  $('sMeta').textContent = 'The Songs · ' + (cur+1) + ' / ' + songs.length;
-  $('sCredit').innerHTML = s.credit ? s.credit : s.own ? '작사·작곡 <strong>박동준</strong>' : '';
-  $('pSub').textContent = s.own ? '자작곡' : s.badge ? '듀엣 · 전선아' : 'The Songs';
-  [...$('list').children].forEach((r, i) => {
-    r.classList.toggle('on', i === cur);
-    const bd = r.querySelector('.badge'); if (bd) { const on = i === cur && playing; bd.textContent = on ? '재생 중' : (songs[i].own ? '자작곡' : (songs[i].badge || '듣기')); bd.classList.toggle('done', on || songs[i].own); }
-  });
-  $('play').innerHTML = playing ? PAUSE : PLAY;
+  const s = songs[cur];
+  $('play').innerHTML = playing ? PAUSE_I : PLAY_I;
   $('play').setAttribute('aria-label', playing ? '일시정지' : '재생');
-  $('eq').classList.toggle('on', playing);
+  $('eq').hidden = !playing;
+  if (!s) return;
+  $('dTitle').textContent = s.title;
+  $('dSubText').textContent = started ? s.sub : '곡을 골라 들어보세요';
+  $('dThumb').style.backgroundImage = 'url("' + s.cover + '")';
+  [...$('grid').children].forEach((c, i) => {
+    c.classList.toggle('on', i === cur && started);
+    const pb = c.querySelector('.pbtn'); if (pb) pb.innerHTML = (i === cur && playing) ? PAUSE_I : PLAY_I;
+  });
 }
 function playAt(i){
-  if (!ready) return;
-  cur = (i + songs.length) % songs.length;
+  if (!ready || !songs.length) return;
+  cur = (i + songs.length) % songs.length; started = true;
   player.playVideoAt(cur);
   render();
-  const row = $('list').children[cur]; if (row) row.scrollIntoView({block:'nearest', behavior:'smooth'});
 }
 function toggle(){
-  if (!ready) return;
-  if (playing) player.pauseVideo();
-  else if (player.getPlaylistIndex() === cur && player.getPlayerState() !== -1 && player.getPlayerState() !== 5) player.playVideo();
-  else player.playVideoAt(cur);
+  if (!ready || !songs.length) return;
+  if (!started) return playAt(cur);
+  playing ? player.pauseVideo() : player.playVideo();
 }
 function tick(){
   if (!ready) return;
   const d = player.getDuration ? player.getDuration() : 0, t = player.getCurrentTime ? player.getCurrentTime() : 0;
   $('prog').style.width = d ? (t / d * 100) + '%' : '0%';
+  $('dTime').textContent = fmt(t) + ' / ' + fmt(d);
 }
 
 async function loadSongs(){
   const plIds = player.getPlaylist() || [];
-  const ownIds = OWN.map(o => o.id);
-  const ids = ownIds.concat(plIds.filter(id => !ownIds.includes(id)));
+  const pinIds = PINNED.map(p => p.id);
+  const ids = pinIds.concat(plIds.filter(id => !pinIds.includes(id)));
   songs = ids.map((id, i) => {
-    const o = OWN.find(x => x.id === id);
-    const st = o ? storyFor(o.title) : null;
-    return { id, own: o ? o.own !== false : false, pinned: !!o, badge: o && o.badge, credit: o && o.credit, title: o ? o.title : '곡 ' + (i+1),
-      theme: st ? '하루를 여는 아침 묵상' : (o && o.theme) || 'The Songs',
-      cover: (st && st.cover) || COVERS[i % COVERS.length], story: st ? st.text : (o && o.story) || DEFAULT_STORY };
+    const p = PINNED.find(x => x.id === id);
+    return { id, pinned: !!p, own: !!(p && p.own), badge: p && p.badge,
+      title: p ? p.title : '곡 ' + (i+1), sub: (p && p.sub) || 'The Songs',
+      cover: (p && p.cover) || COVERS[i % COVERS.length] };
   });
   player.cuePlaylist(ids);
-  buildList(); render();
-  await Promise.all(ids.map(async (id, i) => {
-    if (songs[i].pinned) return;
-    const raw = await fetchTitle(id);
-    if (!raw) return;
-    const title = cleanTitle(raw) || raw;
-    const st = storyFor(title);
-    songs[i].title = title;
-    if (st) { songs[i].own = songs[i].own || !!st.own; songs[i].story = st.text; songs[i].cover = st.cover || songs[i].cover; songs[i].theme = '하루를 여는 아침 묵상'; }
-    const row = $('list').children[i];
-    if (row) row.querySelector('.t b').textContent = title;
-    if (row && st) row.querySelector('.t span').textContent = songs[i].theme;
+  buildGrid(); render();
+  await Promise.all(songs.map(async (s, i) => {
+    if (s.pinned) return;
+    const raw = await fetchTitle(s.id); if (!raw) return;
+    s.title = cleanTitle(raw) || raw;
+    const c = $('grid').children[i];
+    if (c) { c.querySelector('.t').textContent = s.title; c.setAttribute('aria-label', s.title + ' 재생'); }
     if (i === cur) render();
   }));
 }
@@ -418,16 +480,15 @@ window.onYouTubeIframeAPIReady = function(){
     playerVars: { listType:'playlist', list: PLAYLIST, controls:0, playsinline:1, rel:0 },
     events: {
       onReady: () => {
-        ready = true;
-        let tries = 0;
+        ready = true; let tries = 0;
         const wait = setInterval(() => {
           const pl = player.getPlaylist();
-          if ((pl && pl.length) || ++tries > 40) { clearInterval(wait); if (pl && pl.length) loadSongs(); else $('list').innerHTML = '<p class="empty">노래 목록을 불러오지 못했어요. 잠시 후 새로고침해 주세요.</p>'; }
+          if ((pl && pl.length) || ++tries > 40) { clearInterval(wait); if (pl && pl.length) loadSongs(); else $('grid').innerHTML = '<p class="empty">노래 목록을 불러오지 못했어요. 잠시 후 새로고침해 주세요.</p>'; }
         }, 250);
       },
       onStateChange: (e) => {
         playing = (e.data === YT.PlayerState.PLAYING);
-        const idx = player.getPlaylistIndex(); if (idx >= 0) cur = idx;
+        if (started) { const idx = player.getPlaylistIndex(); if (idx >= 0) cur = idx; }
         clearInterval(timer); if (playing) timer = setInterval(tick, 500); else tick();
         render();
       }
@@ -437,11 +498,26 @@ window.onYouTubeIframeAPIReady = function(){
 $('play').addEventListener('click', toggle);
 $('prev').addEventListener('click', () => playAt(cur - 1));
 $('next').addEventListener('click', () => playAt(cur + 1));
-$('coverTitle').textContent = 'The Songs';
-$('cover').style.setProperty('--cover', 'url("https://images.unsplash.com/photo-1758940887182-bfd3d2efa4d8?fm=jpg&q=70&w=1200&auto=format&fit=crop")');
-$('pTitle').textContent = 'The Songs';
-$('pSub').textContent = '박동준';
-$('play').innerHTML = PLAY;
+$('heroPlay').addEventListener('click', () => playAt(0));
+$('featPlay').addEventListener('click', () => playAt(0));
+$('bar').addEventListener('click', e => {
+  if (!ready || !started) return;
+  const r = e.currentTarget.getBoundingClientRect(), d = player.getDuration();
+  if (d) player.seekTo((e.clientX - r.left) / r.width * d, true);
+});
+$('play').innerHTML = PLAY_I;
+$('dThumb').style.backgroundImage = 'url("' + COVERS[0] + '")';
+
+// 스크롤 효과
+const hdr = $('hdr'), band = $('bandImg');
+const onScroll = () => {
+  hdr.classList.toggle('solid', scrollY > 40);
+  const r = band.parentElement.getBoundingClientRect();
+  if (r.bottom > 0 && r.top < innerHeight) band.style.transform = 'translate3d(0,' + ((r.top - innerHeight/2) * -0.12) + 'px,0)';
+};
+addEventListener('scroll', onScroll, { passive:true }); onScroll();
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold:.15 });
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
 </script>
 <script src="https://www.youtube.com/iframe_api"></script>
 </body>
