@@ -106,6 +106,9 @@ nav a:hover{color:var(--forest);border-color:var(--mint)}
 .filter{display:flex;flex-wrap:wrap;gap:8px;font-family:var(--sans)}
 .filter button{min-height:36px;padding:0 14px;border-radius:4px;border:1px solid var(--line);background:var(--paper);color:var(--ink2);font-size:13px;font-weight:600;cursor:pointer}
 .filter button.on{background:var(--deep);border-color:var(--deep);color:#fff}
+.filter[hidden]{display:none}
+.showall{min-height:40px;padding:0 16px;border-radius:4px;border:1px solid var(--line);background:var(--paper);color:var(--ink2);font-family:var(--sans);font-size:14px;font-weight:600;cursor:pointer}
+.showall:hover{border-color:var(--ink)}
 .tl{margin-top:22px;border-top:1px solid var(--ink)}
 .row{width:100%;display:grid;grid-template-columns:30px 48px minmax(0,1fr) auto;gap:16px;align-items:center;min-height:68px;padding:10px 12px;border:0;border-bottom:1px solid var(--line);background:transparent;text-align:left;cursor:pointer;color:var(--ink);transition:background .2s}
 .row:hover{background:var(--tint)}
@@ -246,7 +249,8 @@ footer{max-width:1160px;margin:0 auto;padding:24px 32px 36px;display:flex;flex-w
         <p class="eyebrow rv">The Songs</p>
         <h2 class="title rv">노래 <span id="count" style="font-family:var(--sans);font-size:15px;color:var(--muted);font-weight:500"></span></h2>
       </div>
-      <div class="filter" id="filter"></div>
+      <div class="filter" id="filter" hidden></div>
+      <button type="button" class="showall" id="showAll" hidden>전체 노래 보기</button>
     </div>
     <div class="tl" id="tl"><p class="empty">노래를 불러오는 중입니다…</p></div>
   </div>
@@ -444,7 +448,7 @@ function markFilter(){
   [...$('filter').children].forEach(b => b.classList.toggle('on', b.dataset.key === filterKey));
   [...$('shelf').children].forEach(b => b.classList.toggle('on', b.dataset.key === filterKey));
 }
-function setFilter(k){ filterKey = k; markFilter(); buildList(); }
+function setFilter(k){ filterKey = (k === filterKey && k !== 'all') ? 'all' : k; markFilter(); buildList(); $('showAll').hidden = filterKey === 'all'; }
 function visible(){
   return songs.map((s,i)=>i).filter(i => filterKey==='all' || (filterKey==='etc' ? !songs[i].album : songs[i].album && songs[i].album.key===filterKey));
 }
@@ -580,6 +584,7 @@ addEventListener('resize', shelfArrows);
 new MutationObserver(shelfArrows).observe(shelf, { childList:true });
 shelfArrows();
 
+$('showAll').addEventListener('click', () => setFilter('all'));
 const hdr = $('hdr');
 addEventListener('scroll', () => hdr.classList.toggle('solid', scrollY > 30), { passive:true });
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold:.12 });
