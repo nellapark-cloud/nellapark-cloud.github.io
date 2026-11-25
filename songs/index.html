@@ -8,7 +8,7 @@
 <meta name="description" content="CCM 보컬리스트 박동준(PARK DONG JUN)의 노래">
 <meta property="og:title" content="박동준 PARK DONG JUN — The Songs">
 <meta property="og:description" content="당신의 하루가 주님께 있기를 — May your day rest in the Lord">
-<meta property="og:image" content="https://nellapark-cloud.github.io/songs/covers/father.png">
+<meta property="og:image" content="https://nellapark-cloud.github.io/songs/img/hero-bw.jpg">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
 <style>
 :root{
@@ -39,10 +39,13 @@ nav a:hover{color:var(--ink)}
 
 /* hero */
 .hero{padding:116px 0 88px}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center}
-.cover{position:relative}
-.cover .jk{width:100%;aspect-ratio:1/1;border-radius:4px;box-shadow:0 1px 2px rgba(0,0,0,.04),0 24px 48px -28px rgba(0,0,0,.28)}
-.cover .jk.gen i{font-size:22px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:72px;align-items:center}
+.portrait{position:relative;margin:0}
+.portrait img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;filter:grayscale(1);background:#e9e9e7}
+.portrait figcaption{display:flex;justify-content:space-between;margin-top:12px;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.player .np-jk{flex:none;width:52px;height:52px;border-radius:2px;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.player .np-jk.gen i{font-size:8px;padding:6%}
+.player .row1 .meta{flex:1;min-width:0}
 .intro h1{margin:14px 0 0;font-size:34px;line-height:1.35;font-weight:700;letter-spacing:-.03em}
 .intro .en-title{margin:8px 0 0;font-size:15px;color:var(--muted);letter-spacing:-.005em}
 .verse{margin:28px 0 0;padding:0}
@@ -75,6 +78,13 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-off
 .jk{position:relative;background:var(--soft) center/cover;overflow:hidden}
 .jk.gen{background:var(--soft)}
 .jk.gen i{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:12%;text-align:center;font-style:normal;font-weight:600;color:var(--ink2);line-height:1.3;letter-spacing:-.01em}
+
+/* band */
+.band{position:relative;margin:0;border-top:1px solid var(--line)}
+.band img{display:block;width:100%;height:clamp(240px,40vw,560px);object-fit:cover;object-position:center 40%;filter:grayscale(1);background:#e9e9e7}
+.band::after{content:'';position:absolute;left:0;right:0;bottom:0;height:40%;background:linear-gradient(to top,rgba(0,0,0,.38),rgba(0,0,0,0));pointer-events:none}
+.band figcaption{position:absolute;left:0;right:0;bottom:0;z-index:1}
+.band figcaption .wrap{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:22px;color:#fff;font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.35)}
 
 /* sections */
 section.block{padding:72px 0;border-top:1px solid var(--line)}
@@ -123,6 +133,7 @@ section.block{padding:72px 0;border-top:1px solid var(--line)}
 
 /* about */
 .about .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:48px}
+.about .who img{display:block;width:100%;height:auto;max-width:260px;aspect-ratio:4/5;object-fit:cover;filter:grayscale(1);margin-bottom:20px;background:#e9e9e7}
 .about h2{margin:0;font-size:20px;font-weight:700;letter-spacing:-.02em}
 .about h2 span{display:block;margin-top:4px;font-size:12px;font-weight:500;letter-spacing:.16em;color:var(--muted)}
 .about p{margin:0;font-size:15px;line-height:1.85;color:var(--ink2);max-width:620px}
@@ -165,7 +176,7 @@ footer .wrap{padding-top:24px;padding-bottom:28px;font-size:12px;color:var(--mut
 
 @media (max-width:860px){
  .hero-grid{grid-template-columns:1fr;gap:36px}
- .cover{max-width:420px}
+ .portrait{max-width:440px}
  .about .wrap,.contact .wrap{grid-template-columns:1fr;gap:20px}
  .row .t{grid-template-columns:1fr;gap:2px}
 }
@@ -199,7 +210,7 @@ footer .wrap{padding-top:24px;padding-bottom:28px;font-size:12px;color:var(--mut
 
 <section class="hero" id="top">
   <div class="wrap hero-grid" id="deck">
-    <div class="cover rv"><div class="jk" id="npJk" role="img" aria-label="지금 재생 중인 앨범 자켓"></div></div>
+    <figure class="portrait rv"><img src="img/hero-bw.jpg" alt="마이크를 들고 노래하는 박동준" width="852" height="1066"><figcaption><span>PARK DONG JUN</span><span>Live</span></figcaption></figure>
     <div class="intro">
       <p class="label rv">CCM Vocalist</p>
       <h1 class="rv">당신의 하루가<br>주님께 있기를</h1>
@@ -211,7 +222,8 @@ footer .wrap{padding-top:24px;padding-bottom:28px;font-size:12px;color:var(--mut
 
       <div class="player rv" aria-label="플레이어">
         <div class="row1">
-          <div style="min-width:0"><b id="npTitle">당신의 하루가</b><span class="sub" id="npSub">아버지의 노래 (The Father's Song) · 2026</span></div>
+          <div class="jk np-jk" id="npJk" role="img" aria-label="지금 재생 중인 앨범 자켓"></div>
+          <div class="meta"><b id="npTitle">당신의 하루가</b><span class="sub" id="npSub">아버지의 노래 (The Father's Song) · 2026</span></div>
           <span class="eq" id="npEq" hidden><i></i><i></i><i></i></span>
         </div>
         <div class="np-bar" id="npBar"><div id="npProg"></div></div>
@@ -253,9 +265,14 @@ footer .wrap{padding-top:24px;padding-bottom:28px;font-size:12px;color:var(--mut
   </div>
 </section>
 
+<figure class="band rv" aria-label="무대 사진">
+  <img src="img/live-bw.jpg" alt="카메라 너머로 노래하는 박동준" loading="lazy" width="1600" height="666">
+  <figcaption><div class="wrap"><span>On Stage</span><span>박동준 · PARK DONG JUN</span></div></figcaption>
+</figure>
+
 <section class="block about" id="about">
   <div class="wrap">
-    <h2 class="rv">박동준<span>PARK DONG JUN</span></h2>
+    <div class="who rv"><img src="img/profile-bw.jpg" alt="박동준 프로필 사진" loading="lazy" width="800" height="1000"><h2>박동준<span>PARK DONG JUN</span></h2></div>
     <div class="rv">
       <p>CCM 보컬리스트로 여러 앨범에 목소리를 보탰고, 직접 쓴 노래 「당신의 하루가」로 아침을 여는 고백을 노래합니다. 화려한 기교보다 오래 남는 노래, 함께 부를 수 있는 노래를 꿈꿉니다.</p>
       <ul class="credits">
