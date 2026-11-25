@@ -302,7 +302,7 @@ const STORIES = [
     text:'새 아침, 눈을 뜨며 하나님께 드리는 첫 고백입니다.\n오늘 하루도 주님과 함께라면 괜찮다는 소망을\n싱그러운 아침 햇살처럼 담았습니다.' }
 ];
 // 목사님 자작곡 — 목록 맨 앞에 고정됩니다.
-const OWN = [ { id:'Y_qsb30lA_E', title:'당신의 하루가' } ];
+const OWN = [ { id:'Y_qsb30lA_E', title:'당신의 하루가' }, { id:'EkyXA3-pdps', title:'I belong to you' } ];
 const DEFAULT_STORY = '예배의 자리에서 길어 올린 고백을 노래로 담았습니다.\n편안히 귀 기울여 들어주세요.';
 
 const PLAY = '<svg width="22" height="22" viewBox="0 0 24 24" fill="#2B2520" aria-hidden="true"><path d="M8 4.5v15l12-7.5z"/></svg>';
@@ -385,7 +385,7 @@ async function loadSongs(){
     const o = OWN.find(x => x.id === id);
     const st = o ? storyFor(o.title) : null;
     return { id, own: !!o, title: o ? o.title : '곡 ' + (i+1),
-      theme: st ? '하루를 여는 아침 묵상' : 'The Songs',
+      theme: st ? '하루를 여는 아침 묵상' : (o ? '박동준 자작곡' : 'The Songs'),
       cover: (st && st.cover) || COVERS[i % COVERS.length], story: st ? st.text : DEFAULT_STORY };
   });
   player.cuePlaylist(ids);
