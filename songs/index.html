@@ -378,11 +378,11 @@ function albumOf(title){
   if (!n) return null;
   const exact = ALBUMS.find(a => a.tracks.some(t => norm(t) === n));
   if (exact) return exact;
-  // 부분 일치는 더 긴(구체적인) 수록곡 이름부터 비교
+  // 제목이 수록곡 이름으로 시작할 때만(예: '나 오늘 밤 (Live)') — 가장 긴 이름 우선
   let best = null, bestLen = 0;
   ALBUMS.forEach(a => a.tracks.forEach(t => {
     const m = norm(t);
-    if (m.length >= 3 && n.includes(m) && m.length > bestLen && !(n.length - m.length > 2 && ALBUMS.some(b => b.tracks.some(u => norm(u) !== m && norm(u).startsWith(m) && n.startsWith(norm(u)))))) { best = a; bestLen = m.length; }
+    if (m.length >= 3 && n.startsWith(m) && m.length > bestLen) { best = a; bestLen = m.length; }
   }));
   return best;
 }
@@ -493,7 +493,7 @@ function render(){
 function playAt(i){
   if (!ready || !songs.length) return;
   cur = (i + songs.length) % songs.length; started = true;
-  player.playVideoAt(cur); render();
+  player.loadVideoById(songs[cur].id); render();
 }
 function step(d){
   const list = order.length ? order : songs.map((s,i)=>i);
@@ -522,7 +522,6 @@ async function loadSongs(){
     const title = p ? p.title : '';
     return { id, pinned:!!p, own:!!(p&&p.own), badge:p&&p.badge, title: title || '…', album: title ? albumOf(title) : null };
   });
-  player.cuePlaylist(ids);
   buildShelf(); buildFilter(); buildList();
   await Promise.all(songs.map(async s => {
     if (s.pinned) return;
@@ -542,12 +541,13 @@ window.onYouTubeIframeAPIReady = function(){
         ready = true; let tries = 0;
         const wait = setInterval(() => {
           const pl = player.getPlaylist();
-          if ((pl && pl.length) || ++tries > 40) { clearInterval(wait); if (pl && pl.length) loadSongs(); else $('tl').innerHTML = '<p class="empty">노래 목록을 불러오지 못했어요. 잠시 후 새로고침해 주세요.</p>'; }
+          if ((pl && pl.length) || ++tries > 40) { clearInterval(wait); if (pl && pl.length) { try { player.stopVideo(); } catch(e){} loadSongs(); } else $('tl').innerHTML = '<p class="empty">노래 목록을 불러오지 못했어요. 잠시 후 새로고침해 주세요.</p>'; }
         }, 250);
       },
+      onError: () => { if (started) setTimeout(() => step(1), 800); },
       onStateChange: e => {
         playing = (e.data === YT.PlayerState.PLAYING);
-        if (started) { const idx = player.getPlaylistIndex(); if (idx >= 0) cur = idx; }
+        if (e.data === YT.PlayerState.ENDED && started) { step(1); return; }
         clearInterval(timer); if (playing) timer = setInterval(tick, 500); else tick();
         render();
       }
