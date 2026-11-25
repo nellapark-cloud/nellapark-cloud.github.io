@@ -248,7 +248,7 @@ footer{max-width:1160px;margin:0 auto;padding:24px 32px 36px;display:flex;flex-w
       <p class="lead rv">CCM 보컬리스트로 여러 앨범에 목소리를 보탰고, 직접 쓴 노래 「당신의 하루가」로 아침을 여는 고백을 노래합니다. 화려한 기교보다 오래 남는 노래, 함께 부를 수 있는 노래를 꿈꿉니다.</p>
     </div>
     <ul class="credits rv">
-      <li><em>보컬</em><span>『아버지의 노래 (The Father's Song)』 EP<br>예수원 가는 길 4집 『일상의 예배』 · 3집 『아름다운 사람』<br>좋은씨앗 6집 『Worship』 · 『필데이브와 찬양하는 친구들』<br>말씀대로 찬양 『주를 예배함이』 외</span></li>
+      <li><em>보컬</em><span>『아버지의 노래 (The Father's Song)』 EP<br>예수원 가는 길 4집 『일상의 예배』 · 3집 『아름다운 사람』<br>좋은씨앗 6집 『Worship』 · 『필데이브와 찬양하는 친구들』<br>손영지 『내가 서 있는 풍경』<br>말씀대로 찬양 『주를 예배함이』 외</span></li>
       <li><em>작사·작곡</em><span>당신의 하루가</span></li>
       <li><em>듀엣</em><span>I come to You, Lord — 전선아(옥합) · 우은경 『Worship Piano Vol.1』</span></li>
       <li><em>프로듀싱</em><span>쉘위워십 · 비컴퍼니</span></li>
@@ -297,9 +297,9 @@ const ALBUMS = [
   { key:'father', title:"아버지의 노래 (The Father's Song)", type:'EP', year:'2026', artist:'박동준',
     cover:'covers/father.png',
     tracks:['아버지의 노래','당신의 하루가','나의 사랑 나의 예수','생명의 근원','생기를 부으소서','I Belong To You'] },
-  { key:'landscape', title:'내가 서 있는 풍경', type:'송영지', year:'', artist:'송영지',
+  { key:'landscape', title:'내가 서 있는 풍경', type:'손영지 · 타이틀곡', year:'', artist:'손영지',
     cover:'covers/landscape.png',
-    tracks:[] },
+    tracks:['아버지'] },
   { key:'daily', title:'일상의 예배', type:'예수원 가는 길 4집', year:'2004', artist:'예수원 가는 길',
     cover:'covers/daily.png',
     tracks:['마음으로 드리는 예배','당신의 목소리가','아침열기','나 오늘 밤','나를 향한 주의 사랑','매일 스치는 사람들','주께와 엎드려','마음의 예배','끝나지 않는 예배','사랑하는 자들아'] },
@@ -333,7 +333,16 @@ const PINNED = [
 const norm = s => (s||'').normalize('NFC').toLowerCase().replace(/[\u200B-\u200D\uFEFF]/g,'').replace(/[^0-9a-z\uAC00-\uD7A3]/g,'');
 function albumOf(title){
   const n = norm(title);
-  return ALBUMS.find(a => a.tracks.some(t => { const m = norm(t); return m && (n === m || n.includes(m) || (n.length > 3 && m.includes(n))); })) || null;
+  if (!n) return null;
+  const exact = ALBUMS.find(a => a.tracks.some(t => norm(t) === n));
+  if (exact) return exact;
+  // 부분 일치는 더 긴(구체적인) 수록곡 이름부터 비교
+  let best = null, bestLen = 0;
+  ALBUMS.forEach(a => a.tracks.forEach(t => {
+    const m = norm(t);
+    if (m.length >= 3 && n.includes(m) && m.length > bestLen && !(n.length - m.length > 2 && ALBUMS.some(b => b.tracks.some(u => norm(u) !== m && norm(u).startsWith(m) && n.startsWith(norm(u)))))) { best = a; bestLen = m.length; }
+  }));
+  return best;
 }
 function cleanTitle(t){
   return (t || '').normalize('NFC').replace(/[\u200B-\u200D\uFEFF]/g,'')
