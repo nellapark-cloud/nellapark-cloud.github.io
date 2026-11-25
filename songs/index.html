@@ -302,7 +302,12 @@ const STORIES = [
     text:'새 아침, 눈을 뜨며 하나님께 드리는 첫 고백입니다.\n오늘 하루도 주님과 함께라면 괜찮다는 소망을\n싱그러운 아침 햇살처럼 담았습니다.' }
 ];
 // 목사님 자작곡 — 목록 맨 앞에 고정됩니다.
-const OWN = [ { id:'Y_qsb30lA_E', title:'당신의 하루가' }, { id:'EkyXA3-pdps', title:'I belong to you' }, { id:'AOKm2ypB5cM', title:'아버지의 노래' }, { id:'xnED6G_gqJg', title:'생기를 부으소서' }, { id:'L7qn9_TReu8', title:'나의 사랑 나의 예수' } ];
+const OWN = [ { id:'Y_qsb30lA_E', title:'당신의 하루가' }, { id:'EkyXA3-pdps', title:'I belong to you' }, { id:'AOKm2ypB5cM', title:'아버지의 노래' }, { id:'xnED6G_gqJg', title:'생기를 부으소서' }, { id:'L7qn9_TReu8', title:'나의 사랑 나의 예수' },
+  { id:'NvLXvf-1q2I', title:'I come to you Lord', own:false, badge:'듀엣',
+    theme:'전선아(옥합)와 듀엣 · 우은경 피아노 앨범 수록',
+    credit:'노래 <strong>박동준 · 전선아</strong>(옥합)',
+    story:"'옥합'의 전선아와 함께 듀엣으로 부른 곡입니다.\n피아니스트 우은경의 피아노 앨범에 실렸던 노래예요." }
+];
 const DEFAULT_STORY = '예배의 자리에서 길어 올린 고백을 노래로 담았습니다.\n편안히 귀 기울여 들어주세요.';
 
 const PLAY = '<svg width="22" height="22" viewBox="0 0 24 24" fill="#2B2520" aria-hidden="true"><path d="M8 4.5v15l12-7.5z"/></svg>';
@@ -348,11 +353,11 @@ function render(){
   $('sTitle').textContent = s.title;
   $('sBody').textContent = s.story;
   $('sMeta').textContent = 'The Songs · ' + (cur+1) + ' / ' + songs.length;
-  $('sCredit').innerHTML = s.own ? '작사·작곡·노래 <strong>박동준</strong>' : '노래 <strong>박동준</strong>';
-  $('pSub').textContent = s.own ? '박동준 · 자작곡' : '박동준 · The Songs';
+  $('sCredit').innerHTML = s.credit ? s.credit : s.own ? '작사·작곡·노래 <strong>박동준</strong>' : '노래 <strong>박동준</strong>';
+  $('pSub').textContent = s.own ? '박동준 · 자작곡' : s.badge ? '박동준 · 전선아' : '박동준 · The Songs';
   [...$('list').children].forEach((r, i) => {
     r.classList.toggle('on', i === cur);
-    const bd = r.querySelector('.badge'); if (bd) { const on = i === cur && playing; bd.textContent = on ? '재생 중' : (songs[i].own ? '자작곡' : '듣기'); bd.classList.toggle('done', on || songs[i].own); }
+    const bd = r.querySelector('.badge'); if (bd) { const on = i === cur && playing; bd.textContent = on ? '재생 중' : (songs[i].own ? '자작곡' : (songs[i].badge || '듣기')); bd.classList.toggle('done', on || songs[i].own); }
   });
   $('play').innerHTML = playing ? PAUSE : PLAY;
   $('play').setAttribute('aria-label', playing ? '일시정지' : '재생');
@@ -384,14 +389,14 @@ async function loadSongs(){
   songs = ids.map((id, i) => {
     const o = OWN.find(x => x.id === id);
     const st = o ? storyFor(o.title) : null;
-    return { id, own: !!o, title: o ? o.title : '곡 ' + (i+1),
-      theme: st ? '하루를 여는 아침 묵상' : (o ? '박동준 자작곡' : 'The Songs'),
-      cover: (st && st.cover) || COVERS[i % COVERS.length], story: st ? st.text : DEFAULT_STORY };
+    return { id, own: o ? o.own !== false : false, pinned: !!o, badge: o && o.badge, credit: o && o.credit, title: o ? o.title : '곡 ' + (i+1),
+      theme: st ? '하루를 여는 아침 묵상' : (o && o.theme) || (o ? '박동준 자작곡' : 'The Songs'),
+      cover: (st && st.cover) || COVERS[i % COVERS.length], story: st ? st.text : (o && o.story) || DEFAULT_STORY };
   });
   player.cuePlaylist(ids);
   buildList(); render();
   await Promise.all(ids.map(async (id, i) => {
-    if (songs[i].own) return;
+    if (songs[i].pinned) return;
     const raw = await fetchTitle(id);
     if (!raw) return;
     const title = cleanTitle(raw) || raw;
