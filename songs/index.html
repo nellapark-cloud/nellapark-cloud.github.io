@@ -7,7 +7,7 @@
 <title>PARK DONG JUN — The Songs</title>
 <meta name="description" content="CCM 보컬리스트 PARK DONG JUN의 노래">
 <meta property="og:title" content="PARK DONG JUN — The Songs">
-<meta property="og:description" content="하루를 여는 한 곡의 아침">
+<meta property="og:description" content="당신의 하루가 주님께 있기를 — May your day rest in the Lord">
 <meta property="og:image:alt" content="PARK DONG JUN The Songs">
 <meta property="og:image" content="https://nellapark-cloud.github.io/songs/covers/father.png">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
@@ -44,8 +44,9 @@ nav a{font-size:14px;font-weight:500;color:var(--ink2);padding:6px 0;border-bott
 nav a:hover{color:var(--forest);border-color:var(--mint)}
 
 /* hero — compact */
-.hero{position:relative;overflow:hidden;padding:150px 0 110px}
-.hero-img{position:absolute;inset:-3%;background:url("spring.svg") center 70%/cover;animation:drift 40s ease-in-out infinite alternate}
+.hero{position:relative;overflow:hidden;padding:150px 0 120px;min-height:660px;display:flex;align-items:center}
+.hero .wrap{width:100%}
+.hero-img{position:absolute;inset:-3%;background:url("dawn.svg") center 72%/cover;animation:drift 40s ease-in-out infinite alternate}
 @keyframes drift{from{transform:scale(1.01)}to{transform:scale(1.05) translate(-1%,0)}}
 .hero-veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(251,250,245,.9) 0%,rgba(251,250,245,.55) 40%,rgba(251,250,245,0) 70%),linear-gradient(180deg,rgba(247,246,241,0) 82%,var(--ground) 100%)}
 .hero .wrap{position:relative;display:flex;flex-wrap:wrap;gap:48px;align-items:center;justify-content:space-between}
@@ -53,6 +54,10 @@ nav a:hover{color:var(--forest);border-color:var(--mint)}
 .hero h1{margin:0;font-family:var(--serif);font-size:clamp(34px,4.6vw,54px);line-height:1.3;letter-spacing:-.025em}
 .hero h1 em{font-style:normal;color:var(--forest)}
 .hero p.lead{margin:18px 0 0;max-width:460px;font-size:17px;line-height:1.85;color:var(--ink2)}
+.en-title{margin:14px 0 0;font-family:var(--latin);font-style:italic;font-size:clamp(20px,2.2vw,26px);font-weight:500;color:var(--sage);letter-spacing:.01em}
+.verse{margin:26px 0 0;padding:4px 0 4px 18px;border-left:2px solid var(--mint);max-width:460px}
+.verse p{margin:0;font-family:var(--serif);font-size:16px;line-height:1.9;color:var(--ink2)}
+.verse cite{display:block;margin-top:8px;font-style:normal;font-family:var(--sans);font-size:13px;color:var(--muted)}
 .btns{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px}
 .btn{display:inline-flex;align-items:center;gap:9px;min-height:48px;padding:0 22px;border-radius:6px;border:0;cursor:pointer;font-family:var(--sans);font-size:15px;font-weight:600;transition:background .2s,border-color .2s}
 .btn.dark{background:var(--deep);color:#fff}
@@ -211,9 +216,10 @@ footer{max-width:1160px;margin:0 auto;padding:24px 32px 36px;display:flex;flex-w
   <div class="hero-veil" aria-hidden="true"></div>
   <div class="wrap">
     <div class="hero-text">
-      <p class="eyebrow rv">CCM Vocalist · Songwriter</p>
-      <h1 class="rv">하루를 여는<br><em>한 곡의 아침</em></h1>
-      <p class="lead rv">꾸밈보다 진심으로, 가사가 먼저 들리는 노래를 부릅니다. 숲길을 걷듯 편안히 들어주세요.</p>
+      <p class="eyebrow rv">CCM Vocalist · Songs for the morning</p>
+      <h1 class="rv">당신의 하루가<br><em>주님께 있기를</em></h1>
+      <p class="en-title rv">May your day rest in the Lord</p>
+      <blockquote class="verse rv"><p>아침마다 주님의 한결같은 사랑을 깨닫게 해 주십시오.<br>내가 주님을 의지합니다.<br>내가 가야 할 길을 알려 주십시오.<br>내 영혼이 주님께 의지합니다.</p><cite>시편 143:8 · 새번역</cite></blockquote>
       <div class="btns rv">
         <button type="button" class="btn dark" id="playAll"><svg width="13" height="13" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>전체 듣기</button>
         <a class="btn light" href="#albums">앨범 보기</a>
