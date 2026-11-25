@@ -27,7 +27,7 @@
 </header>
 <main class="grid" id="g"></main>
 <script>
-  const names = ["00-profile","01-mint-talk","02-mint-talk","03-mint-talk","04-mint-talk","05-pink-talk","06-pink-sing","07-pink-sing","08-pink-sing","09-pink-sing","10-mint-talk","11-mint-talk","12-mint-talk","13-mint-talk","14-mint-talk","15-mint-talk","16-mint-talk","17-green-sing","18-green-sing","19-green-sing"];
+  const names = ["00-profile","01-mint-talk","02-mint-talk","03-mint-talk","04-mint-talk","05-pink-talk","06-pink-sing","07-pink-sing","08-pink-sing","09-pink-sing","10-mint-talk","11-mint-talk","12-mint-talk","13-mint-talk","14-mint-talk","15-mint-talk","16-mint-talk","17-green-sing","18-green-sing","19-green-sing","20-green-sing","21-green-sing","22-green-talk","23-blue-talk","24-blue-sing","25-blue-talk","26-blue-sing","27-blue-sing","28-blue-sing","29-blue-sing"];
   document.getElementById('g').innerHTML = names.map(n =>
     `<figure class="${n==='00-profile'?'tall':''}"><a href="${n}.jpg" target="_blank"><img src="${n}.jpg" alt="${n}" loading="lazy"></a><figcaption>${n}.jpg</figcaption></figure>`
   ).join('');
