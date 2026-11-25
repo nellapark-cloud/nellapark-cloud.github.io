@@ -7,25 +7,27 @@
 <title>박동준 — 노래와 작품</title>
 <meta name="description" content="싱어송라이터 박동준의 노래와 작품">
 <meta property="og:title" content="박동준 — 노래와 작품">
-<meta property="og:description" content="하루 끝에 머무는 한 곡의 위로">
+<meta property="og:description" content="하루를 여는 한 곡의 아침">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:#F7F6F1;color:#2B2520;font-family:Pretendard,'Noto Sans KR',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;word-break:keep-all}
+body{margin:0;background:#F7F6F1;color:#2B2520;font-family:'Gowun Dodum',Pretendard,'Noto Sans KR',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;word-break:keep-all}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1160px;margin:0 auto}
-.eyebrow{margin:0 0 16px;font-size:13px;font-weight:600;letter-spacing:.22em;color:#3F6248}
-h2.title{margin:0;font-family:'Noto Serif KR',serif;font-size:clamp(32px,4.6vw,44px);font-weight:700;letter-spacing:-.02em;line-height:1.35}
-.serif{font-family:'Noto Serif KR',serif}
+.eyebrow{margin:0 0 14px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;font-weight:600;letter-spacing:.06em;color:#3F6248}
+h2.title{margin:0;font-family:'Gowun Batang',serif;font-size:clamp(32px,4.6vw,44px);font-weight:700;letter-spacing:-.02em;line-height:1.35}
+.serif{font-family:'Gowun Batang',serif}
 .muted{color:#6E645A}
 
+.btn,nav a,.badge,.clink,.p-title,.row .t b,.facts h4,.card small,.player-top small{font-family:Pretendard,'Noto Sans KR',system-ui,sans-serif}
+.row .t b{font-family:'Gowun Batang',serif;font-weight:700}
 /* nav */
 header{position:relative;z-index:2;padding:26px 32px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;border-bottom:1px solid #E2E3DA}
 .brand{display:flex;align-items:baseline;gap:12px}
-.brand b{font-family:'Noto Serif KR',serif;font-size:21px;font-weight:700}
+.brand b{font-family:'Gowun Batang',serif;font-size:21px;font-weight:700}
 .brand span{font-size:12px;font-weight:500;color:#8A7F73;letter-spacing:.2em}
 nav{display:flex;flex-wrap:wrap;gap:30px}
 nav a{font-size:15px;font-weight:500;color:#4A423B;padding:6px 0;border-bottom:1px solid transparent}
@@ -37,7 +39,7 @@ nav a:hover{color:#3F6248;border-color:#9DB8A2}
 .hero-bg{position:absolute;inset:0;z-index:0;background:linear-gradient(90deg,rgba(247,246,241,.97) 0%,rgba(247,246,241,.88) 42%,rgba(247,246,241,.12) 100%),url("https://images.unsplash.com/photo-1560880944-796251b78b4c?fm=jpg&q=70&w=2400&auto=format&fit=crop") center/cover no-repeat}
 .hero .wrap{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:72px;align-items:center}
 .hero-text{flex:999 1 520px;min-width:0}
-.hero h1{margin:0;font-family:'Noto Serif KR',serif;font-size:clamp(40px,6.2vw,66px);line-height:1.3;font-weight:700;letter-spacing:-.025em}
+.hero h1{margin:0;font-family:'Gowun Batang',serif;font-size:clamp(40px,6.2vw,66px);line-height:1.3;font-weight:700;letter-spacing:-.025em}
 .hero h1 em{font-style:normal;color:#3F6248}
 .hero p.lead{margin:30px 0 0;max-width:540px;font-size:18px;line-height:1.85;color:#5A5148}
 .btns{margin-top:44px;display:flex;flex-wrap:wrap;gap:12px}
@@ -52,9 +54,9 @@ nav a:hover{color:#3F6248;border-color:#9DB8A2}
 .player{background:#25332A;color:#F7F6F1;border-radius:10px;padding:28px;box-shadow:0 24px 50px rgba(30,50,35,.20)}
 .player-top{display:flex;justify-content:space-between;align-items:center;min-height:22px}
 .player-top small{font-size:12px;font-weight:600;letter-spacing:.2em;color:#B9D0BC}
-.cover{margin-top:22px;aspect-ratio:1/1;border-radius:6px;background:linear-gradient(180deg,rgba(37,51,42,0) 40%,rgba(37,51,42,.35) 100%),url("https://images.unsplash.com/photo-1629812205627-222da4a73816?fm=jpg&q=70&w=2400&auto=format&fit=crop") center/cover;display:flex;flex-direction:column;justify-content:space-between;padding:24px}
-.cover::before{content:"";width:40px;height:2px;background:#fff}
-.cover span{font-size:32px;font-weight:700;color:#fff;line-height:1.3;text-shadow:0 2px 16px rgba(0,0,0,.35)}
+.cover{margin-top:22px;aspect-ratio:1/1;border-radius:6px;background:linear-gradient(180deg,rgba(255,255,255,0) 45%,rgba(255,255,255,.88) 100%),var(--cover) center/cover;transition:background .4s;display:flex;flex-direction:column;justify-content:space-between;padding:24px}
+.cover::before{content:"";width:40px;height:2px;background:#fff;box-shadow:0 0 8px rgba(0,0,0,.15)}
+.cover span{font-size:32px;font-weight:700;color:#22302A;line-height:1.3}
 .p-title{margin:22px 0 4px;font-size:20px;font-weight:600}
 .p-sub{margin:0;font-size:14px;color:#B4C2B6}
 .bar{margin-top:22px;height:3px;background:#3E4F43;overflow:hidden}
@@ -79,7 +81,7 @@ section{padding:112px 32px}
 .row{width:100%;min-height:88px;padding:20px 16px;border:0;border-bottom:1px solid #DFE1D7;background:transparent;text-align:left;cursor:pointer;display:flex;align-items:center;gap:24px;font-family:inherit;color:#2B2520;transition:background .2s}
 .row:hover{background:#F2F5EF}
 .row.on{background:#E7EEE5}
-.row .no{width:30px;font-family:'Noto Serif KR',serif;font-size:16px;font-weight:700;color:#B3A797}
+.row .no{width:30px;font-family:'Gowun Batang',serif;font-size:16px;font-weight:700;color:#B3A797}
 .row.on .no{color:#3F6248}
 .row .t{flex:1 1 auto;min-width:0}
 .row .t b{display:block;font-size:19px;font-weight:600}
@@ -98,7 +100,7 @@ section{padding:112px 32px}
 .card:hover{background:#FDFDFA}
 .icon{width:44px;height:44px;border-radius:6px;display:flex;align-items:center;justify-content:center;background:#E4ECE2 !important}
 .card small{display:block;margin:24px 0 8px;font-size:12px;font-weight:600;letter-spacing:.14em;color:#8A7F73}
-.card h3{margin:0;font-family:'Noto Serif KR',serif;font-size:21px;font-weight:700}
+.card h3{margin:0;font-family:'Gowun Batang',serif;font-size:21px;font-weight:700}
 .card p{margin:12px 0 0;font-size:15px;line-height:1.75;color:#5A5148}
 .card.dark{background:#4F7457;color:#fff;display:flex;flex-direction:column;justify-content:space-between}
 .card.dark:hover{background:#466A4E}
@@ -117,7 +119,7 @@ section{padding:112px 32px}
 
 /* contact */
 .contact{padding:72px 56px;border-radius:10px;background:linear-gradient(rgba(30,44,35,.86),rgba(30,44,35,.86)),url("https://images.unsplash.com/photo-1767601047966-8b5ea4885007?fm=jpg&q=65&w=2000&auto=format&fit=crop") center/cover;color:#F7F6F1;display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;align-items:center}
-.contact h2{margin:0;font-family:'Noto Serif KR',serif;font-size:clamp(28px,4.2vw,40px);font-weight:700;letter-spacing:-.02em;line-height:1.4}
+.contact h2{margin:0;font-family:'Gowun Batang',serif;font-size:clamp(28px,4.2vw,40px);font-weight:700;letter-spacing:-.02em;line-height:1.4}
 .contact .muted{color:#C4D0C6 !important}
 .contact .links{flex:1 1 280px;min-width:0;display:flex;flex-direction:column;gap:10px}
 .clink{display:flex;align-items:center;gap:14px;min-height:58px;padding:0 22px;border-radius:6px;background:transparent;border:1px solid #4C5E51;color:#F7F6F1;font-size:16px;font-weight:600;transition:border-color .2s,background .2s}
@@ -158,7 +160,7 @@ footer{padding:32px 32px 56px;display:flex;flex-wrap:wrap;gap:12px;justify-conte
   <div class="wrap">
     <div class="hero-text">
       <p class="eyebrow">SINGER · SONGWRITER · PRODUCER</p>
-      <h1>하루 끝에 머무는<br><em>한 곡의 위로</em></h1>
+      <h1>하루를 여는<br><em>한 곡의 아침</em></h1>
       <p class="lead">예배의 자리에서 시작된 노래를 씁니다. 천천히, 그러나 분명하게 — 그분의 사랑에 물들어가는 삶을 노래로 담아냅니다.</p>
       <div class="btns">
         <a class="btn dark" href="#songs"><svg width="14" height="14" viewBox="0 0 24 24" fill="#F7F6F1" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>노래 듣기</a>
@@ -172,7 +174,7 @@ footer{padding:32px 32px 56px;display:flex;flex-wrap:wrap;gap:12px;justify-conte
           <small>NOW PLAYING</small>
           <span class="eq" id="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
         </div>
-        <div class="cover"><span class="serif" id="coverTitle"></span></div>
+        <div class="cover" id="cover"><span class="serif" id="coverTitle"></span></div>
         <p class="p-title" id="pTitle"></p>
         <p class="p-sub" id="pSub"></p>
         <div class="bar"><div id="prog"></div></div>
@@ -287,13 +289,13 @@ footer{padding:32px 32px 56px;display:flex;flex-wrap:wrap;gap:12px;justify-conte
 <script>
 // 곡 목록 — 음원이 생기면 audio에 파일 경로(예: "audio/1.mp3")를 넣으면 실제로 재생됩니다.
 const songs = [
-  { title:'당신의 하루가', theme:'지친 하루 끝에 건네는 위로', status:'발표곡', meta:'[발매 연도] · [수록 앨범]', audio:'',
-    story:'하루를 버텨낸 누군가에게 꼭 들려주고 싶었던 노래입니다.\n수고했다는 말, 혼자가 아니라는 말을 하나님의 마음으로 담았습니다.\n[곡에 얽힌 이야기를 더 적어주세요]' },
-  { title:'물들어간다', theme:'천천히, 그분의 사랑을 닮아가는 삶', status:'작업 중', meta:'가제 · 2026 작업', audio:'',
+  { title:'당신의 하루가', theme:'하루를 여는 아침 묵상', status:'발표곡', meta:'[발매 연도] · [수록 앨범]', audio:'', cover:'https://images.unsplash.com/photo-1758940887182-bfd3d2efa4d8?fm=jpg&q=70&w=1200&auto=format&fit=crop',
+    story:'새 아침, 눈을 뜨며 하나님께 드리는 첫 고백입니다.\n오늘 하루도 주님과 함께라면 괜찮다는 소망을\n싱그러운 아침 햇살처럼 담았습니다.\n[곡에 얽힌 이야기를 더 적어주세요]' },
+  { title:'물들어간다', theme:'천천히, 그분의 사랑을 닮아가는 삶', status:'작업 중', meta:'가제 · 2026 작업', audio:'', cover:'https://images.unsplash.com/photo-1543051932-6ef9fecfbc80?fm=jpg&q=70&w=1200&auto=format&fit=crop',
     story:'예수님을 닮는다는 건 한순간의 변화가 아니라\n삶과 모습과 인격이 그분의 사랑에 천천히 물들어가는 일입니다.\n그 느린 아름다움을 노래로 담고 있습니다.' },
-  { title:'[환영의 노래]', theme:'처음 온 이를 반갑게 맞는 교제의 찬양', status:'작업 중', meta:'가제 · 은혜교회 환영 찬양', audio:'',
+  { title:'[환영의 노래]', theme:'처음 온 이를 반갑게 맞는 교제의 찬양', status:'작업 중', meta:'가제 · 은혜교회 환영 찬양', audio:'', cover:'https://images.unsplash.com/photo-1620308189773-41a11b5472fc?fm=jpg&q=70&w=1200&auto=format&fit=crop',
     story:'예배당 문을 처음 연 사람이 따뜻하게 웃을 수 있도록,\n교회가 함께 부르는 환영과 교제의 노래입니다.' },
-  { title:'[다음 곡 제목]', theme:'[곡 주제를 적어주세요]', status:'준비 중', meta:'[정보]', audio:'',
+  { title:'[다음 곡 제목]', theme:'[곡 주제를 적어주세요]', status:'준비 중', meta:'[정보]', audio:'', cover:'https://images.unsplash.com/photo-1560880944-796251b78b4c?fm=jpg&q=70&w=1200&auto=format&fit=crop',
     story:'[곡 이야기를 적어주세요]' }
 ];
 
@@ -320,6 +322,7 @@ songs.forEach((s, i) => {
 function render(){
   const s = songs[cur];
   $('coverTitle').textContent = s.title;
+  $('cover').style.setProperty('--cover', 'url("' + s.cover + '")');
   $('pTitle').textContent = s.title;
   $('pSub').textContent = '박동준 · ' + s.status;
   $('sTitle').textContent = s.title;
