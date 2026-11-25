@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="theme-color" content="#F7F6F1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>박동준 — The Songs</title>
-<meta name="description" content="CCM 보컬리스트 박동준의 노래">
-<meta property="og:title" content="박동준 — The Songs">
+<title>PARK DONG JUN — The Songs</title>
+<meta name="description" content="CCM 보컬리스트 PARK DONG JUN의 노래">
+<meta property="og:title" content="PARK DONG JUN — The Songs">
 <meta property="og:description" content="하루를 여는 한 곡의 아침">
-<meta property="og:image:alt" content="박동준 The Songs">
+<meta property="og:image:alt" content="PARK DONG JUN The Songs">
 <meta property="og:image" content="https://nellapark-cloud.github.io/songs/covers/father.png">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,6 +36,8 @@ header .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
 header.solid{background:rgba(247,246,241,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line)}
 .brand{display:flex;align-items:baseline;gap:10px}
 .brand b{font-family:var(--serif);font-size:20px;font-weight:700}
+.en{font-family:var(--latin);font-style:normal;font-weight:600;letter-spacing:.14em}
+.brand b.en{font-size:21px}
 .brand span{font-family:var(--latin);font-style:italic;font-size:16px;color:var(--sage)}
 nav{display:flex;gap:26px;font-family:var(--sans)}
 nav a{font-size:14px;font-weight:500;color:var(--ink2);padding:6px 0;border-bottom:1px solid transparent}
@@ -189,7 +191,7 @@ footer{max-width:1160px;margin:0 auto;padding:24px 32px 36px;display:flex;flex-w
 
 <header id="hdr">
   <div class="wrap">
-    <a class="brand" href="#top"><b>박동준</b><span>The Songs</span></a>
+    <a class="brand" href="#top"><b class="en">PARK DONG JUN</b><span>The Songs</span></a>
     <nav>
       <a href="#albums">앨범</a>
       <a href="#tracks">노래</a>
@@ -260,7 +262,7 @@ footer{max-width:1160px;margin:0 auto;padding:24px 32px 36px;display:flex;flex-w
   <div class="wrap">
     <div>
       <p class="eyebrow rv">About</p>
-      <h2 class="title rv">노래하는 사람,<br>박동준</h2>
+      <h2 class="title rv">노래하는 사람,<br><span class="en">PARK DONG JUN</span></h2>
       <p class="lead rv">CCM 보컬리스트로 여러 앨범에 목소리를 보탰고, 직접 쓴 노래 「당신의 하루가」로 아침을 여는 고백을 노래합니다. 화려한 기교보다 오래 남는 노래, 함께 부를 수 있는 노래를 꿈꿉니다.</p>
     </div>
     <ul class="credits rv">
@@ -287,7 +289,7 @@ footer{max-width:1160px;margin:0 auto;padding:24px 32px 36px;display:flex;flex-w
 </section>
 
 <footer>
-  <span>© 2026 박동준. All songs written with love.</span>
+  <span>© 2026 PARK DONG JUN. All songs written with love.</span>
 </footer>
 
 <div class="dock" id="dock" role="region" aria-label="미니 플레이어">
@@ -306,7 +308,7 @@ const PLAYLIST = 'PLlQGGta1UGsHstlRAiuBDON326GNK1-4N';
 
 // ── 앨범 정보 (자켓·발매일·수록곡) ── cover 가 비어 있으면 글자 자켓으로 표시됩니다.
 const ALBUMS = [
-  { key:'father', title:"아버지의 노래 (The Father's Song)", type:'EP', year:'2026', artist:'박동준',
+  { key:'father', title:"아버지의 노래 (The Father's Song)", type:'EP', year:'2026', artist:'PARK DONG JUN',
     cover:'covers/father.png',
     tracks:['아버지의 노래','당신의 하루가','나의 사랑 나의 예수','생명의 근원','생기를 부으소서','I Belong To You'] },
   { key:'landscape', title:'내가 서 있는 풍경', type:'손영지 · 타이틀곡', year:'', artist:'손영지',
@@ -320,7 +322,7 @@ const ALBUMS = [
   { key:'seed6', title:'Worship', type:'좋은씨앗 6집', year:'', artist:'좋은씨앗',
     cover:'covers/seed6.jpg',
     tracks:['아버지 그 큰 사랑'] },
-  { key:'worship2024', title:'주를 예배함이', type:'말씀대로 찬양', year:'2024', artist:'박동준',
+  { key:'worship2024', title:'주를 예배함이', type:'말씀대로 찬양', year:'2024', artist:'PARK DONG JUN',
     cover:'https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/a0/e4/5a/a0e45ad8-7df5-16a6-f108-83edd55a0b0c/8800284789668_cover.jpg/600x600bb.jpg',
     tracks:['내 존귀한 자여'] },
   { key:'thankyou', title:'당신을 향한 Thank You', type:'컴필레이션', year:'2013', artist:'Various',
