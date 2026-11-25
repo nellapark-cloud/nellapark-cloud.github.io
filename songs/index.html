@@ -8,6 +8,7 @@
 <meta name="description" content="CCM 보컬리스트 박동준의 노래">
 <meta property="og:title" content="박동준 — The Songs">
 <meta property="og:description" content="하루를 여는 한 곡의 아침">
+<meta property="og:image:alt" content="박동준 The Songs">
 <meta property="og:image" content="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/a0/e4/5a/a0e45ad8-7df5-16a6-f108-83edd55a0b0c/8800284789668_cover.jpg/600x600bb.jpg">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,10 +42,10 @@ nav a{font-size:14px;font-weight:500;color:var(--ink2);padding:6px 0;border-bott
 nav a:hover{color:var(--forest);border-color:var(--mint)}
 
 /* hero — compact */
-.hero{position:relative;overflow:hidden;padding:150px 0 70px}
-.hero-img{position:absolute;inset:-4%;background:url("https://images.unsplash.com/photo-1560880944-796251b78b4c?fm=jpg&q=72&w=2400&auto=format&fit=crop") center 62%/cover;animation:drift 34s ease-in-out infinite alternate}
-@keyframes drift{from{transform:scale(1.02)}to{transform:scale(1.1) translate(-1%,-1%)}}
-.hero-veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(247,246,241,.96) 0%,rgba(247,246,241,.86) 46%,rgba(247,246,241,.25) 100%),linear-gradient(180deg,rgba(247,246,241,0) 70%,var(--ground) 100%)}
+.hero{position:relative;overflow:hidden;padding:150px 0 110px}
+.hero-img{position:absolute;inset:-3%;background:url("spring.svg") center 70%/cover;animation:drift 40s ease-in-out infinite alternate}
+@keyframes drift{from{transform:scale(1.01)}to{transform:scale(1.05) translate(-1%,0)}}
+.hero-veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(251,250,245,.9) 0%,rgba(251,250,245,.55) 40%,rgba(251,250,245,0) 70%),linear-gradient(180deg,rgba(247,246,241,0) 82%,var(--ground) 100%)}
 .hero .wrap{position:relative;display:flex;flex-wrap:wrap;gap:48px;align-items:center;justify-content:space-between}
 .hero-text{flex:1 1 440px;min-width:0}
 .hero h1{margin:0;font-family:var(--serif);font-size:clamp(34px,4.6vw,54px);line-height:1.3;letter-spacing:-.025em}
@@ -76,8 +77,9 @@ nav a:hover{color:var(--forest);border-color:var(--mint)}
 
 /* jacket */
 .jk{position:relative;background:#DDE5DA center/cover;overflow:hidden}
-.jk.gen{background:linear-gradient(160deg,#E7EEE4,#C9D8C8)}
-.jk.gen i{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:10%;text-align:center;font-style:normal;font-family:var(--serif);font-weight:700;color:var(--forest);line-height:1.25}
+.jk.gen{background:url("spring.svg") 72% 70%/auto 135%}
+.jk.gen::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(253,253,250,.82) 0%,rgba(253,253,250,.35) 55%,rgba(253,253,250,0) 100%)}
+.jk.gen i{position:absolute;inset:0;display:flex;align-items:flex-start;justify-content:center;padding:14% 10%;text-align:center;font-style:normal;font-family:var(--serif);font-weight:700;color:var(--forest);line-height:1.25}
 
 /* albums shelf */
 .albums{padding:70px 0 40px}
@@ -273,7 +275,7 @@ footer{max-width:1160px;margin:0 auto;padding:24px 32px 36px;display:flex;flex-w
 
 <footer>
   <span>© 2026 박동준. All songs written with love.</span>
-  <span>Album art © 각 음반사 · Photo: Unsplash</span>
+  <span>Album art © 각 음반사</span>
 </footer>
 
 <div class="dock" id="dock" role="region" aria-label="미니 플레이어">
