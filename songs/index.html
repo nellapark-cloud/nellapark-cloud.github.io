@@ -301,8 +301,8 @@ const STORIES = [
   { match:'당신의 하루가', own:true, cover:'https://images.unsplash.com/photo-1758940887182-bfd3d2efa4d8?fm=jpg&q=70&w=1200&auto=format&fit=crop',
     text:'새 아침, 눈을 뜨며 하나님께 드리는 첫 고백입니다.\n오늘 하루도 주님과 함께라면 괜찮다는 소망을\n싱그러운 아침 햇살처럼 담았습니다.' }
 ];
-// 목사님 자작곡 — 목록 맨 앞에 고정됩니다.
-const OWN = [ { id:'Y_qsb30lA_E', title:'당신의 하루가' }, { id:'EkyXA3-pdps', title:'I belong to you' }, { id:'AOKm2ypB5cM', title:'아버지의 노래' }, { id:'xnED6G_gqJg', title:'생기를 부으소서' }, { id:'L7qn9_TReu8', title:'나의 사랑 나의 예수' },
+// 맨 앞에 고정되는 곡들 — 자작곡은 own을 빼고, 부른 곡은 own:false 로 둡니다.
+const OWN = [ { id:'Y_qsb30lA_E', title:'당신의 하루가' }, { id:'EkyXA3-pdps', title:'I belong to you', own:false, theme:'박동준 노래' }, { id:'AOKm2ypB5cM', title:'아버지의 노래', own:false, theme:'박동준 노래' }, { id:'xnED6G_gqJg', title:'생기를 부으소서', own:false, theme:'박동준 노래' }, { id:'L7qn9_TReu8', title:'나의 사랑 나의 예수', own:false, theme:'박동준 노래' },
   { id:'NvLXvf-1q2I', title:'I come to you Lord', own:false, badge:'듀엣',
     theme:'전선아(옥합)와 듀엣 · 우은경 피아노 앨범 수록',
     credit:'노래 <strong>박동준 · 전선아</strong>(옥합)',
