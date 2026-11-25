@@ -130,6 +130,11 @@ section{padding:112px 32px}
 .clink.dark:hover{background:#CFE0D1}
 footer{padding:32px 32px 56px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:14px;color:#8A7F73}
 
+
+.list{max-height:640px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:#C2C8BB transparent}
+.list .empty{padding:28px 16px;color:#6E645A;font-size:15px;line-height:1.7}
+#yt{position:fixed;left:-20px;bottom:0;width:1px;height:1px;opacity:0;pointer-events:none;overflow:hidden}
+.count{font-family:Pretendard,'Noto Sans KR',sans-serif;font-size:14px;color:#6E645A;margin-left:10px;font-weight:500}
 @media (max-width:640px){
  .hero{min-height:0}
  .hero-bg{background:linear-gradient(180deg,rgba(247,246,241,.92) 0%,rgba(247,246,241,.80) 100%),url("https://images.unsplash.com/photo-1560880944-796251b78b4c?fm=jpg&q=70&w=2400&auto=format&fit=crop") center/cover}
@@ -193,12 +198,12 @@ footer{padding:32px 32px 56px;display:flex;flex-wrap:wrap;gap:12px;justify-conte
     <div class="songs-head">
       <div>
         <p class="eyebrow">SONGS</p>
-        <h2 class="title">나의 노래</h2>
+        <h2 class="title">나의 노래<span class="count" id="count"></span></h2>
       </div>
-      <p class="muted">곡을 누르면 위 플레이어에서 재생됩니다. 각 곡에 담긴 이야기도 함께 읽어보세요.</p>
+      <p class="muted">곡을 누르면 위 플레이어에서 바로 흘러나옵니다. 편안히 틀어두고 하루를 걸어가세요.</p>
     </div>
     <div class="songs-body">
-      <div class="list" id="list"></div>
+      <div class="list" id="list"><p class="empty">노래를 불러오는 중입니다…</p></div>
       <div class="story">
         <p class="eyebrow" style="font-size:13px;margin:0">곡 이야기</p>
         <h3 class="serif" id="sTitle"></h3>
@@ -285,79 +290,139 @@ footer{padding:32px 32px 56px;display:flex;flex-wrap:wrap;gap:12px;justify-conte
   <span>© 2026 박동준. All songs written with love.</span>
   <span>대전 유성 · 은혜교회 · Photos: Unsplash</span>
 </footer>
+<div id="yt" aria-hidden="true"><div id="ytplayer"></div></div>
 
 <script>
-// 곡 목록 — 음원이 생기면 audio에 파일 경로(예: "audio/1.mp3")를 넣으면 실제로 재생됩니다.
-const songs = [
-  { title:'당신의 하루가', theme:'하루를 여는 아침 묵상', status:'발표곡', meta:'[발매 연도] · [수록 앨범]', audio:'', cover:'https://images.unsplash.com/photo-1758940887182-bfd3d2efa4d8?fm=jpg&q=70&w=1200&auto=format&fit=crop',
-    story:'새 아침, 눈을 뜨며 하나님께 드리는 첫 고백입니다.\n오늘 하루도 주님과 함께라면 괜찮다는 소망을\n싱그러운 아침 햇살처럼 담았습니다.\n[곡에 얽힌 이야기를 더 적어주세요]' },
-  { title:'물들어간다', theme:'천천히, 그분의 사랑을 닮아가는 삶', status:'작업 중', meta:'가제 · 2026 작업', audio:'', cover:'https://images.unsplash.com/photo-1543051932-6ef9fecfbc80?fm=jpg&q=70&w=1200&auto=format&fit=crop',
-    story:'예수님을 닮는다는 건 한순간의 변화가 아니라\n삶과 모습과 인격이 그분의 사랑에 천천히 물들어가는 일입니다.\n그 느린 아름다움을 노래로 담고 있습니다.' },
-  { title:'[환영의 노래]', theme:'처음 온 이를 반갑게 맞는 교제의 찬양', status:'작업 중', meta:'가제 · 은혜교회 환영 찬양', audio:'', cover:'https://images.unsplash.com/photo-1620308189773-41a11b5472fc?fm=jpg&q=70&w=1200&auto=format&fit=crop',
-    story:'예배당 문을 처음 연 사람이 따뜻하게 웃을 수 있도록,\n교회가 함께 부르는 환영과 교제의 노래입니다.' },
-  { title:'[다음 곡 제목]', theme:'[곡 주제를 적어주세요]', status:'준비 중', meta:'[정보]', audio:'', cover:'https://images.unsplash.com/photo-1560880944-796251b78b4c?fm=jpg&q=70&w=1200&auto=format&fit=crop',
-    story:'[곡 이야기를 적어주세요]' }
+// 유튜브 재생목록 "The Songs" — 영상은 숨기고 소리만 재생합니다.
+const PLAYLIST = 'PLlQGGta1UGsHstlRAiuBDON326GNK1-4N';
+const COVERS = ['https://images.unsplash.com/photo-1758940887182-bfd3d2efa4d8?fm=jpg&q=70&w=1200&auto=format&fit=crop','https://images.unsplash.com/photo-1543051932-6ef9fecfbc80?fm=jpg&q=70&w=1200&auto=format&fit=crop','https://images.unsplash.com/photo-1620308189773-41a11b5472fc?fm=jpg&q=70&w=1200&auto=format&fit=crop','https://images.unsplash.com/photo-1560880944-796251b78b4c?fm=jpg&q=70&w=1200&auto=format&fit=crop','https://images.unsplash.com/photo-1767601047966-8b5ea4885007?fm=jpg&q=70&w=1200&auto=format&fit=crop'];
+// 곡별 이야기 — 제목에 들어간 단어로 찾아 붙입니다. 필요한 곡을 여기에 더 적어주세요.
+const STORIES = [
+  { match:'당신의 하루가', cover:'https://images.unsplash.com/photo-1758940887182-bfd3d2efa4d8?fm=jpg&q=70&w=1200&auto=format&fit=crop',
+    text:'새 아침, 눈을 뜨며 하나님께 드리는 첫 고백입니다.\n오늘 하루도 주님과 함께라면 괜찮다는 소망을\n싱그러운 아침 햇살처럼 담았습니다.' }
 ];
+const DEFAULT_STORY = '예배의 자리에서 길어 올린 고백을 노래로 담았습니다.\n편안히 귀 기울여 들어주세요.';
 
 const PLAY = '<svg width="22" height="22" viewBox="0 0 24 24" fill="#2B2520" aria-hidden="true"><path d="M8 4.5v15l12-7.5z"/></svg>';
 const PAUSE = '<svg width="22" height="22" viewBox="0 0 24 24" fill="#2B2520" aria-hidden="true"><rect x="6" y="4.5" width="4" height="15" rx="1"/><rect x="14" y="4.5" width="4" height="15" rx="1"/></svg>';
 const $ = id => document.getElementById(id);
-const audio = new Audio();
-let cur = 0, playing = false, fake = null, fakePos = 0;
+let player = null, ready = false, songs = [], cur = 0, playing = false, timer = null;
 
-const list = $('list');
-songs.forEach((s, i) => {
-  const b = document.createElement('button');
-  b.type = 'button'; b.className = 'row';
-  b.innerHTML = `<span class="no">${String(i+1).padStart(2,'0')}</span>
-    <span class="t"><b></b><span></span></span>
-    <span class="badge ${s.status==='발표곡'?'done':''}"></span>`;
-  b.querySelector('.t b').textContent = s.title;
-  b.querySelector('.t span').textContent = s.theme;
-  b.querySelector('.badge').textContent = s.status;
-  b.addEventListener('click', () => { select(i); play(); });
-  list.appendChild(b);
-});
+function cleanTitle(t){
+  return (t || '').replace(/\s*[\[\(（【].*?(official|lyric|audio|mv|가사|공식|M\/V).*?[\]\)）】]\s*/gi,' ').replace(/\s{2,}/g,' ').trim();
+}
+function storyFor(title){
+  const hit = STORIES.find(x => title.includes(x.match));
+  return hit || null;
+}
+async function fetchTitle(id){
+  const url = 'https://www.youtube.com/watch?v=' + id;
+  for (const ep of ['https://www.youtube.com/oembed?format=json&url=','https://noembed.com/embed?url=']) {
+    try { const r = await fetch(ep + encodeURIComponent(url)); if (r.ok) { const j = await r.json(); if (j.title) return j.title; } } catch(e){}
+  }
+  return '';
+}
 
+function buildList(){
+  const list = $('list');
+  list.innerHTML = '';
+  songs.forEach((s, i) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'row';
+    b.innerHTML = '<span class="no"></span><span class="t"><b></b><span></span></span><span class="badge">듣기</span>';
+    b.querySelector('.no').textContent = String(i+1).padStart(2,'0');
+    b.querySelector('.t b').textContent = s.title;
+    b.querySelector('.t span').textContent = s.theme;
+    b.addEventListener('click', () => playAt(i));
+    list.appendChild(b);
+  });
+  $('count').textContent = songs.length + '곡';
+}
 function render(){
-  const s = songs[cur];
+  const s = songs[cur]; if (!s) return;
   $('coverTitle').textContent = s.title;
   $('cover').style.setProperty('--cover', 'url("' + s.cover + '")');
   $('pTitle').textContent = s.title;
-  $('pSub').textContent = '박동준 · ' + s.status;
+  $('pSub').textContent = '박동준 · The Songs';
   $('sTitle').textContent = s.title;
   $('sBody').textContent = s.story;
-  $('sMeta').textContent = s.meta;
-  [...list.children].forEach((r, i) => r.classList.toggle('on', i === cur));
+  $('sMeta').textContent = 'The Songs · ' + (cur+1) + ' / ' + songs.length;
+  [...$('list').children].forEach((r, i) => {
+    r.classList.toggle('on', i === cur);
+    const bd = r.querySelector('.badge'); if (bd) { bd.textContent = (i === cur && playing) ? '재생 중' : '듣기'; bd.classList.toggle('done', i === cur && playing); }
+  });
   $('play').innerHTML = playing ? PAUSE : PLAY;
   $('play').setAttribute('aria-label', playing ? '일시정지' : '재생');
   $('eq').classList.toggle('on', playing);
 }
-function select(i){
-  stop();
+function playAt(i){
+  if (!ready) return;
   cur = (i + songs.length) % songs.length;
-  fakePos = 0; $('prog').style.width = '0%';
-  if (songs[cur].audio) audio.src = songs[cur].audio; else audio.removeAttribute('src');
+  player.playVideoAt(cur);
   render();
+  const row = $('list').children[cur]; if (row) row.scrollIntoView({block:'nearest', behavior:'smooth'});
 }
-function play(){
-  playing = true;
-  if (songs[cur].audio) { audio.play().catch(()=>{}); }
-  else { fake = setInterval(() => { fakePos = (fakePos + 0.5) % 100; $('prog').style.width = fakePos + '%'; }, 300); }
-  render();
+function toggle(){
+  if (!ready) return;
+  if (playing) player.pauseVideo();
+  else if (player.getPlaylistIndex() === cur && player.getPlayerState() !== -1 && player.getPlayerState() !== 5) player.playVideo();
+  else player.playVideoAt(cur);
 }
-function stop(){
-  playing = false; audio.pause(); clearInterval(fake); fake = null; render();
+function tick(){
+  if (!ready) return;
+  const d = player.getDuration ? player.getDuration() : 0, t = player.getCurrentTime ? player.getCurrentTime() : 0;
+  $('prog').style.width = d ? (t / d * 100) + '%' : '0%';
 }
-audio.addEventListener('timeupdate', () => {
-  if (audio.duration) $('prog').style.width = (audio.currentTime / audio.duration * 100) + '%';
-});
-audio.addEventListener('ended', () => { select(cur + 1); play(); });
 
-$('play').addEventListener('click', () => playing ? stop() : play());
-$('prev').addEventListener('click', () => { select(cur - 1); play(); });
-$('next').addEventListener('click', () => { select(cur + 1); play(); });
-render();
+async function loadSongs(){
+  const ids = player.getPlaylist() || [];
+  songs = ids.map((id, i) => ({ id, title:'곡 ' + (i+1), theme:'The Songs', cover: COVERS[i % COVERS.length], story: DEFAULT_STORY }));
+  buildList(); render();
+  await Promise.all(ids.map(async (id, i) => {
+    const raw = await fetchTitle(id);
+    if (!raw) return;
+    const title = cleanTitle(raw) || raw;
+    const st = storyFor(title);
+    songs[i].title = title;
+    if (st) { songs[i].story = st.text; songs[i].cover = st.cover || songs[i].cover; songs[i].theme = '하루를 여는 아침 묵상'; }
+    const row = $('list').children[i];
+    if (row) row.querySelector('.t b').textContent = title;
+    if (row && st) row.querySelector('.t span').textContent = songs[i].theme;
+    if (i === cur) render();
+  }));
+}
+
+window.onYouTubeIframeAPIReady = function(){
+  player = new YT.Player('ytplayer', {
+    width: 1, height: 1,
+    playerVars: { listType:'playlist', list: PLAYLIST, controls:0, playsinline:1, rel:0 },
+    events: {
+      onReady: () => {
+        ready = true;
+        let tries = 0;
+        const wait = setInterval(() => {
+          const pl = player.getPlaylist();
+          if ((pl && pl.length) || ++tries > 40) { clearInterval(wait); if (pl && pl.length) loadSongs(); else $('list').innerHTML = '<p class="empty">노래 목록을 불러오지 못했어요. 잠시 후 새로고침해 주세요.</p>'; }
+        }, 250);
+      },
+      onStateChange: (e) => {
+        playing = (e.data === YT.PlayerState.PLAYING);
+        const idx = player.getPlaylistIndex(); if (idx >= 0) cur = idx;
+        clearInterval(timer); if (playing) timer = setInterval(tick, 500); else tick();
+        render();
+      }
+    }
+  });
+};
+$('play').addEventListener('click', toggle);
+$('prev').addEventListener('click', () => playAt(cur - 1));
+$('next').addEventListener('click', () => playAt(cur + 1));
+$('coverTitle').textContent = 'The Songs';
+$('cover').style.setProperty('--cover', 'url("https://images.unsplash.com/photo-1758940887182-bfd3d2efa4d8?fm=jpg&q=70&w=1200&auto=format&fit=crop")');
+$('pTitle').textContent = 'The Songs';
+$('pSub').textContent = '박동준';
+$('play').innerHTML = PLAY;
 </script>
+<script src="https://www.youtube.com/iframe_api"></script>
 </body>
 </html>
