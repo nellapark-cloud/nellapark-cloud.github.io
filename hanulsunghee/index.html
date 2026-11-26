@@ -1,0 +1,885 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="theme-color" content="#FBFAF8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>하늘성희 HANUL SUNGHEE — Love Story</title>
+<meta name="description" content="하늘의 기쁨과 사랑을 노래하는 CCM 보컬리스트 하늘성희(최성희)">
+<meta property="og:title" content="하늘성희 HANUL SUNGHEE — Love Story">
+<meta property="og:description" content="하늘의 기쁨과 사랑을 노래합니다">
+<meta property="og:image" content="img/hero.jpg">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap">
+<style>
+:root{
+  --bg:#FBFAF8; --soft:#F4F1EE; --ink:#2A2623; --ink2:#5C5651; --muted:#9A928B; --line:#ECE6E1;
+  --accent:#A8706F; --accent-soft:#F5EBEA;
+  --font:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  --serif:'Cormorant Garamond','Times New Roman',serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;word-break:keep-all;padding-bottom:72px;font-feature-settings:"tnum" 1}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;color:inherit}
+.wrap{margin:0;padding:0 clamp(20px,5vw,88px)}
+.label{margin:0;font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:0;text-transform:none}
+.rv{opacity:0;transform:translateY(12px);transition:opacity .9s ease,transform .9s ease}
+.rv.in{opacity:1;transform:none}
+
+/* header */
+header{position:fixed;top:0;left:0;right:0;z-index:30;background:rgba(251,250,248,.86);backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
+header.solid{border-color:var(--line)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+.brand{display:flex;align-items:baseline;gap:10px}
+.brand .ko{font-size:16px;font-weight:600;letter-spacing:-.01em}
+.brand .en{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--muted)}
+nav{display:flex;gap:28px}
+nav a{font-size:14px;color:var(--ink2);transition:color .2s}
+nav a:hover{color:var(--ink)}
+
+/* hero */
+.hero-photo{position:relative;margin:0;padding-top:60px;background:var(--bg)}
+.hero-photo img{display:block;width:100%;height:clamp(380px,min(56vw,calc(100svh - 60px)),900px);object-fit:cover;object-position:30% 32%;filter:saturate(.82) contrast(.97) brightness(1.02);background:#E8E4DF}
+.hero-photo::after{content:'';position:absolute;left:0;right:0;bottom:0;height:30%;background:linear-gradient(to top,rgba(40,30,25,.26),rgba(0,0,0,0));pointer-events:none}
+.hero-photo figcaption{position:absolute;left:0;right:0;bottom:0;z-index:1}
+.cap-row{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:22px;color:#fff;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.3)}
+.cap-row .it{font-size:18px;letter-spacing:.01em}
+.hero{padding:80px 0 88px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(40px,7vw,120px);align-items:end}
+.intro .sig{margin:14px 0 0;font-family:var(--serif);font-style:italic;font-size:30px;line-height:1;color:var(--accent)}
+.intro h1{margin:14px 0 0;font-size:30px;line-height:1.45;font-weight:600;letter-spacing:-.03em}
+.intro .en-title{margin:8px 0 0;font-family:var(--serif);font-style:italic;font-size:19px;color:var(--muted)}
+.verse{margin:26px 0 0;padding:0 0 0 16px;max-width:520px;border-left:1px solid var(--accent)}
+.verse p{margin:0;font-size:14.5px;line-height:1.9;color:var(--ink2)}
+.verse cite{display:block;margin-top:8px;font-style:normal;font-size:12px;color:var(--muted)}
+.player .np-jk{flex:none;width:52px;height:52px;border-radius:3px;box-shadow:0 2px 8px rgba(60,40,30,.12)}
+.player .np-jk.gen i{font-size:8px;padding:6%}
+.player .row1 .meta{flex:1;min-width:0}
+.hero .player{margin-top:0}
+@media (min-width:981px){
+ .top{position:relative}
+ .hero-photo img{min-height:640px}
+ .hero-photo::before{content:'';position:absolute;inset:60px 0 0 0;background:linear-gradient(90deg,rgba(251,250,248,0) 46%,rgba(251,250,248,.5) 62%,rgba(251,250,248,.82) 100%);pointer-events:none;z-index:1}
+ .hero{position:absolute;inset:60px 0 0 0;z-index:2;display:flex;align-items:center;padding:0 0 40px;pointer-events:none}
+ .hero .wrap{width:100%;pointer-events:auto}
+ .hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,430px);row-gap:30px;align-items:start}
+ .hero .intro,.hero .player{grid-column:2}
+ .hero .player{padding-top:22px;border-top-color:rgba(60,40,30,.14)}
+ .hero .intro .label,.hero .intro .en-title,.hero .verse cite,.hero .player .sub,.hero .np-time{color:#6E655E}
+ .hero .verse p{color:#3A332F}
+ .hero .np-bar{background:rgba(60,40,30,.12)}
+ .hero .ctl button:hover{background:rgba(255,255,255,.6)}
+ .hero .ctl button.play:hover{background:#1c1917}
+ .hero .textbtn{border-color:rgba(60,40,30,.22);background:rgba(255,255,255,.35)}
+ .hero-photo figcaption{z-index:3}
+ .cap-row span:last-child{color:#6E655E;text-shadow:none}
+}
+
+/* player */
+.player{margin-top:36px;padding-top:28px;border-top:1px solid var(--line)}
+.player .row1{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.player b{display:block;font-size:17px;font-weight:600;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.player .sub{display:block;margin-top:2px;font-size:13px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.np-bar{margin-top:18px;height:2px;border-radius:2px;background:var(--line);cursor:pointer;overflow:hidden}
+.np-bar div{height:2px;width:0;background:var(--accent);transition:width .3s linear}
+.np-time{display:flex;justify-content:space-between;margin-top:8px;font-size:12px;color:var(--muted)}
+.ctl{margin-top:14px;display:flex;align-items:center;gap:8px}
+.ctl button{width:40px;height:40px;border:0;border-radius:50%;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.ctl button:hover{background:var(--soft)}
+.ctl button.play{width:48px;height:48px;background:var(--ink)}
+.ctl button.play:hover{background:#1c1917}
+.ctl .spacer{flex:1}
+.textbtn{min-height:40px;padding:0 18px;border:1px solid var(--line);border-radius:999px;background:transparent;font-size:13px;font-weight:500;cursor:pointer;transition:border-color .2s}
+.textbtn:hover{border-color:var(--ink)}
+button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.eq{display:inline-flex;align-items:flex-end;gap:2px;height:12px}
+.eq i{display:block;width:2px;height:4px;background:var(--accent);animation:eq 1.1s ease-in-out infinite}
+.eq i:nth-child(2){animation-delay:.2s}.eq i:nth-child(3){animation-delay:.4s}
+@keyframes eq{0%,100%{height:3px}50%{height:12px}}
+
+/* jacket */
+.jk{position:relative;background:var(--soft) center/cover;overflow:hidden}
+.jk.gen{background:var(--soft)}
+.jk.gen i{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:12%;text-align:center;font-style:normal;font-weight:500;color:var(--ink2);line-height:1.3;letter-spacing:-.01em}
+
+/* band */
+.band{position:relative;margin:0;border-top:1px solid var(--line)}
+.band img{display:block;width:100%;height:clamp(260px,44vw,640px);object-fit:cover;object-position:center 55%;filter:saturate(.75) contrast(.96);background:#e9e6e2}
+.band::after{content:'';position:absolute;left:0;right:0;bottom:0;height:40%;background:linear-gradient(to top,rgba(40,30,25,.3),rgba(0,0,0,0));pointer-events:none}
+.band figcaption{position:absolute;left:0;right:0;bottom:0;z-index:1}
+.band figcaption .wrap{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:22px;color:#fff;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.3)}
+.band .quote{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);z-index:1;text-align:center;color:#fff;font-family:var(--serif);font-style:italic;font-size:clamp(22px,3vw,38px);line-height:1.3;text-shadow:0 2px 18px rgba(0,0,0,.25);padding:0 20px}
+.band .quote small{display:block;margin-top:10px;font-family:var(--font);font-style:normal;font-size:13px;letter-spacing:.02em;opacity:.92}
+
+/* sections */
+section.block{padding:80px 0;border-top:1px solid var(--line)}
+.shead{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:26px}
+.shead h2{margin:0;font-size:20px;font-weight:600;letter-spacing:-.02em;display:flex;align-items:baseline;gap:10px}
+.shead h2 .it{font-size:19px;color:var(--muted)}
+.shead h2 small{font-size:14px;font-weight:500;color:var(--muted)}
+.arrows{display:flex;gap:8px}
+.shelf-btn{width:36px;height:36px;border:1px solid var(--line);border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s,opacity .2s}
+.shelf-btn:hover{border-color:var(--ink)}
+.shelf-btn[disabled]{opacity:.3;pointer-events:none}
+
+/* albums */
+.shelf{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding-bottom:4px;align-items:flex-start}
+.shelf::-webkit-scrollbar{display:none}
+.album{flex:0 0 188px;scroll-snap-align:start;border:0;background:transparent;padding:0;text-align:left;cursor:pointer;display:flex;flex-direction:column}
+.album .jk{width:188px;height:188px;border-radius:3px;transition:transform .35s ease,box-shadow .35s ease;box-shadow:0 1px 3px rgba(60,40,30,.08)}
+.album:hover .jk{transform:translateY(-3px);box-shadow:0 10px 24px rgba(60,40,30,.14)}
+.album.on .jk{box-shadow:0 0 0 2px var(--accent)}
+.album .jk.gen i{font-size:13px}
+.album b{display:block;margin-top:12px;font-size:14px;font-weight:600;line-height:1.4;letter-spacing:-.01em;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.album span{display:block;margin-top:2px;font-size:12px;color:var(--muted)}
+.album em{align-self:flex-start;margin-top:8px;font-style:normal;font-size:11px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:2px 8px;border-radius:999px}
+
+/* tracklist */
+.filter{display:none}
+.tl{border-top:1px solid var(--ink)}
+.row{width:100%;display:grid;grid-template-columns:36px 40px minmax(0,1fr) auto;gap:16px;align-items:center;min-height:60px;padding:10px 8px;border:0;border-bottom:1px solid var(--line);background:transparent;text-align:left;cursor:pointer;transition:background .15s}
+.row:hover{background:var(--soft)}
+.row.on{background:var(--accent-soft)}
+.row:focus{outline:none}.row:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.row .no{font-size:13px;color:var(--muted);text-align:center}
+.row.on .no{color:var(--accent);font-weight:600}
+.row .jk{width:40px;height:40px;border-radius:2px}
+.row .jk.gen i{font-size:8px;padding:6%}
+.row .t{min-width:0;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:16px;align-items:center}
+.row .t b{font-size:15px;font-weight:500;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .t span{font-size:13px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .r{display:flex;align-items:center;gap:12px;width:96px;justify-content:flex-end}
+.row .ic{width:20px;display:flex;justify-content:center}
+.tl .empty{padding:22px 8px;color:var(--muted)}
+.more{display:flex;justify-content:center;margin-top:28px}
+.more[hidden]{display:none}
+.more button{min-height:40px;padding:0 20px;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:13px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.more button:hover{border-color:var(--ink)}
+
+/* video */
+.video-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:clamp(28px,5vw,72px);align-items:center}
+.vbox{position:relative;aspect-ratio:16/9;background:#1d1a18 center/cover;border-radius:3px;overflow:hidden;cursor:pointer;border:0;padding:0;width:100%}
+.vbox::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.35),rgba(0,0,0,0) 50%)}
+.vbox .pl{position:absolute;left:50%;top:50%;width:68px;height:68px;margin:-34px 0 0 -34px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;z-index:1;transition:transform .25s}
+.vbox:hover .pl{transform:scale(1.06)}
+.vbox iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:2}
+.vtext h3{margin:0;font-size:20px;font-weight:600;letter-spacing:-.02em;line-height:1.45}
+.vtext p{margin:14px 0 0;font-size:14.5px;line-height:1.85;color:var(--ink2)}
+.vtext ul{margin:18px 0 0;padding:0;list-style:none;border-top:1px solid var(--line)}
+.vtext li{padding:10px 0;border-bottom:1px solid var(--line);font-size:13.5px;color:var(--ink2);display:flex;gap:12px}
+.vtext li em{font-style:normal;color:var(--accent);font-size:12px;font-weight:600;min-width:44px}
+
+/* gallery */
+.gallery{columns:4 240px;column-gap:14px}
+.gallery button{display:block;width:100%;margin:0 0 14px;padding:0;border:0;background:var(--soft);cursor:zoom-in;break-inside:avoid;overflow:hidden;border-radius:2px}
+.gallery img{display:block;width:100%;height:auto;filter:grayscale(1) contrast(.95) brightness(1.04);transition:filter .6s ease,transform .8s ease}
+.gallery button:hover img,.gallery button:focus-visible img{filter:none;transform:scale(1.02)}
+@media (hover:none){.gallery img{filter:saturate(.85)}}
+.lb{position:fixed;inset:0;z-index:70;background:rgba(251,250,248,.97);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s}
+.lb.open{opacity:1;visibility:visible}
+.lb img{max-width:min(92vw,1100px);max-height:86svh;box-shadow:0 20px 60px rgba(60,40,30,.18)}
+.lb button{position:absolute;width:48px;height:48px;border:0;border-radius:50%;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.lb button:hover{background:var(--soft)}
+.lb .x{top:14px;right:14px}.lb .lp{left:14px;top:50%;margin-top:-24px}.lb .ln{right:14px;top:50%;margin-top:-24px}
+.lb .cnt{position:absolute;bottom:18px;left:0;right:0;text-align:center;font-size:12px;color:var(--muted);letter-spacing:.1em}
+
+/* about */
+.about-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-top:1px solid var(--line)}
+.about-photo{margin:0;min-height:760px;background:#F1EFEC;position:relative;overflow:hidden}
+.about-photo img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:30% 30%;filter:grayscale(1) contrast(1.02)}
+.about-text{align-self:center;padding:clamp(56px,7vw,120px) clamp(20px,5vw,88px)}
+.about-split h2{margin:0 0 24px;font-size:20px;font-weight:600;letter-spacing:-.02em}
+.about-split h2 span{display:block;margin-top:4px;font-family:var(--serif);font-style:italic;font-size:20px;font-weight:400;color:var(--muted)}
+.about-split p{margin:0;font-size:15px;line-height:1.9;color:var(--ink2);max-width:600px}
+.credits{margin:28px 0 0;padding:0;list-style:none;border-top:1px solid var(--line)}
+.credits li{display:grid;grid-template-columns:72px minmax(0,1fr);gap:16px;padding:13px 0;border-bottom:1px solid var(--line);font-size:14px;line-height:1.75;color:var(--ink2)}
+.credits li em{font-style:normal;font-size:12.5px;font-weight:500;color:var(--accent);padding-top:2px}
+
+/* contact */
+.contact .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:48px;align-items:baseline}
+.contact h2{margin:0;font-size:20px;font-weight:600;letter-spacing:-.02em}
+.contact a.mail{font-size:20px;font-weight:500;letter-spacing:-.01em;border-bottom:1px solid var(--line);padding-bottom:2px;transition:border-color .2s}
+.contact a.mail:hover{border-color:var(--accent)}
+.contact p{margin:8px 0 0;font-size:13px;color:var(--muted)}
+footer{border-top:1px solid var(--line)}
+footer .wrap{padding-top:24px;padding-bottom:28px;font-size:12px;color:var(--muted);display:flex;justify-content:space-between}
+footer .it{font-size:15px}
+
+/* dock */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(251,250,248,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .4s ease}
+.dock.show{transform:none}
+.dock .bar{height:2px;background:var(--line)}
+.dock .bar div{height:2px;width:0;background:var(--accent);transition:width .3s linear}
+.dock .in{padding:8px clamp(20px,5vw,88px);display:flex;align-items:center;gap:12px;cursor:pointer}
+.dock .jk{flex:none;width:40px;height:40px;border-radius:2px}
+.dock .jk.gen i{font-size:7px}
+.dock .info{flex:1 1 auto;min-width:0}
+.dock .info b{display:block;font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dock .info span{display:block;font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dock button{flex:none;width:40px;height:40px;border:0;border-radius:50%;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.dock button:hover{background:var(--soft)}
+.dock button.play{background:var(--ink)}
+
+/* full player */
+.full{position:fixed;inset:0;z-index:60;background:var(--bg);display:flex;flex-direction:column;transform:translateY(100%);transition:transform .42s cubic-bezier(.2,.8,.2,1);visibility:hidden;overscroll-behavior:contain}
+.full.open{transform:none;visibility:visible}
+.full .bgx{position:absolute;inset:0;background-size:cover;background-position:center;filter:blur(60px) saturate(1.1);opacity:.22;transform:scale(1.2);pointer-events:none}
+.full .top{position:relative;display:flex;justify-content:space-between;align-items:center;padding:calc(10px + env(safe-area-inset-top)) 16px 0}
+.full .top span{font-family:var(--serif);font-style:italic;font-size:17px;color:var(--muted)}
+.full .top button{width:44px;height:44px;border:0;border-radius:50%;background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.full .body{position:relative;flex:1;display:flex;flex-direction:column;justify-content:center;width:100%;max-width:440px;margin:0 auto;padding:12px 28px calc(28px + env(safe-area-inset-bottom))}
+.full .fjk{width:100%;aspect-ratio:1;border-radius:4px;box-shadow:0 18px 40px rgba(60,40,30,.18);transition:transform .4s ease,opacity .3s}
+.full:not(.playing) .fjk{transform:scale(.92)}
+.full .fjk.gen i{font-size:16px;padding:8%}
+.full .fmeta{margin-top:32px;display:flex;align-items:center;gap:12px}
+.full .fmeta div{flex:1;min-width:0}
+.full .fmeta b{display:block;font-size:21px;font-weight:600;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.full .fmeta span{display:block;margin-top:3px;font-size:14px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fbar{margin-top:24px;padding:10px 0;cursor:pointer;touch-action:none}
+.fbar .tr{position:relative;height:3px;border-radius:2px;background:rgba(60,40,30,.1)}
+.fbar .tr div{height:3px;width:0;border-radius:2px;background:var(--accent)}
+.fbar .tr i{position:absolute;top:50%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--accent);left:0}
+.ftime{display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}
+.fctl{margin-top:22px;display:flex;align-items:center;justify-content:space-between}
+.fctl button{width:48px;height:48px;border:0;border-radius:50%;background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;color:var(--ink)}
+.fctl button.big{width:72px;height:72px;background:var(--ink)}
+.fctl .mode{color:#BDB5AE}
+.fctl .mode.on{color:var(--accent)}
+.fctl .mode.on::after{content:'';position:absolute;bottom:4px;left:50%;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:var(--accent)}
+.fctl .mode sup{position:absolute;top:10px;right:8px;font-size:9px;font-weight:700}
+.full .top .lyb{width:auto;padding:0 14px;height:34px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.7);font-size:12px;font-weight:600;color:var(--ink2)}
+.full .top .lyb.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.full .stage{position:relative;width:100%;aspect-ratio:1}
+.full .stage .fjk{position:absolute;inset:0;width:100%;height:100%}
+.full.ly .stage .fjk{opacity:0;pointer-events:none}
+.lyr{position:absolute;inset:-8px -6px;overflow-y:auto;scrollbar-width:none;opacity:0;pointer-events:none;transition:opacity .3s;-webkit-mask-image:linear-gradient(transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(transparent,#000 14%,#000 86%,transparent);padding:40% 6px}
+.lyr::-webkit-scrollbar{display:none}
+.full.ly .lyr{opacity:1;pointer-events:auto}
+.full.ly .stage{aspect-ratio:auto;height:min(100vw - 56px,52svh)}
+.lyr p{margin:0 0 18px;font-size:20px;line-height:1.5;font-weight:600;letter-spacing:-.02em;color:rgba(42,38,35,.24);transition:color .3s,transform .3s;transform-origin:left center}
+.lyr.timed p{cursor:pointer}
+.lyr p.on{color:var(--ink);transform:scale(1.03)}
+.lyr.plain p{color:var(--ink2);font-weight:500;font-size:18px}
+.lyr p.gap{height:8px;margin:0}
+.lyr .none{color:var(--muted);font-size:15px;font-weight:500;text-align:center;line-height:1.8}
+body.lock{overflow:hidden}
+@media (min-height:820px){.full .body{max-width:480px}}
+@media (max-height:640px){.full .body{max-width:300px}.full .fmeta{margin-top:18px}}
+.textbtn{white-space:nowrap}
+.eq[hidden]{display:none}
+#yt{position:fixed;left:-20px;bottom:0;width:1px;height:1px;opacity:0;pointer-events:none;overflow:hidden}
+
+@media (max-width:980px){
+ .hero-photo img{object-position:28% 35%}
+}
+@media (max-width:860px){
+ .hero-grid{grid-template-columns:1fr;gap:40px}
+ .about-split{grid-template-columns:1fr}
+ .about-photo{min-height:0;aspect-ratio:4/5}
+ .contact .wrap{grid-template-columns:1fr;gap:20px}
+ .row .t{grid-template-columns:1fr;gap:2px}
+ .video-grid{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+ .wrap{padding:0 20px}
+ nav{gap:14px} nav a{font-size:13px}
+ nav a.opt{display:none}
+ .brand .en{display:none}
+ .hero{padding:52px 0 64px}
+ .hero-photo img{height:auto;aspect-ratio:4/5;object-position:30% 30%}
+ .intro h1{font-size:26px}
+ .row{grid-template-columns:40px minmax(0,1fr) auto;gap:12px;padding:10px 4px}
+ .row .no{display:none}
+ .row .r{width:auto}
+ .album{flex-basis:140px}.album .jk{width:140px;height:140px}
+ .gallery{columns:2;column-gap:8px}.gallery button{margin-bottom:8px}
+ .dock .in{padding:8px 16px}
+ .band .quote{font-size:22px}
+}
+@media (prefers-reduced-motion:reduce){ .eq i{animation:none} .rv{opacity:1;transform:none;transition:none} }
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="ko">하늘성희</span><span class="en">Hanul Sunghee</span></a>
+    <nav>
+      <a href="#albums">앨범</a>
+      <a href="#tracks">노래</a>
+      <a href="#video" class="opt">영상</a>
+      <a href="#photos" class="opt">사진</a>
+      <a href="#about">소개</a>
+    </nav>
+  </div>
+</header>
+
+<div class="top" id="top">
+<figure class="hero-photo">
+  <img src="img/hero.jpg" alt="바닷가에서 바람에 머리를 넘기며 웃는 하늘성희" width="1967" height="1542" fetchpriority="high">
+  <figcaption><div class="wrap cap-row"><span class="it">Love Story</span><span>Hanul Sunghee</span></div></figcaption>
+</figure>
+
+<section class="hero">
+  <div class="wrap hero-grid" id="deck">
+    <div class="intro">
+      <p class="label rv">CCM Vocalist · Ballad</p>
+      <p class="sig rv">Hanul Sunghee</p>
+      <h1 class="rv">하늘의 기쁨과 사랑을<br>노래합니다</h1>
+      <p class="en-title rv">Songs of heaven's joy and love</p>
+      <div class="verse rv">
+        <p>주 너의 하나님이 너와 함께 계신다. … 너를 보고서 기뻐하고 반기시고, 너를 사랑으로 새롭게 하여 주시고, 너를 보고서 노래하며 기뻐하실 것이다.</p>
+        <cite>스바냐 3:17, 새번역</cite>
+      </div>
+    </div>
+    <div class="player rv" aria-label="플레이어">
+      <div class="row1">
+        <div class="jk np-jk" id="npJk" role="img" aria-label="지금 재생 중인 앨범 자켓"></div>
+        <div class="meta"><b id="npTitle">노래를 불러오는 중…</b><span class="sub" id="npSub">하늘성희</span></div>
+        <span class="eq" id="npEq" hidden><i></i><i></i><i></i></span>
+      </div>
+      <div class="np-bar" id="npBar"><div id="npProg"></div></div>
+      <div class="np-time"><span id="npCur">0:00</span><span id="npDur">0:00</span></div>
+      <div class="ctl">
+        <button type="button" id="prev" aria-label="이전 곡"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2A2623" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 5 9 12l10 7z"/><path d="M5 5v14"/></svg></button>
+        <button type="button" class="play" id="play" aria-label="재생"></button>
+        <button type="button" id="next" aria-label="다음 곡"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2A2623" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 5 10 7-10 7z"/><path d="M19 5v14"/></svg></button>
+        <span class="spacer"></span>
+        <button type="button" class="textbtn" id="playAll">전체 듣기</button>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<section class="block" id="albums">
+  <div class="wrap">
+    <div class="shead rv">
+      <h2>앨범 <span class="it">Discography</span></h2>
+      <div class="arrows">
+        <button type="button" class="shelf-btn" id="shelfPrev" aria-label="이전 앨범"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2A2623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+        <button type="button" class="shelf-btn" id="shelfNext" aria-label="다음 앨범"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2A2623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+      </div>
+    </div>
+    <div class="shelf" id="shelf"></div>
+  </div>
+</section>
+
+<figure class="band rv" aria-label="바닷가 사진">
+  <img src="img/band.jpg" alt="등대가 보이는 해변에 홀로 서 있는 하늘성희" loading="lazy" width="1967" height="1245">
+  <div class="quote">Every song, a love story<small>모든 노래는 결국, 그분과의 사랑 이야기</small></div>
+  <figcaption><div class="wrap"><span>By the Sea</span><span>하늘성희 · Hanul Sunghee</span></div></figcaption>
+</figure>
+
+<section class="block" id="tracks">
+  <div class="wrap">
+    <div class="shead rv">
+      <h2>노래 <small id="count"></small></h2>
+      <div class="filter" id="filter" hidden></div>
+      <button type="button" class="textbtn" id="showAll">전체 보기</button>
+    </div>
+    <div class="tl" id="tl"><p class="empty">노래를 불러오는 중입니다…</p></div>
+    <div class="more" id="more" hidden><button type="button" id="moreBtn">더 보기 <span id="moreN"></span></button></div>
+  </div>
+</section>
+
+<section class="block" id="video">
+  <div class="wrap video-grid">
+    <button type="button" class="vbox rv" id="vbox" aria-label="캠프초대석 영상 재생">
+      <span class="pl"><svg width="22" height="22" viewBox="0 0 24 24" fill="#2A2623" aria-hidden="true"><path d="M8 4.5v15l12-7.5z"/></svg></span>
+    </button>
+    <div class="vtext rv">
+      <p class="label">Interview · Live</p>
+      <h3 style="margin-top:10px">캠프초대석 EP.122<br>하늘의 기쁨과 사랑을 노래하는 하늘성희</h3>
+      <p>30여 년 전 제1회 CBS 창작복음성가제 금상팀 '하늘노래'의 멤버로 시작해, 다시 노래의 자리로 돌아오기까지의 이야기를 들려줍니다.</p>
+      <ul>
+        <li><em>Live</em>별 나무 새 시내</li>
+        <li><em>Live</em>들으시는 하나님</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="photos">
+  <div class="wrap">
+    <div class="shead rv"><h2>사진 <span class="it">Moments</span></h2></div>
+    <div class="gallery" id="gallery"></div>
+  </div>
+</section>
+
+<section class="about-split" id="about">
+  <figure class="about-photo"><img src="img/about.jpg" alt="헤드폰을 끼고 노래하는 하늘성희 흑백 사진" loading="lazy" width="1600" height="2129"></figure>
+  <div class="about-text">
+    <h2 class="rv">하늘성희<span>Hanul Sunghee · 최성희</span></h2>
+    <div class="rv">
+      <p>'하늘'이라는 이름은 꿈속에서 처음 찾아왔습니다. 1990년 제1회 CBS 창작복음성가제에서 금상을 받은 '하늘노래'로 노래를 시작했고, 1998년 트리오 '하늘'로 『쉼으로 찾는 기쁨』을 불렀습니다. 가정을 꾸리며 무대를 떠나 있던 시간에도 25년 넘게 교회 찬양팀의 자리를 지켰고, 이제 첫 정규 앨범 『Love Story』로 다시 하늘의 기쁨과 사랑을 노래합니다.</p>
+      <ul class="credits">
+        <li><em>1990</em><span>제1회 CBS 창작복음성가제 금상 — 하늘노래</span></li>
+        <li><em>1991</em><span>하늘노래 1집 「내게 사랑 주셨고 / 새나라」</span></li>
+        <li><em>1992</em><span>하늘노래 『Praise Together』</span></li>
+        <li><em>1998</em><span>하늘 『쉼으로 찾는 기쁨』 — 문지은 · 최성희 · 지은민</span></li>
+        <li><em>참여</em><span>소리엘 5집 · 소향 『2 for 1』 · 오영진 『997』 · 한정실 1집<br>Palms · 통일워십콘서트 『Heal Our Land』 외</span></li>
+        <li><em>지금</em><span>첫 정규 앨범 『Love Story』 · 유튜브 아침 묵상 방송</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="block contact" id="contact">
+  <div class="wrap">
+    <h2 class="rv">함께하기</h2>
+    <div class="rv">
+      <a class="mail" href="https://www.youtube.com/@하늘성희" target="_blank" rel="noopener">YouTube @하늘성희</a>
+      <p>찬양집회 · 예배 초청 · 앨범(CD · USB) 문의</p>
+    </div>
+  </div>
+</section>
+<footer><div class="wrap"><span>© 2026 하늘성희 HANUL SUNGHEE</span><span class="it">Love Story</span></div></footer>
+
+<div class="dock" id="dock" role="region" aria-label="미니 플레이어">
+  <div class="bar"><div id="dProg"></div></div>
+  <div class="in">
+    <div class="jk" id="dJk"></div>
+    <div class="info"><b id="dTitle"></b><span id="dSub"></span></div>
+    <button type="button" class="play" id="dPlay" aria-label="재생"></button>
+    <button type="button" id="dNext" aria-label="다음 곡"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2A2623" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 5 10 7-10 7z"/><path d="M19 5v14"/></svg></button>
+  </div>
+</div>
+
+<div class="full" id="full" role="dialog" aria-modal="true" aria-label="플레이어" aria-hidden="true">
+  <div class="bgx" id="fBg"></div>
+  <div class="top">
+    <button type="button" id="fClose" aria-label="플레이어 닫기"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2A2623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+    <span>Now Playing</span>
+    <button type="button" class="lyb" id="fLy" aria-pressed="false">가사</button>
+  </div>
+  <div class="body">
+    <div class="stage"><div class="jk fjk" id="fJk"></div><div class="lyr" id="fLyr" aria-live="off"></div></div>
+    <div class="fmeta"><div><b id="fTitle"></b><span id="fSub"></span></div></div>
+    <div class="fbar" id="fBar"><div class="tr"><div id="fProg"></div><i id="fKnob"></i></div></div>
+    <div class="ftime"><span id="fCur">0:00</span><span id="fDur">0:00</span></div>
+    <div class="fctl">
+      <button type="button" class="mode" id="fShuf" aria-label="셔플" aria-pressed="false"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3h5v5"/><path d="M4 20 21 3"/><path d="M21 16v5h-5"/><path d="m15 15 6 6"/><path d="M4 4l5 5"/></svg></button>
+      <button type="button" id="fPrev" aria-label="이전 곡"><svg width="26" height="26" viewBox="0 0 24 24" fill="#2A2623" aria-hidden="true"><path d="M19 5 9 12l10 7z"/><rect x="4" y="5" width="2.2" height="14" rx="1"/></svg></button>
+      <button type="button" class="big" id="fPlay" aria-label="재생"></button>
+      <button type="button" id="fNext" aria-label="다음 곡"><svg width="26" height="26" viewBox="0 0 24 24" fill="#2A2623" aria-hidden="true"><path d="m5 5 10 7-10 7z"/><rect x="17.8" y="5" width="2.2" height="14" rx="1"/></svg></button>
+      <button type="button" class="mode" id="fRep" aria-label="반복"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg><sup id="fRepOne" hidden>1</sup></button>
+    </div>
+  </div>
+</div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="사진 크게 보기" aria-hidden="true">
+  <img id="lbImg" alt="">
+  <button type="button" class="x" id="lbX" aria-label="닫기"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2A2623" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <button type="button" class="lp" id="lbP" aria-label="이전 사진"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2A2623" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+  <button type="button" class="ln" id="lbN" aria-label="다음 사진"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2A2623" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+  <div class="cnt" id="lbC"></div>
+</div>
+<div id="yt" aria-hidden="true"><div id="ytplayer"></div></div>
+
+<script>
+// ── 앨범 전체 재생목록 (유튜브 뮤직 앨범) ──
+const PLAYLIST = 'OLAK5uy_ntJ1x9arkxmYVcmOaUeFZoB5RKIIiPyq8';
+// ── 맨 앞에 놓이는 곡 (유튜브 영상 ID) — 제목은 유튜브에서 자동으로 불러옵니다. title 을 적으면 그 이름으로 고정됩니다.
+const PINNED = [
+  { id:'5OmTWaeKXYY' },
+  { id:'lO5SrhU0ZZY' },
+  { id:'6SksqT_aG_o' },
+  { id:'BG-E7X3T69k' },
+  { id:'ZmQZWjFwptc' },
+  { id:'xsHwiK2frV8' }
+];
+// 인터뷰 영상
+const INTERVIEW = '_FtlbGWzczs';
+
+// ── 앨범 정보 ── cover 가 비어 있으면 첫 곡의 유튜브 이미지(없으면 글자 자켓)로 표시됩니다.
+const ALBUMS = [
+  { key:'lovestory', title:'Love Story', type:'하늘성희 · 첫 정규', year:'', cover:'covers/lovestory.jpg', tag:'NEW', tracks:[] },
+  { key:'treasure', title:'I Have a Precious Treasure', type:'하늘성희', year:'', cover:'', fromPlaylist:true, tracks:[] },
+  { key:'shim', title:'쉼으로 찾는 기쁨', type:'하늘', year:'1998', cover:'covers/shim.jpg',
+    tracks:['주안에 사는 기쁨','나의 이야기','별 나무 새 시내','하나님만 바라라','너는 내 것이라'] },
+  { key:'praise', title:'Praise Together', type:'하늘노래', year:'1992', cover:'covers/praise.jpg',
+    tracks:['크신 주께','손을 잡고서','가서 제자 삼으라','그 나라 갈 때에','사랑하는 나의 아버지','그날이 도적 같이','여호와를 경외함이','천국은 참 놀라운 곳'] },
+  { key:'hanul1', title:'하늘노래 1집', type:'하늘노래 · CBS 창작복음성가제 금상', year:'1991', cover:'covers/hanul1.jpg',
+    tracks:['내게 사랑 주셨고','새나라'] },
+  { key:'soriel5', title:'소리엘 5집', type:'참여', year:'', cover:'covers/soriel5.jpg', tracks:[] },
+  { key:'sohyang', title:'2 for 1', type:'소향 · 참여', year:'', cover:'covers/sohyang.jpg', tracks:[] },
+  { key:'oh997', title:'997', type:'오영진 · 참여', year:'1998', cover:'covers/oh997.jpg', tracks:[] },
+  { key:'han', title:'한정실 1집', type:'참여', year:'1999', cover:'covers/han.jpg', tracks:[] },
+  { key:'palms', title:'Palms', type:'참여', year:'', cover:'covers/palms.jpg', tracks:[] },
+  { key:'healland', title:'Heal Our Land', type:'통일워십콘서트 · 참여', year:'', cover:'covers/healland.jpg', tracks:[] }
+];
+
+// ── 사진 ──
+const PHOTOS = ['g01','g02','g03','g04','g05','g06','g07','g08','g09','g10','g11','g12','g13','g14','g15','g16','g17','g18','g19','g20','g21','g22','g23','g24'];
+
+// ── 가사 ── 곡 제목을 열쇠로 적어 넣으면 됩니다. 줄 앞에 [분:초]를 붙이면 노래를 따라 움직입니다.
+const LYRICS = {
+};
+
+const norm = s => (s||'').normalize('NFC').toLowerCase().replace(/[​-‍﻿]/g,'').replace(/[^0-9a-z가-힣]/g,'');
+function albumOf(title){
+  const n = norm(title);
+  if (!n) return null;
+  const exact = ALBUMS.find(a => a.tracks.some(t => norm(t) === n));
+  if (exact) return exact;
+  let best = null, bestLen = 0;
+  ALBUMS.forEach(a => a.tracks.forEach(t => {
+    const m = norm(t);
+    if (m.length >= 3 && n.startsWith(m) && m.length > bestLen) { best = a; bestLen = m.length; }
+  }));
+  return best;
+}
+function cleanTitle(t){
+  return (t || '').normalize('NFC').replace(/[​-‍﻿]/g,'')
+    .replace(/\s*[\[\(（【<〈「『][^\]\)）】>〉」』]*(하늘성희|최성희|Hanul\s*Sunghee)[^\]\)）】>〉」』]*[\]\)）】>〉」』]\s*/gi,' ')
+    .replace(/^\s*(하늘성희|최성희)\s*[-–—:|·]\s*/,'').replace(/\s*[-–—:|·]\s*(하늘성희|최성희)\s*$/,'')
+    .replace(/\s*[\[\(（【].*?(official|lyric|audio|mv|가사|공식|M\/V).*?[\]\)）】]\s*/gi,' ')
+    .replace(/\s{2,}/g,' ').trim();
+}
+const titleCache = {};
+function fetchTitle(id){ return titleCache[id] || (titleCache[id] = fetchTitle0(id)); }
+async function fetchTitle0(id){
+  const url = 'https://www.youtube.com/watch?v=' + id;
+  for (const ep of ['https://www.youtube.com/oembed?format=json&url=','https://noembed.com/embed?url=']) {
+    try { const r = await fetch(ep + encodeURIComponent(url)); if (r.ok) { const j = await r.json(); if (j.title) return j.title; } } catch(e){}
+  }
+  return '';
+}
+// 유튜브 이미지 (큰 이미지가 없으면 작은 이미지로)
+const thumbCache = {};
+const DEFAULT_COVER = 'covers/single.jpg';
+function loadOk(u, min){ return new Promise(r => { const im = new Image(); const t = setTimeout(() => r(false), 5000); im.onload = () => { clearTimeout(t); r(im.naturalWidth > (min||0)); }; im.onerror = () => { clearTimeout(t); r(false); }; im.src = u; }); }
+function ytThumb(id){
+  if (thumbCache[id]) return thumbCache[id];
+  return thumbCache[id] = (async () => {
+    const big = 'https://i.ytimg.com/vi/' + id + '/maxresdefault.jpg', mid = 'https://i.ytimg.com/vi/' + id + '/mqdefault.jpg';
+    if (await loadOk(big, 200)) return big;
+    if (await loadOk(mid, 100)) return mid;
+    return DEFAULT_COVER;
+  })();
+}
+// 자켓 그리기: 앨범 자켓 → 영상 이미지 → 글자 자켓
+function jacket(el, album, fallbackText, vid){
+  el.classList.remove('gen'); el.innerHTML = ''; el.style.backgroundImage = ''; el.dataset.for = vid || (album && album.key) || '';
+  const tag = el.dataset.for;
+  const set = u => { if (el.dataset.for === tag) el.style.backgroundImage = 'url("' + u + '")'; };
+  if (album && album.cover) {
+    const im = new Image(); im.onload = () => set(album.cover); im.onerror = () => vid ? ytThumb(vid).then(set) : gen(); im.src = album.cover;
+  } else if (vid) ytThumb(vid).then(set);
+  else if (album) set(DEFAULT_COVER);
+  else gen();
+  function gen(){ el.classList.add('gen'); const i = document.createElement('i'); i.textContent = album ? album.title : (fallbackText || 'Love Story'); el.appendChild(i); }
+}
+function coverOf(s){ return new Promise(r => { if (s.album && s.album.cover) r(s.album.cover); else if (s.id) ytThumb(s.id).then(r); else r(''); }); }
+
+const PLAY_I = c => '<svg width="18" height="18" viewBox="0 0 24 24" fill="'+c+'" aria-hidden="true"><path d="M8 4.5v15l12-7.5z"/></svg>';
+const PAUSE_I = c => '<svg width="18" height="18" viewBox="0 0 24 24" fill="'+c+'" aria-hidden="true"><rect x="6" y="4.5" width="4" height="15" rx="1"/><rect x="14" y="4.5" width="4" height="15" rx="1"/></svg>';
+const $ = id => document.getElementById(id);
+const fmt = t => { t = Math.max(0, Math.floor(t||0)); return Math.floor(t/60) + ':' + String(t%60).padStart(2,'0'); };
+let player=null, ready=false, songs=[], order=[], cur=0, playing=false, started=false, timer=null, filterKey='all', lastNp=-1;
+let shuffle=false, repeat='all', hist=[];
+try { shuffle = localStorage.getItem('hs.shuffle')==='1'; repeat = localStorage.getItem('hs.repeat') || 'all'; } catch(e){}
+
+function subOf(s){ const a = s.album; return a ? a.title + (a.year ? ' · ' + a.year : '') : '하늘성희'; }
+
+function buildShelf(){
+  const sh = $('shelf'); sh.innerHTML = '';
+  ALBUMS.forEach(a => {
+    const list = songs.filter(s => s.album === a);
+    const n = list.length;
+    const b = document.createElement('button'); b.type='button'; b.className='album'; b.dataset.key = a.key;
+    b.innerHTML = '<div class="jk"></div><b></b><span></span>';
+    jacket(b.querySelector('.jk'), a, null, (!a.cover && list[0]) ? list[0].id : null);
+    b.querySelector('b').textContent = a.title;
+    b.querySelector('span').textContent = [a.type, a.year, n ? n + '곡' : ''].filter(Boolean).join(' · ');
+    if (a.tag) { const e = document.createElement('em'); e.textContent = a.tag; b.appendChild(e); }
+    b.addEventListener('click', () => { setFilter(a.key); $('tracks').scrollIntoView({behavior:'smooth'}); });
+    sh.appendChild(b);
+  });
+  markFilter();
+}
+function markFilter(){ [...$('shelf').children].forEach(b => b.classList.toggle('on', b.dataset.key === filterKey)); }
+const PAGE = 10; let limit = PAGE;
+function setFilter(k){ filterKey = (k === filterKey && k !== 'all') ? 'all' : k; limit = PAGE; markFilter(); buildList(); }
+function visible(){ return songs.map((s,i)=>i).filter(i => filterKey==='all' || (songs[i].album && songs[i].album.key===filterKey)); }
+function buildList(){
+  const tl = $('tl'); tl.innerHTML = '';
+  order = visible();
+  const rest = order.length - limit;
+  $('more').hidden = rest <= 0;
+  $('moreN').textContent = rest > 0 ? '(' + rest + '곡)' : '';
+  if (!order.length) {
+    const a = ALBUMS.find(x => x.key === filterKey);
+    tl.innerHTML = '<p class="empty"></p>';
+    tl.firstChild.textContent = songs.length ? (a ? '『' + a.title + '』의 노래는 곧 이곳에서 들으실 수 있어요.' : '노래가 없습니다.') : '노래를 불러오는 중입니다…';
+  }
+  order.slice(0, limit).forEach((i, k) => {
+    const s = songs[i];
+    const b = document.createElement('button'); b.type='button'; b.className='row'; b.dataset.i = i;
+    b.innerHTML = '<span class="no"></span><div class="jk"></div><span class="t"><b></b><span></span></span><span class="r"><span class="ic"></span></span>';
+    b.querySelector('.no').textContent = k+1;
+    jacket(b.querySelector('.jk'), s.album, s.title, s.id);
+    b.querySelector('.t b').textContent = s.title;
+    b.querySelector('.t span').textContent = subOf(s);
+    b.setAttribute('aria-label', s.title + ' 재생');
+    b.addEventListener('click', () => (i===cur && started) ? toggle() : playAt(i));
+    tl.appendChild(b);
+  });
+  $('count').textContent = songs.length ? songs.length + '곡' : '';
+  render();
+}
+function render(){
+  const s = songs[cur];
+  $('play').innerHTML = playing ? PAUSE_I('#FFFFFF') : PLAY_I('#FFFFFF');
+  $('dPlay').innerHTML = playing ? PAUSE_I('#FFFFFF') : PLAY_I('#FFFFFF');
+  $('play').setAttribute('aria-label', playing ? '일시정지' : '재생');
+  $('dPlay').setAttribute('aria-label', playing ? '일시정지' : '재생');
+  $('fPlay').innerHTML = playing ? PAUSE_I('#FFFFFF').replace(/18/g,'26') : PLAY_I('#FFFFFF').replace(/18/g,'26');
+  $('fPlay').setAttribute('aria-label', playing ? '일시정지' : '재생');
+  $('full').classList.toggle('playing', playing);
+  $('npEq').hidden = !playing;
+  if (!s) return;
+  const key = cur + '|' + s.title;
+  if (lastNp !== key) {
+    jacket($('npJk'), s.album, s.title, s.id); jacket($('dJk'), s.album, s.title, s.id); jacket($('fJk'), s.album, s.title, s.id);
+    coverOf(s).then(u => { $('fBg').style.backgroundImage = u ? 'url("' + u + '")' : ''; });
+    lastNp = key;
+  }
+  $('npTitle').textContent = s.title; $('npSub').textContent = subOf(s);
+  $('dTitle').textContent = s.title; $('dSub').textContent = subOf(s);
+  $('fTitle').textContent = s.title; $('fSub').textContent = subOf(s);
+  $('dock').classList.toggle('show', started);
+  [...$('tl').children].forEach(r => {
+    if (!r.dataset || r.dataset.i === undefined) return;
+    const i = +r.dataset.i, on = i===cur && started;
+    r.classList.toggle('on', on);
+    const ic = r.querySelector('.ic'); if (ic) ic.innerHTML = (on && playing) ? '<span class="eq"><i></i><i></i><i></i></span>' : '';
+  });
+}
+function playAt(i, back){
+  if (!ready || !songs.length) return;
+  if (started && !back && hist[hist.length-1] !== cur) { hist.push(cur); if (hist.length > 100) hist.shift(); }
+  cur = (i + songs.length) % songs.length; started = true;
+  const k = order.indexOf(cur); if (k >= limit) { limit = k + 1; buildList(); }
+  player.loadVideoById(songs[cur].id); render();
+}
+function step(d, auto){
+  const list = order.length ? order : songs.map((s,i)=>i);
+  if (d < 0 && started && player.getCurrentTime && player.getCurrentTime() > 3) { player.seekTo(0, true); return; }
+  if (d < 0 && shuffle && hist.length) return playAt(hist.pop(), true);
+  if (shuffle && list.length > 1) {
+    const pool = list.filter(i => i !== cur && !hist.slice(-Math.floor(list.length/2)).includes(i));
+    const from = pool.length ? pool : list.filter(i => i !== cur);
+    return playAt(from[Math.floor(Math.random() * from.length)]);
+  }
+  const k = list.indexOf(cur);
+  const n = (k < 0 ? 0 : k) + d;
+  if (auto && repeat === 'off' && n >= list.length) { player.stopVideo(); playing = false; render(); tick(); return; }
+  playAt(list[(n + list.length) % list.length]);
+}
+function toggle(){
+  if (!ready || !songs.length) return;
+  if (!started) return playAt(order[0] ?? 0);
+  playing ? player.pauseVideo() : player.playVideo();
+}
+function tick(){
+  if (!ready) return;
+  const d = player.getDuration ? player.getDuration() : 0, t = player.getCurrentTime ? player.getCurrentTime() : 0;
+  const w = d ? (t/d*100)+'%' : '0%';
+  $('npProg').style.width = w; $('dProg').style.width = w;
+  if (!dragging) { $('fProg').style.width = w; $('fKnob').style.left = w; $('fCur').textContent = fmt(t); }
+  $('fDur').textContent = fmt(d);
+  $('npCur').textContent = fmt(t); $('npDur').textContent = fmt(d);
+}
+
+async function loadSongs(plIds){
+  const pinIds = PINNED.map(p => p.id);
+  const treasure = ALBUMS.find(a => a.fromPlaylist);
+  const ids = pinIds.concat((plIds || []).filter(id => !pinIds.includes(id)));
+  songs = ids.map(id => {
+    const p = PINNED.find(x => x.id === id);
+    const fromPl = (plIds || []).includes(id) && !p;
+    const title = p && p.title ? p.title : '';
+    return { id, fixed:!!title, title: title || '…', album: fromPl ? treasure : (title ? albumOf(title) : null), fromPl };
+  });
+  buildShelf(); buildList();
+  await Promise.all(songs.map(async s => {
+    if (s.fixed) return;
+    const raw = await fetchTitle(s.id);
+    s.title = raw ? (cleanTitle(raw) || raw) : '하늘성희의 노래';
+    if (!s.fromPl) s.album = albumOf(s.title);
+  }));
+  buildShelf(); buildList();
+}
+
+window.onYouTubeIframeAPIReady = function(){
+  player = new YT.Player('ytplayer', {
+    width:1, height:1,
+    playerVars:{ listType:'playlist', list:PLAYLIST, controls:0, playsinline:1, rel:0 },
+    events:{
+      onReady: () => {
+        ready = true; let tries = 0;
+        const wait = setInterval(() => {
+          const pl = player.getPlaylist();
+          if ((pl && pl.length) || ++tries > 24) { clearInterval(wait); try { player.stopVideo(); } catch(e){} loadSongs(pl || []); }
+        }, 250);
+      },
+      onError: () => { if (started) setTimeout(() => step(1, true), 800); },
+      onStateChange: e => {
+        playing = (e.data === YT.PlayerState.PLAYING);
+        if (e.data === YT.PlayerState.ENDED && started) { if (repeat === 'one') { player.seekTo(0, true); player.playVideo(); } else step(1, true); return; }
+        clearInterval(timer); if (playing) timer = setInterval(tick, 500); else tick();
+        render();
+      }
+    }
+  });
+};
+$('play').addEventListener('click', toggle);
+$('dPlay').addEventListener('click', toggle);
+$('prev').addEventListener('click', () => step(-1));
+$('next').addEventListener('click', () => step(1));
+$('dNext').addEventListener('click', () => step(1));
+$('playAll').addEventListener('click', () => { setFilter('all'); playAt(0); });
+$('npBar').addEventListener('click', e => {
+  if (!ready || !started) return;
+  const r = e.currentTarget.getBoundingClientRect(), d = player.getDuration();
+  if (d) player.seekTo((e.clientX - r.left) / r.width * d, true);
+});
+$('play').innerHTML = PLAY_I('#FFFFFF'); $('dPlay').innerHTML = PLAY_I('#FFFFFF'); $('fPlay').innerHTML = PLAY_I('#FFFFFF').replace(/18/g,'26');
+jacket($('npJk'), ALBUMS[0]);
+// 미리 목록 그리기 (제목은 곧 채워집니다)
+loadSongs([]);
+
+// 앨범 좌우 버튼
+const shelf = $('shelf');
+function shelfArrows(){
+  const max = shelf.scrollWidth - shelf.clientWidth - 2;
+  $('shelfPrev').disabled = shelf.scrollLeft <= 2;
+  $('shelfNext').disabled = shelf.scrollLeft >= max;
+}
+$('shelfPrev').addEventListener('click', () => shelf.scrollBy({ left: -shelf.clientWidth * 0.8 }));
+$('shelfNext').addEventListener('click', () => shelf.scrollBy({ left: shelf.clientWidth * 0.8 }));
+shelf.addEventListener('scroll', shelfArrows, { passive:true });
+addEventListener('resize', shelfArrows);
+new MutationObserver(shelfArrows).observe(shelf, { childList:true });
+shelfArrows();
+
+// ── 인터뷰 영상 (누르면 재생) ──
+ytThumb(INTERVIEW).then(u => { $('vbox').style.backgroundImage = 'url("' + u + '")'; });
+$('vbox').addEventListener('click', () => {
+  if ($('vbox').querySelector('iframe')) return;
+  if (playing) player.pauseVideo();
+  const f = document.createElement('iframe');
+  f.src = 'https://www.youtube.com/embed/' + INTERVIEW + '?autoplay=1&rel=0&playsinline=1';
+  f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen'; f.allowFullscreen = true; f.title = '캠프초대석 하늘성희';
+  $('vbox').appendChild(f);
+});
+
+// ── 사진 ──
+const gal = $('gallery');
+PHOTOS.forEach((p, i) => {
+  const b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', '사진 ' + (i+1) + ' 크게 보기');
+  const im = document.createElement('img'); im.src = 'img/' + p + '.jpg'; im.alt = '하늘성희 사진 ' + (i+1); im.loading = 'lazy'; im.decoding = 'async';
+  b.appendChild(im); b.addEventListener('click', () => openLb(i)); gal.appendChild(b);
+});
+let lbI = 0;
+function showLb(){ $('lbImg').src = 'img/' + PHOTOS[lbI] + '.jpg'; $('lbC').textContent = (lbI+1) + ' / ' + PHOTOS.length; }
+function openLb(i){ lbI = i; showLb(); $('lb').classList.add('open'); $('lb').setAttribute('aria-hidden','false'); document.body.classList.add('lock'); $('lbX').focus(); }
+function closeLb(){ $('lb').classList.remove('open'); $('lb').setAttribute('aria-hidden','true'); document.body.classList.remove('lock'); }
+$('lbX').addEventListener('click', closeLb);
+$('lbP').addEventListener('click', () => { lbI = (lbI - 1 + PHOTOS.length) % PHOTOS.length; showLb(); });
+$('lbN').addEventListener('click', () => { lbI = (lbI + 1) % PHOTOS.length; showLb(); });
+$('lb').addEventListener('click', e => { if (e.target === $('lb')) closeLb(); });
+addEventListener('keydown', e => {
+  if (!$('lb').classList.contains('open')) return;
+  if (e.key === 'ArrowLeft') $('lbP').click(); else if (e.key === 'ArrowRight') $('lbN').click(); else if (e.key === 'Escape') closeLb();
+});
+
+// ── 전체 화면 플레이어 ──
+let dragging = false;
+function openFull(){ if (!started) return; render(); tick(); $('full').classList.add('open'); $('full').setAttribute('aria-hidden','false'); document.body.classList.add('lock'); history.pushState({full:1}, ''); }
+function closeFull(fromPop){ if (!$('full').classList.contains('open')) return; $('full').classList.remove('open'); $('full').setAttribute('aria-hidden','true'); document.body.classList.remove('lock'); if (!fromPop && history.state && history.state.full) history.back(); }
+$('dock').querySelector('.in').addEventListener('click', e => { if (!e.target.closest('button')) openFull(); });
+$('fClose').addEventListener('click', () => closeFull());
+addEventListener('popstate', () => closeFull(true));
+addEventListener('keydown', e => { if (e.key === 'Escape' && !$('lb').classList.contains('open')) closeFull(); });
+$('fPlay').addEventListener('click', toggle);
+$('fPrev').addEventListener('click', () => step(-1));
+$('fNext').addEventListener('click', () => step(1));
+function markModes(){
+  $('fShuf').classList.toggle('on', shuffle); $('fShuf').setAttribute('aria-pressed', shuffle);
+  $('fRep').classList.toggle('on', repeat !== 'off'); $('fRepOne').hidden = repeat !== 'one';
+  $('fRep').setAttribute('aria-label', repeat === 'one' ? '한 곡 반복' : repeat === 'all' ? '전체 반복' : '반복 안 함');
+  try { localStorage.setItem('hs.shuffle', shuffle ? '1' : '0'); localStorage.setItem('hs.repeat', repeat); } catch(e){}
+}
+$('fShuf').addEventListener('click', () => { shuffle = !shuffle; hist = []; markModes(); });
+$('fRep').addEventListener('click', () => { repeat = repeat === 'all' ? 'one' : repeat === 'one' ? 'off' : 'all'; markModes(); });
+markModes();
+function seekPos(e){ const r = $('fBar').getBoundingClientRect(); return Math.min(1, Math.max(0, (e.clientX - r.left) / r.width)); }
+$('fBar').addEventListener('pointerdown', e => { if (!started) return; dragging = true; $('fBar').setPointerCapture(e.pointerId); moveSeek(e); });
+$('fBar').addEventListener('pointermove', e => { if (dragging) moveSeek(e); });
+function moveSeek(e){ const p = seekPos(e), d = player.getDuration() || 0; $('fProg').style.width = $('fKnob').style.left = (p*100) + '%'; $('fCur').textContent = fmt(p*d); }
+$('fBar').addEventListener('pointerup', e => { if (!dragging) return; dragging = false; const d = player.getDuration(); if (d) player.seekTo(seekPos(e) * d, true); });
+$('fBar').addEventListener('pointercancel', () => { dragging = false; });
+let sy = null;
+$('full').addEventListener('touchstart', e => { if (e.target.closest('.fbar') || (lyOn && e.target.closest('.lyr'))) return; sy = e.touches[0].clientY; }, { passive:true });
+$('full').addEventListener('touchmove', e => { if (sy === null) return; const dy = e.touches[0].clientY - sy; if (dy > 0) { $('full').style.transition = 'none'; $('full').style.transform = 'translateY(' + dy + 'px)'; } }, { passive:true });
+$('full').addEventListener('touchend', e => { if (sy === null) return; const dy = e.changedTouches[0].clientY - sy; sy = null; $('full').style.transition = ''; $('full').style.transform = ''; if (dy > 110) closeFull(); });
+
+// ── 가사 ──
+let lyOn = false, lyLines = [], lyIdx = -1, lyFor = -1, lyUser = 0;
+try { lyOn = localStorage.getItem('hs.lyrics') === '1'; } catch(e){}
+function lyricsOf(s){ if (!s) return ''; const n = norm(s.title); const k = Object.keys(LYRICS).find(t => norm(t) === n) || Object.keys(LYRICS).find(t => norm(t).length >= 3 && n.startsWith(norm(t))); return k ? LYRICS[k].trim() : ''; }
+function buildLyrics(){
+  const s = songs[cur], box = $('fLyr'); lyFor = cur; lyIdx = -1; lyLines = []; box.innerHTML = '';
+  const raw = lyricsOf(s);
+  if (!raw) { box.className = 'lyr'; box.innerHTML = '<p class="none">이 곡의 가사는 아직 준비 중입니다.</p>'; return; }
+  const timed = /^\s*\[\d+:\d{1,2}(?:[.:]\d+)?\]/m.test(raw);
+  box.className = 'lyr ' + (timed ? 'timed' : 'plain');
+  raw.split('\n').forEach(line => {
+    const p = document.createElement('p');
+    const m = line.match(/^\s*\[(\d+):(\d{1,2}(?:[.:]\d+)?)\]\s*(.*)$/);
+    const text = m ? m[3] : line.trim();
+    if (!text) { p.className = 'gap'; box.appendChild(p); return; }
+    p.textContent = text;
+    if (m) { const t = (+m[1]) * 60 + parseFloat(m[2].replace(':','.')); lyLines.push({ t, el:p }); p.addEventListener('click', () => { if (started) { player.seekTo(t, true); if (!playing) player.playVideo(); } }); }
+    box.appendChild(p);
+  });
+  box.scrollTop = 0;
+}
+function syncLyrics(t){
+  if (!lyOn) return;
+  if (lyFor !== cur) buildLyrics();
+  if (!lyLines.length) return;
+  let i = -1; for (let k = 0; k < lyLines.length; k++) { if (lyLines[k].t <= t + 0.25) i = k; else break; }
+  if (i === lyIdx) return;
+  if (lyIdx >= 0) lyLines[lyIdx].el.classList.remove('on');
+  lyIdx = i; if (i < 0) return;
+  const el = lyLines[i].el; el.classList.add('on');
+  if (Date.now() - lyUser > 3000) { const box = $('fLyr'); box.scrollTo({ top: el.offsetTop - box.clientHeight * 0.38, behavior:'smooth' }); }
+}
+function setLy(v){
+  lyOn = v; $('full').classList.toggle('ly', v); $('fLy').classList.toggle('on', v); $('fLy').setAttribute('aria-pressed', v);
+  try { localStorage.setItem('hs.lyrics', v ? '1' : '0'); } catch(e){}
+  if (v) { buildLyrics(); syncLyrics(player && player.getCurrentTime ? player.getCurrentTime() : 0); }
+}
+$('fLy').addEventListener('click', () => setLy(!lyOn));
+['wheel','touchmove'].forEach(ev => $('fLyr').addEventListener(ev, () => { lyUser = Date.now(); }, { passive:true }));
+setLy(lyOn);
+setInterval(() => { if (lyOn && started && $('full').classList.contains('open') && player && player.getCurrentTime) syncLyrics(player.getCurrentTime()); }, 250);
+
+$('showAll').addEventListener('click', () => { filterKey = 'all'; limit = Infinity; markFilter(); buildList(); });
+$('moreBtn').addEventListener('click', () => { limit += PAGE; buildList(); });
+const hdr = $('hdr');
+addEventListener('scroll', () => hdr.classList.toggle('solid', scrollY > 30), { passive:true });
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold:.12 });
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+</script>
+<script src="https://www.youtube.com/iframe_api"></script>
+</body>
+</html>
