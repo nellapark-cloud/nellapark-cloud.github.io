@@ -108,7 +108,7 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-off
 
 /* band */
 .band{position:relative;margin:0;border-top:1px solid var(--line)}
-.band img{display:block;width:100%;height:clamp(260px,44vw,640px);object-fit:cover;object-position:70% 62%;filter:saturate(.9);background:#e9e6e2}
+.band img{display:block;width:100%;height:clamp(260px,44vw,640px);object-fit:cover;object-position:center 55%;filter:saturate(.75) contrast(.96);background:#e9e6e2}
 .band::after{content:'';position:absolute;left:0;right:0;bottom:0;height:40%;background:linear-gradient(to top,rgba(40,30,25,.3),rgba(0,0,0,0));pointer-events:none}
 .band figcaption{position:absolute;left:0;right:0;bottom:0;z-index:1}
 .band figcaption .wrap{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:22px;color:#fff;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.3)}
@@ -386,9 +386,10 @@ body.lock{overflow:hidden}
   </div>
 </section>
 
-<figure class="band rv" aria-label="노을 지는 바닷가 사진">
-  <img src="img/band2.jpg" alt="노을 지는 바닷가에서 바다를 바라보는 하늘성희" loading="lazy" width="1637" height="1064">
-  <figcaption><div class="wrap"><span>Love Story</span><span>하늘성희 · Hanul Sunghee</span></div></figcaption>
+<figure class="band rv" aria-label="바닷가 사진">
+  <img src="img/band.jpg" alt="등대가 보이는 해변에 홀로 서 있는 하늘성희" loading="lazy" width="1967" height="1245">
+  <div class="quote">Every song, a love story<small>모든 노래는 결국, 그분과의 사랑 이야기</small></div>
+  <figcaption><div class="wrap"><span>By the Sea</span><span>하늘성희 · Hanul Sunghee</span></div></figcaption>
 </figure>
 
 <section class="block" id="tracks">
