@@ -168,9 +168,10 @@ section.block{padding:72px 0;border-top:1px solid var(--line)}
 
 /* broadcast */
 .bc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:#F4F1EA;border-top:1px solid var(--line)}
-.bc-photo{position:relative;margin:0;min-height:520px;overflow:hidden}
-.bc-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:grayscale(1) contrast(1.02);background:#e3e1db}
-.bc-photo figcaption{position:absolute;left:clamp(20px,5vw,88px);bottom:24px;color:#fff;font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.bc-photo{position:relative;margin:0;min-height:560px;overflow:hidden;display:flex;align-items:flex-end;justify-content:center;background:radial-gradient(ellipse 60% 55% at 50% 58%,#FFFFFF 0%,rgba(255,255,255,.55) 45%,rgba(255,255,255,0) 75%),#ECE8DF}
+.bc-photo img{position:relative;display:block;width:auto;height:min(88%,620px);max-width:86%;object-fit:contain;object-position:bottom;margin-top:auto;filter:drop-shadow(0 0 1.5px rgba(255,255,255,.95)) drop-shadow(0 0 10px rgba(255,255,255,.75)) drop-shadow(22px 26px 28px rgba(40,34,24,.22));transform:translateY(0);transition:transform .8s ease}
+.bc:hover .bc-photo img{transform:translateY(-4px)}
+.bc-photo figcaption{position:absolute;left:clamp(20px,5vw,88px);bottom:24px;color:var(--muted);font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase}
 .bc-text{display:flex;flex-direction:column;justify-content:center;padding:clamp(56px,8vw,120px) clamp(20px,5vw,88px)}
 .bc .label{color:var(--accent)}
 .bc h2{margin:14px 0 0;font-size:clamp(36px,5vw,64px);line-height:1.05;font-weight:800;letter-spacing:-.04em;color:var(--ink)}
@@ -186,7 +187,7 @@ section.block{padding:72px 0;border-top:1px solid var(--line)}
 .bc dd{margin:0;color:var(--ink)}
 .bc .go{align-self:flex-start;display:inline-flex;align-items:center;gap:10px;margin-top:32px;min-height:48px;padding:0 24px;border-radius:999px;background:var(--accent);color:#fff;font-size:14px;font-weight:600;transition:opacity .2s}
 .bc .go:hover{opacity:.88}
-@media (max-width:860px){.bc{grid-template-columns:1fr}.bc-photo{min-height:0;aspect-ratio:4/3}}
+@media (max-width:860px){.bc{grid-template-columns:1fr}.bc-photo{min-height:0;height:420px}.bc-photo img{height:94%}}
 @media (prefers-reduced-motion:reduce){.bc .air.on i{animation:none}}
 
 /* contact */
@@ -408,7 +409,7 @@ body.lock{overflow:hidden}
 </section>
 
 <section class="bc" id="broadcast" aria-label="방송">
-  <figure class="bc-photo"><img src="img/hero-bw.jpg" alt="마이크를 들고 찬양하는 박동준" loading="lazy" width="852" height="1066"><figcaption>The Grace · Live</figcaption></figure>
+  <figure class="bc-photo"><img src="img/grace-cutout.webp" alt="마이크를 들고 찬양하는 박동준" loading="lazy" width="600" height="793"><figcaption>The Grace · Live</figcaption></figure>
   <div class="bc-text">
     <div class="rv">
       <p class="label">Broadcast</p>
