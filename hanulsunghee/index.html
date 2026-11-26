@@ -173,6 +173,15 @@ section.block{padding:80px 0;border-top:1px solid var(--line)}
 .vtext li{padding:10px 0;border-bottom:1px solid var(--line);font-size:13.5px;color:var(--ink2);display:flex;gap:12px}
 .vtext li em{font-style:normal;color:var(--accent);font-size:12px;font-weight:600;min-width:44px}
 
+.vlist{margin-top:28px;display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
+.vlist button{border:0;background:transparent;padding:0;text-align:left;cursor:pointer;display:flex;flex-direction:column;align-self:start}
+.vlist .th{display:block;aspect-ratio:16/9;border-radius:3px;background:var(--soft) center/cover;transition:opacity .2s;box-shadow:0 1px 3px rgba(60,40,30,.08)}
+.vlist button:hover .th{opacity:.85}
+.vlist button.on .th{box-shadow:0 0 0 2px var(--accent)}
+.vlist b{display:block;margin-top:8px;font-size:13px;font-weight:500;line-height:1.45;color:var(--ink2)}
+.vlist em{display:block;font-style:normal;font-size:11px;color:var(--muted);margin-top:2px}
+.vtext p#vDesc:empty,.vtext ul:empty{display:none}
+
 /* gallery */
 .gallery{columns:4 240px;column-gap:14px}
 .gallery button{display:block;width:100%;margin:0 0 14px;padding:0;border:0;background:var(--soft);cursor:zoom-in;break-inside:avoid;overflow:hidden;border-radius:2px}
@@ -390,19 +399,20 @@ body.lock{overflow:hidden}
 </section>
 
 <section class="block" id="video">
-  <div class="wrap video-grid">
-    <button type="button" class="vbox rv" id="vbox" aria-label="캠프초대석 영상 재생">
-      <span class="pl"><svg width="22" height="22" viewBox="0 0 24 24" fill="#2A2623" aria-hidden="true"><path d="M8 4.5v15l12-7.5z"/></svg></span>
-    </button>
-    <div class="vtext rv">
-      <p class="label">Interview · Live</p>
-      <h3 style="margin-top:10px">캠프초대석 EP.122<br>하늘의 기쁨과 사랑을 노래하는 하늘성희</h3>
-      <p>30여 년 전 제1회 CBS 창작복음성가제 금상팀 '하늘노래'의 멤버로 시작해, 다시 노래의 자리로 돌아오기까지의 이야기를 들려줍니다.</p>
-      <ul>
-        <li><em>Live</em>별 나무 새 시내</li>
-        <li><em>Live</em>들으시는 하나님</li>
-      </ul>
+  <div class="wrap">
+    <div class="shead rv"><h2>영상 <span class="it">Watch</span></h2></div>
+    <div class="video-grid">
+      <button type="button" class="vbox rv" id="vbox" aria-label="영상 재생">
+        <span class="pl"><svg width="22" height="22" viewBox="0 0 24 24" fill="#2A2623" aria-hidden="true"><path d="M8 4.5v15l12-7.5z"/></svg></span>
+      </button>
+      <div class="vtext rv">
+        <p class="label" id="vLabel"></p>
+        <h3 style="margin-top:10px" id="vTitle"></h3>
+        <p id="vDesc"></p>
+        <ul id="vLive"></ul>
+      </div>
     </div>
+    <div class="vlist rv" id="vlist"></div>
   </div>
 </section>
 
@@ -486,18 +496,23 @@ body.lock{overflow:hidden}
 
 <script>
 // ── 앨범 전체 재생목록 (유튜브 뮤직 앨범) ──
-const PLAYLIST = 'OLAK5uy_ntJ1x9arkxmYVcmOaUeFZoB5RKIIiPyq8';
-// ── 맨 앞에 놓이는 곡 (유튜브 영상 ID) — 제목은 유튜브에서 자동으로 불러옵니다. title 을 적으면 그 이름으로 고정됩니다.
+const PLAYLIST = 'OLAK5uy_nXE7Tnth--5jakkdvVzpNCNRsVnrrkQCY';
+// ── 노래 (유튜브 영상 ID) ── 순서대로 목록에 나옵니다.
 const PINNED = [
-  { id:'5OmTWaeKXYY' },
-  { id:'lO5SrhU0ZZY' },
-  { id:'6SksqT_aG_o' },
-  { id:'BG-E7X3T69k' },
-  { id:'ZmQZWjFwptc' },
-  { id:'xsHwiK2frV8' },
-  { id:'qcALXDZ-f9A' },
-  // 『귀중한 보배합을 (I Have a Precious Treasure)』 2025.12.11
+  // 『Love Story』 2026
+  { id:'1gNi_ZgTFHo', title:'너의 하나님 여호와가', album:'lovestory' },
+  { id:'ZXXH_oHucX4', title:'들으시는 하나님', album:'lovestory' },
+  { id:'RSPYwmBBa6U', title:'주님을 사랑하는 것이', album:'lovestory' },
+  { id:'bWlBPH2fCY0', title:'별 나무 새 시내', album:'lovestory' },
+  { id:'RItjzqZVOwI', title:'여호와는 나의 목자시니', album:'lovestory' },
+  { id:'TWEIAdbN5JE', title:'내 맘이 낙심되며', album:'lovestory' },
+  { id:'y60N--0OKbE', title:'별 나무 새 시내 (Instrumental)', album:'lovestory' },
+  { id:'sxS5Wi58m4c', title:'들으시는 하나님 (Instrumental)', album:'lovestory' },
+  { id:'YaNZKyHyZ8M', title:'여호와는 나의 목자시니 (Instrumental)', album:'lovestory' },
+  { id:'_rbBJnbCqDA', title:'내 맘이 낙심되며 (Instrumental)', album:'lovestory' },
+  // 『귀중한 보배합을』 2025.12.11
   { id:'-56t4pgTXX4', title:'귀중한 보배합을', album:'treasure' },
+  { id:'B1DNvprWQzY', title:'귀중한 보배합을 (Instrumental)', album:'treasure' },
   // 하늘 『쉼으로 찾는 기쁨』 (1998 · 2026 음원 재발매)
   { id:'T5Xc6bdgmz0', title:'주 안에서 사는 기쁨', album:'shim' },
   { id:'jnuMGd3s864', title:'쉼터', album:'shim' },
@@ -508,15 +523,26 @@ const PINNED = [
   { id:'Vmsux9pcMa4', title:'너는 내 것이라', album:'shim' },
   { id:'s0eNpux5kxQ', title:'살려야 해요', album:'shim' },
   { id:'xBmKDLsdkbg', title:'이제는', album:'shim' },
-  { id:'9w0FRg9efVo', title:'주의 사랑을 나누세요', album:'shim' }
+  { id:'9w0FRg9efVo', title:'주의 사랑을 나누세요', album:'shim' },
+  // 참여곡
+  { id:'5OmTWaeKXYY', title:'천국가는 길 모퉁이', album:'soriel5' },
+  { id:'lO5SrhU0ZZY', title:'축복 · 생기' }
+];
+// ── 영상 ──
+const VIDEOS = [
+  { id:'_FtlbGWzczs', label:'Interview · Live', title:'캠프초대석 EP.122<br>하늘의 기쁨과 사랑을 노래하는 하늘성희',
+    desc:"30여 년 전 제1회 CBS 창작복음성가제 금상팀 '하늘노래'의 멤버로 시작해, 다시 노래의 자리로 돌아오기까지의 이야기를 들려줍니다.", live:['별 나무 새 시내','들으시는 하나님'] },
+  { id:'ZmQZWjFwptc', label:'Live', title:'하늘성희 찬양집회<br>복음충신교회', desc:'2026년 6월 28일, 복음충신교회에서 드린 찬양집회 실황입니다.' },
+  { id:'qcALXDZ-f9A', label:'Album', title:"하늘 『쉼으로 찾는 기쁨』<br>전곡 듣기", desc:'1998년 트리오 \'하늘\'의 앨범이 2026년 1월 5일 음원으로 다시 나왔습니다.' },
+  { id:'xsHwiK2frV8', label:'Album', title:'앨범 「하늘」<br>전곡 듣기', desc:'' },
+  { id:'BG-E7X3T69k', label:'Album', title:'전곡 듣기', desc:'' }
 ];
 // 인터뷰 영상
-const INTERVIEW = '_FtlbGWzczs';
 
 // ── 앨범 정보 ── cover 가 비어 있으면 첫 곡의 유튜브 이미지(없으면 글자 자켓)로 표시됩니다.
 const ALBUMS = [
-  { key:'lovestory', title:'Love Story', type:'하늘성희 · 첫 정규', year:'', cover:'covers/lovestory.jpg', tag:'NEW', tracks:[] },
-  { key:'treasure', title:'귀중한 보배합을', type:'하늘성희 · I Have a Precious Treasure', year:'2025.12.11', cover:'', fromPlaylist:true, tracks:[] },
+  { key:'lovestory', title:'Love Story', type:'하늘성희 · 정규', year:'2026', cover:'covers/lovestory.jpg', tag:'NEW', tracks:[] },
+  { key:'treasure', title:'귀중한 보배합을', type:'하늘성희 · 싱글', year:'2025.12.11', cover:'covers/treasure.jpg', fromPlaylist:true, tracks:[] },
   { key:'shim', title:'쉼으로 찾는 기쁨', type:'하늘 · 문지은 최성희 지은민', year:'1998', cover:'covers/shim.jpg',
     tracks:['주 안에서 사는 기쁨','쉼터','나의 아이야','별 나무 새 시내','하나님만 바라라','더 큰 일을 보리라','너는 내 것이라','살려야 해요','이제는','주의 사랑을 나누세요'] },
   { key:'praise', title:'Praise Together', type:'하늘노래', year:'1992', cover:'covers/praise.jpg',
@@ -536,6 +562,153 @@ const PHOTOS = ['g01','g02','g03','g04','g05','g06','g07','g08','g09','g10','g11
 
 // ── 가사 ── 곡 제목을 열쇠로 적어 넣으면 됩니다. 줄 앞에 [분:초]를 붙이면 노래를 따라 움직입니다.
 const LYRICS = {
+  'lovestory:너의 하나님 여호와가': `
+너의 하나님 여호와가 너의 가운데 계시니
+그는 구원을 베푸시며 너를 환한 미소로 환영해
+너의 하나님 여호와가 너의 가운데 계시니
+그는 구원을 베푸시며 너를 환한 미소로 환영해
+그가 너로 인하여 기쁨을 이기지 못하시며
+너를 기뻐해 잠잠히 사랑하시며
+너로 인하여 즐거이 부르는 축복의 말
+너를 언제나 환영해 기뻐해
+언제나 너를 사랑해
+
+그가 너로 인하여 기쁨을 이기지 못하시며
+너를 기뻐해 잠잠히 사랑하시며
+너로 인하여 즐거이 부르는 축복의 말
+너를 언제나 환영해 기뻐해
+언제나 너를 사랑해
+언제나 너를 사랑해 언제나 너를 축복해
+`,
+  'lovestory:들으시는 하나님': `
+들으시는 하나님 날 보시는 하나님
+나의 모든 것을 아시는 아름다우신 주님
+
+들으시는 하나님 날 보시는 하나님
+나의 모든 것을 아시는 아름다우신 주님
+
+작은 내 몸짓도 소중하게 여기시는 하나님
+내 맘속 눈물까지 살피시는 하나님
+
+들으시는 하나님 날 보시는 하나님
+나의 모든 것을 아시는 아름다우신 주님
+
+작은 내 몸짓도 소중하게 여기시는 하나님
+내 맘속 눈물까지 살피시는 하나님
+
+작은 내 몸짓도 소중하게 여기시는 하나님
+내 맘속 눈물까지 살피시는 하나님
+
+들으시는 하나님 날 보시는 하나님
+나의 모든 것을 아시는 아름다우신 주님
+
+나의 모든 것을 아시는 아름다우신 주님
+나의 모든 것을 아시는 아름다우신 주님
+`,
+  'lovestory:주님을 사랑하는 것이': `
+주님을 사랑하는 것이 나의 기쁨이요
+주님을 바라보는 것이 나의 소망이라
+
+내가 숨쉬며 살아가는 일상과
+나의 재능과 시간과 나의 노래도
+모두 주님의 작품
+
+나의 친구와 사랑하는 가족과
+나의 삶속의 웃음과 눈물까지도
+모두 주님의 선물
+
+내가 그 분을 알기 전부터
+날 구원하신 주님의 은혜
+
+주님을 사랑하는 것이 나의 기쁨이요
+주님을 바라보는 것이 나의 소망이라
+
+어둡고 괴로운 골짜기를 지나갈 때도
+내가 주님을 의지하고 신뢰하리니
+
+주님 약하고 부족한 내 모습도
+사랑하시고 나를 도우시니
+
+주님을 사랑하는 것이 나의 기쁨이요
+주님을 바라보는 것이 나의 소망이라
+
+주님을 사랑하는 것이 나의 기쁨이요
+주님을 바라보는 것이 나의 소망이라
+`,
+  'lovestory:별 나무 새 시내': `
+주님 알게 된 후 보는 세상 새로운 세상
+보이는 모든 것이 주를 찬양해 찬양해
+
+창공을 휘가르며 지저귀는 저 새들도
+함박꽃 웃음으로 손짓하는 나무도
+주 사랑 전해주며 그를 찬양해
+
+함께 창조된 그 날부터 영원까지 주님을 찬양
+주 찬양 모두 찬양 그를 찬양 소리 높여 찬양
+
+(간주)
+
+주님 알게 된 후 보는 세상 놀라운 세상
+이 모든 만물들이 주를 찬양해 찬양해
+
+밤 하늘 수 놓으며 운행하는 저 별들도
+산들을 굽이 돌아 흘러가는 시내도
+주 손길 알려주며 그를 찬양해
+
+함께 창조된 그 날부터 영원까지 주님을 찬양
+주 찬양 모두 찬양 그를 찬양 소리 높여 찬양
+
+함께 창조된 그 날부터 영원까지 주님을 찬양
+주 찬양 모두 찬양 그를 찬양 소리 높여 찬양
+
+소리 높여 찬양
+`,
+  'lovestory:여호와는 나의 목자시니': `
+여호와는 나의 목자시니 내게 부족함 없으리
+나를 푸른 초장에 누이시며 쉴만한 물가로 인도하네
+
+내 영혼을 소생시키시고 자기 이름을 위하여
+의의 길로 인도해 주시나니 세상 모든 것 두렵지 않네
+
+나의 평생에 주의 선하심과 인자하심이 나를 따르리니
+내가 여호와의 집에 영원히 거하리로다
+
+(간주)
+
+내 영혼을 소생시키시고 자기 이름을 위하여
+의의 길로 인도해 주시나니 세상 모든 것 두렵지 않네
+
+나의 평생에 주의 선하심과 인자하심이 나를 따르리니
+내가 여호와의 집에 영원히 거하리로다
+
+내가 여호와의 집에 영원히 거하리로다
+내가 여호와의 집에 영원히 거하리로다
+`,
+  'lovestory:내 맘이 낙심 되며': `
+내 맘이 낙심되며 근심에 눌릴 때
+주께서 내게 오사 위로해 주시네
+
+가는 길 캄캄하고 괴로움 많으나
+주께서 함께 하며 내 짐을 지시네
+
+그 은혜가 내게 족하네 그 은혜가 족하네
+이 괴로운 세상 지날 때 그 은혜가 족하네
+
+번민이 가득차고 눈물이 흐를 때
+주 나의 곁에 오사 위로해 주시네
+
+환난이 닥쳐와서 어려움 당할 때
+주님의 능력 입어 원수를 이기네
+
+그 은혜가 내게 족하네 그 은혜가 족하네
+이 괴로운 세상 지날 때 그 은혜가 족하네
+
+그 은혜가 내게 족하네 그 은혜가 족하네
+이 괴로운 세상 지날 때 그 은혜가 족하네
+
+그 은혜가 내게 족하네 그 은혜가 족하네
+이 괴로운 세상 지날 때 그 은혜가 족하네
+`,
   '주 안에서 사는 기쁨': `
 주님 없이 바쁘게만 살아가는 세상 사람
 어찌하면 정말 좋을까
@@ -1027,16 +1200,36 @@ addEventListener('resize', shelfArrows);
 new MutationObserver(shelfArrows).observe(shelf, { childList:true });
 shelfArrows();
 
-// ── 인터뷰 영상 (누르면 재생) ──
-ytThumb(INTERVIEW).then(u => { $('vbox').style.backgroundImage = 'url("' + u + '")'; });
-$('vbox').addEventListener('click', () => {
-  if ($('vbox').querySelector('iframe')) return;
+// ── 영상 (누르면 재생) ──
+let vIdx = 0;
+function showVideo(i, play){
+  vIdx = i; const v = VIDEOS[i], box = $('vbox');
+  const old = box.querySelector('iframe'); if (old) old.remove();
+  box.style.backgroundImage = ''; ytThumb(v.id).then(u => { if (vIdx === i) box.style.backgroundImage = 'url("' + u + '")'; });
+  $('vLabel').textContent = v.label; $('vTitle').innerHTML = v.title; $('vDesc').textContent = v.desc || '';
+  $('vLive').innerHTML = ''; (v.live || []).forEach(t => { const li = document.createElement('li'); li.innerHTML = '<em>Live</em>'; li.appendChild(document.createTextNode(t)); $('vLive').appendChild(li); });
+  [...$('vlist').children].forEach((b, k) => b.classList.toggle('on', k === i));
+  if (play) playVideo();
+}
+function playVideo(){
+  const box = $('vbox'); if (box.querySelector('iframe')) return;
   if (playing) player.pauseVideo();
   const f = document.createElement('iframe');
-  f.src = 'https://www.youtube.com/embed/' + INTERVIEW + '?autoplay=1&rel=0&playsinline=1';
-  f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen'; f.allowFullscreen = true; f.title = '캠프초대석 하늘성희';
-  $('vbox').appendChild(f);
+  f.src = 'https://www.youtube.com/embed/' + VIDEOS[vIdx].id + '?autoplay=1&rel=0&playsinline=1';
+  f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen'; f.allowFullscreen = true; f.title = VIDEOS[vIdx].title.replace(/<br>/g,' ');
+  box.appendChild(f);
+}
+VIDEOS.forEach((v, i) => {
+  const b = document.createElement('button'); b.type = 'button';
+  b.innerHTML = '<span class="th"></span><b></b><em></em>';
+  b.querySelector('b').textContent = v.title.replace(/<br>/g, ' ');
+  b.querySelector('em').textContent = v.label;
+  ytThumb(v.id).then(u => { b.querySelector('.th').style.backgroundImage = 'url("' + u + '")'; });
+  b.addEventListener('click', () => { showVideo(i, true); $('video').scrollIntoView({behavior:'smooth'}); });
+  $('vlist').appendChild(b);
 });
+$('vbox').addEventListener('click', playVideo);
+showVideo(0, false);
 
 // ── 사진 ──
 const gal = $('gallery');
@@ -1092,10 +1285,11 @@ $('full').addEventListener('touchend', e => { if (sy === null) return; const dy 
 // ── 가사 ──
 let lyOn = false, lyLines = [], lyIdx = -1, lyFor = -1, lyUser = 0;
 try { lyOn = localStorage.getItem('hs.lyrics') === '1'; } catch(e){}
-function lyricsOf(s){ if (!s) return ''; const n = norm(s.title); const k = Object.keys(LYRICS).find(t => norm(t) === n) || Object.keys(LYRICS).find(t => norm(t).length >= 3 && n.startsWith(norm(t))); return k ? LYRICS[k].trim() : ''; }
+function lyricsOf(s){ if (!s) return ''; if (/instrumental/i.test(s.title)) return '__INST__'; if (s.album) { const ak = Object.keys(LYRICS).find(t => t.startsWith(s.album.key + ':') && norm(t.slice(s.album.key.length + 1)) === norm(s.title)); if (ak) return LYRICS[ak].trim(); } const n = norm(s.title); const keys = Object.keys(LYRICS).filter(t => !t.includes(':')); const k = keys.find(t => norm(t) === n) || keys.find(t => norm(t).length >= 3 && n.startsWith(norm(t))); return k ? LYRICS[k].trim() : ''; }
 function buildLyrics(){
   const s = songs[cur], box = $('fLyr'); lyFor = cur; lyIdx = -1; lyLines = []; box.innerHTML = '';
   const raw = lyricsOf(s);
+  if (raw === '__INST__') { box.className = 'lyr'; box.innerHTML = '<p class="none">가사 없는 연주곡입니다.</p>'; return; }
   if (!raw) { box.className = 'lyr'; box.innerHTML = '<p class="none">이 곡의 가사는 아직 준비 중입니다.</p>'; return; }
   const timed = /^\s*\[\d+:\d{1,2}(?:[.:]\d+)?\]/m.test(raw);
   box.className = 'lyr ' + (timed ? 'timed' : 'plain');
