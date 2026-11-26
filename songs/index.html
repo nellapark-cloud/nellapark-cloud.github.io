@@ -174,7 +174,19 @@ section.block{padding:72px 0;border-top:1px solid var(--line)}
 
 /* ministry form */
 .contact .wrap{align-items:start}
-.mform{margin-top:36px;padding-top:28px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
+.mbox{margin-top:36px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mbox summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 0}
+.mbox summary::-webkit-details-marker{display:none}
+.mbox summary .t{font-size:16px;font-weight:700;letter-spacing:-.01em}
+.mbox summary small{display:block;margin-top:4px;font-size:13px;font-weight:400;color:var(--muted)}
+.mbox .pm{position:relative;flex:none;width:36px;height:36px;border:1px solid var(--line);border-radius:50%;transition:border-color .2s,transform .3s}
+.mbox .pm::before,.mbox .pm::after{content:'';position:absolute;left:50%;top:50%;width:12px;height:1.6px;margin:-.8px 0 0 -6px;background:var(--ink);transition:transform .3s}
+.mbox .pm::after{transform:rotate(90deg)}
+.mbox[open] .pm::after{transform:rotate(0)}
+.mbox summary:hover .pm{border-color:var(--ink)}
+.mbox[open] .mform{animation:mopen .35s ease}
+@keyframes mopen{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.mform{padding:4px 0 28px;display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
 .mform h3{grid-column:1/-1;margin:0;font-size:16px;font-weight:700;letter-spacing:-.01em}
 .mform h3 small{display:block;margin-top:4px;font-size:13px;font-weight:400;color:var(--muted)}
 .mform label{display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:500;letter-spacing:.02em;color:var(--ink2)}
@@ -390,8 +402,9 @@ body.lock{overflow:hidden}
     <div class="rv">
       <a class="mail" href="mailto:nellapark@gmail.com">nellapark@gmail.com</a>
       <p>찬양 인도 · 곡 사용 · 녹음 협업</p>
+      <details class="mbox" id="mbox">
+      <summary><span class="t">사역 신청<small>내용을 남겨 주시면 확인 후 연락드리겠습니다.</small></span><span class="pm" aria-hidden="true"></span></summary>
       <form class="mform" id="mform" novalidate>
-        <h3>사역 신청<small>아래 내용을 남겨 주시면 확인 후 연락드리겠습니다.</small></h3>
         <label><span>이름 · 직분 <em>*</em></span><input name="이름" required autocomplete="name" placeholder="홍길동 목사"></label>
         <label><span>교회 · 단체 <em>*</em></span><input name="교회/단체" required placeholder="○○교회"></label>
         <label><span>연락처 <em>*</em></span><input name="연락처" type="tel" required autocomplete="tel" placeholder="010-0000-0000"></label>
@@ -407,6 +420,7 @@ body.lock{overflow:hidden}
         <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="send"><button type="submit" id="mSend">신청 보내기</button><span class="msg" id="mMsg" role="status"></span></div>
       </form>
+      </details>
     </div>
   </div>
 </section>
