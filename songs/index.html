@@ -38,8 +38,8 @@ nav a{font-size:14px;color:var(--ink2);transition:color .2s}
 nav a:hover{color:var(--ink)}
 
 /* hero — full bleed photo */
-.hero-photo{position:relative;margin:0;padding-top:60px;overflow:hidden;background:radial-gradient(ellipse 40% 75% at 27% 58%,#FFFFFF 0%,rgba(255,255,255,.65) 45%,rgba(255,255,255,0) 80%),#F4F1EA}
-.hero-photo img{display:block;width:100%;height:clamp(420px,min(54vw,calc(100svh - 60px)),860px);padding:4% 0 3%;box-sizing:border-box;object-fit:contain;object-position:27% 100%;filter:drop-shadow(0 0 1.5px rgba(255,255,255,.95)) drop-shadow(0 0 12px rgba(255,255,255,.8)) drop-shadow(20px 24px 26px rgba(40,34,24,.2))}
+.hero-photo{position:relative;margin:0;padding-top:60px;overflow:hidden;background:radial-gradient(ellipse 40% 75% at 25% 58%,#FFFFFF 0%,rgba(255,255,255,.65) 45%,rgba(255,255,255,0) 80%),#F4F1EA}
+.hero-photo img{display:block;width:100%;height:clamp(420px,min(54vw,calc(100svh - 60px)),860px);padding:4% 0 3%;box-sizing:border-box;object-fit:contain;object-position:25% 100%;filter:drop-shadow(0 0 1.5px rgba(255,255,255,.95)) drop-shadow(0 0 12px rgba(255,255,255,.8)) drop-shadow(20px 24px 26px rgba(40,34,24,.2))}
 .hero-photo figcaption{position:absolute;left:0;right:0;bottom:0;z-index:1}
 .cap-row{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:22px;color:var(--muted);font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase}
 .hero{padding:80px 0 88px}
@@ -58,7 +58,7 @@ nav a:hover{color:var(--ink)}
  .hero-photo img{min-height:640px}
  .hero{position:absolute;inset:60px 0 0 0;z-index:2;display:flex;align-items:center;padding:0 0 40px;pointer-events:none}
  .hero .wrap{width:100%;pointer-events:auto}
- .hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,440px);row-gap:32px;align-items:start}
+ .hero-grid{grid-template-columns:minmax(0,40%) minmax(0,460px) minmax(0,1fr);column-gap:0;row-gap:32px;align-items:start}
  .hero .intro,.hero .player{grid-column:2}
  .hero .player{padding-top:24px;border-top-color:rgba(0,0,0,.14)}
  .hero .intro .label,.hero .intro .en-title,.hero .verse cite,.hero .player .sub,.hero .np-time{color:#55554F}
