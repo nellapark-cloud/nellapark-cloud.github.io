@@ -108,7 +108,7 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-off
 
 /* band */
 .band{position:relative;margin:0;border-top:1px solid var(--line)}
-.band img{display:block;width:100%;height:clamp(260px,44vw,640px);object-fit:cover;object-position:center 55%;filter:saturate(.75) contrast(.96);background:#e9e6e2}
+.band img{display:block;width:100%;height:clamp(260px,44vw,640px);object-fit:cover;object-position:70% 62%;filter:saturate(.9);background:#e9e6e2}
 .band::after{content:'';position:absolute;left:0;right:0;bottom:0;height:40%;background:linear-gradient(to top,rgba(40,30,25,.3),rgba(0,0,0,0));pointer-events:none}
 .band figcaption{position:absolute;left:0;right:0;bottom:0;z-index:1}
 .band figcaption .wrap{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:22px;color:#fff;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.3)}
@@ -183,6 +183,10 @@ section.block{padding:80px 0;border-top:1px solid var(--line)}
 .ytlink{display:inline-block;margin-top:18px;font-size:13px;color:var(--ink2);border-bottom:1px solid var(--line);padding-bottom:2px}
 .ytlink:hover{border-color:var(--accent)}
 .vtext p#vDesc:empty,.vtext ul:empty{display:none}
+
+.vmore{margin:22px 0 0;font-size:12px;color:var(--muted)}
+.vmore a{color:var(--muted);border-bottom:1px solid var(--line)}
+.vmore a:hover{color:var(--ink2)}
 
 /* gallery */
 .gallery{columns:4 240px;column-gap:14px}
@@ -382,10 +386,9 @@ body.lock{overflow:hidden}
   </div>
 </section>
 
-<figure class="band rv" aria-label="바닷가 사진">
-  <img src="img/band.jpg" alt="등대가 보이는 해변에 홀로 서 있는 하늘성희" loading="lazy" width="1967" height="1245">
-  <div class="quote">Every song, a love story<small>모든 노래는 결국, 그분과의 사랑 이야기</small></div>
-  <figcaption><div class="wrap"><span>By the Sea</span><span>하늘성희 · Hanul Sunghee</span></div></figcaption>
+<figure class="band rv" aria-label="노을 지는 바닷가 사진">
+  <img src="img/band2.jpg" alt="노을 지는 바닷가에서 바다를 바라보는 하늘성희" loading="lazy" width="1637" height="1064">
+  <figcaption><div class="wrap"><span>Love Story</span><span>하늘성희 · Hanul Sunghee</span></div></figcaption>
 </figure>
 
 <section class="block" id="tracks">
@@ -416,6 +419,7 @@ body.lock{overflow:hidden}
       </div>
     </div>
     <div class="vlist rv" id="vlist"></div>
+    <p class="vmore rv"><a href="https://www.youtube.com/watch?v=_FtlbGWzczs" target="_blank" rel="noopener">CCM캠프 「캠프초대석」 출연 (2026.3.6)</a></p>
   </div>
 </section>
 
@@ -438,7 +442,7 @@ body.lock{overflow:hidden}
         <li><em>1992</em><span>하늘노래 『Praise Together』</span></li>
         <li><em>1998</em><span>하늘 『쉼으로 찾는 기쁨』 — 문지은 · 최성희 · 지은민</span></li>
         <li><em>참여</em><span>소리엘 5집 · 소향 『2 for 1』 · 오영진 『997』 · 한정실 1집<br>Palms · 통일워십콘서트 『Heal Our Land』 외</span></li>
-        <li><em>지금</em><span>첫 정규 앨범 『Love Story』 · 유튜브 아침 묵상 방송</span></li>
+        <li><em>지금</em><span>첫 정규 앨범 『Love Story』 · 방송 「하늘성희의 러브스토리」</span></li>
       </ul>
     </div>
   </div>
@@ -533,12 +537,10 @@ const PINNED = [
 ];
 // ── 영상 ──
 const VIDEOS = [
-  { id:'_FtlbGWzczs', label:'Interview · Live', title:'캠프초대석 EP.122<br>하늘의 기쁨과 사랑을 노래하는 하늘성희',
-    desc:"30여 년 전 제1회 CBS 창작복음성가제 금상팀 '하늘노래'의 멤버로 시작해, 다시 노래의 자리로 돌아오기까지의 이야기를 들려줍니다.", live:['별 나무 새 시내','들으시는 하나님'] },
+  { id:'BG-E7X3T69k', label:'Album', title:'『Love Story』<br>전곡 듣기', desc:'하늘성희의 2026년 앨범 『Love Story』를 처음부터 끝까지 들으실 수 있습니다.' },
   { id:'ZmQZWjFwptc', label:'Live', title:'하늘성희 찬양집회<br>복음충신교회', desc:'2026년 6월 28일, 복음충신교회에서 드린 찬양집회 실황입니다.' },
   { id:'qcALXDZ-f9A', label:'Album', title:"하늘 『쉼으로 찾는 기쁨』<br>전곡 듣기", desc:'1998년 트리오 \'하늘\'의 앨범이 2026년 1월 5일 음원으로 다시 나왔습니다.' },
-  { id:'xsHwiK2frV8', label:'Album', title:'앨범 「하늘」<br>전곡 듣기', desc:'' },
-  { id:'BG-E7X3T69k', label:'Album', title:'『Love Story』<br>전곡 듣기', desc:'하늘성희의 2026년 앨범 『Love Story』를 처음부터 끝까지 들으실 수 있습니다.' }
+  { id:'xsHwiK2frV8', label:'Album', title:'앨범 「하늘」<br>전곡 듣기', desc:'' }
 ];
 // 인터뷰 영상
 
