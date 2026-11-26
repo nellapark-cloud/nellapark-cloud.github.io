@@ -112,8 +112,8 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-off
 .band::after{content:'';position:absolute;left:0;right:0;bottom:0;height:40%;background:linear-gradient(to top,rgba(40,30,25,.3),rgba(0,0,0,0));pointer-events:none}
 .band figcaption{position:absolute;left:0;right:0;bottom:0;z-index:1}
 .band figcaption .wrap{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:22px;color:#fff;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.3)}
-.band .quote{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);z-index:1;text-align:center;color:#fff;font-family:var(--serif);font-style:italic;font-size:clamp(22px,3vw,38px);line-height:1.3;text-shadow:0 2px 18px rgba(0,0,0,.25);padding:0 20px}
-.band .quote small{display:block;margin-top:10px;font-family:var(--font);font-style:normal;font-size:13px;letter-spacing:.02em;opacity:.92}
+.band .quote{position:absolute;right:clamp(20px,6vw,96px);top:24%;z-index:1;max-width:min(44%,520px);text-align:right;color:#fff;font-family:var(--serif);font-style:italic;font-size:clamp(20px,3vw,38px);line-height:1.25;text-shadow:0 2px 18px rgba(0,0,0,.25)}
+.band .quote small{display:block;margin-top:10px;line-height:1.5;font-family:var(--font);font-style:normal;font-size:13px;letter-spacing:.02em;opacity:.92}
 
 /* sections */
 section.block{padding:80px 0;border-top:1px solid var(--line)}
@@ -315,7 +315,8 @@ body.lock{overflow:hidden}
  .album{flex-basis:140px}.album .jk{width:140px;height:140px}
  .gallery{columns:2;column-gap:8px}.gallery button{margin-bottom:8px}
  .dock .in{padding:8px 16px}
- .band .quote{font-size:22px}
+ .band .quote{font-size:19px;top:14%;max-width:50%;right:16px}
+ .band .quote small{font-size:11px;margin-top:6px}
 }
 @media (prefers-reduced-motion:reduce){ .eq i{animation:none} .rv{opacity:1;transform:none;transition:none} }
 </style>
