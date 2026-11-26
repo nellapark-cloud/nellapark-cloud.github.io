@@ -167,23 +167,26 @@ section.block{padding:72px 0;border-top:1px solid var(--line)}
 
 
 /* broadcast */
-.bc{background:#111;color:#fff;padding:96px 0}
-.bc .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(40px,7vw,120px);align-items:end}
-.bc .label{color:rgba(255,255,255,.5)}
-.bc h2{margin:14px 0 0;font-size:clamp(40px,7vw,88px);line-height:1;font-weight:800;letter-spacing:-.045em}
-.bc h2 span{display:block;margin-top:14px;font-size:14px;font-weight:500;letter-spacing:.2em;color:rgba(255,255,255,.55)}
-.bc .air{display:inline-flex;align-items:center;gap:8px;margin-top:28px;padding:7px 14px;border:1px solid rgba(255,255,255,.22);border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.12em}
-.bc .air i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.4)}
-.bc .air.on{border-color:#E5484D;color:#fff}
+.bc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:#F4F1EA;border-top:1px solid var(--line)}
+.bc-photo{position:relative;margin:0;min-height:520px;overflow:hidden}
+.bc-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:grayscale(1) contrast(1.02);background:#e3e1db}
+.bc-photo figcaption{position:absolute;left:clamp(20px,5vw,88px);bottom:24px;color:#fff;font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.bc-text{display:flex;flex-direction:column;justify-content:center;padding:clamp(56px,8vw,120px) clamp(20px,5vw,88px)}
+.bc .label{color:var(--accent)}
+.bc h2{margin:14px 0 0;font-size:clamp(36px,5vw,64px);line-height:1.05;font-weight:800;letter-spacing:-.04em;color:var(--ink)}
+.bc h2 span{display:block;margin-top:12px;font-size:13px;font-weight:500;letter-spacing:.22em;color:var(--muted)}
+.bc .air{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;margin-top:24px;padding:7px 14px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-size:12px;font-weight:600;letter-spacing:.04em}
+.bc .air i{width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.bc .air.on{background:#FDECEC;color:#C4373C}
 .bc .air.on i{background:#E5484D;box-shadow:0 0 0 0 rgba(229,72,77,.6);animation:onair 1.6s infinite}
 @keyframes onair{70%{box-shadow:0 0 0 8px rgba(229,72,77,0)}100%{box-shadow:0 0 0 0 rgba(229,72,77,0)}}
-.bc .txt p{margin:0;font-size:17px;line-height:1.8;color:rgba(255,255,255,.82)}
-.bc dl{margin:32px 0 0;display:grid;grid-template-columns:auto 1fr;gap:12px 28px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);font-size:14px}
-.bc dt{color:rgba(255,255,255,.5)}
-.bc dd{margin:0}
-.bc .go{display:inline-flex;align-items:center;gap:10px;margin-top:36px;min-height:48px;padding:0 24px;border-radius:999px;background:#fff;color:#111;font-size:14px;font-weight:600;transition:opacity .2s}
-.bc .go:hover{opacity:.86}
-@media (max-width:860px){.bc{padding:72px 0}.bc .wrap{grid-template-columns:1fr;gap:36px}}
+.bc .lead{margin:28px 0 0;font-size:16px;line-height:1.85;color:var(--ink2);max-width:480px}
+.bc dl{margin:28px 0 0;display:grid;grid-template-columns:auto 1fr;gap:10px 24px;padding-top:22px;border-top:1px solid rgba(0,0,0,.09);font-size:14px;max-width:480px}
+.bc dt{color:var(--muted)}
+.bc dd{margin:0;color:var(--ink)}
+.bc .go{align-self:flex-start;display:inline-flex;align-items:center;gap:10px;margin-top:32px;min-height:48px;padding:0 24px;border-radius:999px;background:var(--accent);color:#fff;font-size:14px;font-weight:600;transition:opacity .2s}
+.bc .go:hover{opacity:.88}
+@media (max-width:860px){.bc{grid-template-columns:1fr}.bc-photo{min-height:0;aspect-ratio:4/3}}
 @media (prefers-reduced-motion:reduce){.bc .air.on i{animation:none}}
 
 /* contact */
@@ -405,21 +408,20 @@ body.lock{overflow:hidden}
 </section>
 
 <section class="bc" id="broadcast" aria-label="방송">
-  <div class="wrap">
+  <figure class="bc-photo"><img src="img/hero-bw.jpg" alt="마이크를 들고 찬양하는 박동준" loading="lazy" width="852" height="1066"><figcaption>The Grace · Live</figcaption></figure>
+  <div class="bc-text">
     <div class="rv">
       <p class="label">Broadcast</p>
       <h2>더 그레이스<span>THE GRACE</span></h2>
-      <span class="air" id="air"><i></i><b id="airTxt">매주 화요일 밤 10시</b></span>
     </div>
-    <div class="txt rv">
-      <p>말씀과 찬양이 있는 방송.<br>찬양으로 지역과 나라를 넘어 함께 은혜를 나누는 시간입니다.</p>
-      <dl>
-        <dt>진행</dt><dd>박동준 PARK DONG JUN</dd>
-        <dt>방송</dt><dd>매주 화요일 밤 10시 · 생방송</dd>
-        <dt>채널</dt><dd>비컴퍼니 유튜브 '라이브'</dd>
-      </dl>
-      <a class="go" href="https://www.youtube.com/@BeecompanyCCM/streams" target="_blank" rel="noopener">방송 보러 가기<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
-    </div>
+    <span class="air rv" id="air"><i></i><b id="airTxt">매주 화요일 밤 10시</b></span>
+    <p class="lead rv">말씀과 찬양이 있는 방송.<br>찬양으로 지역과 나라를 넘어 함께 은혜를 나누는 시간입니다.</p>
+    <dl class="rv">
+      <dt>진행</dt><dd>박동준 PARK DONG JUN</dd>
+      <dt>방송</dt><dd>매주 화요일 밤 10시 · 생방송</dd>
+      <dt>채널</dt><dd>비컴퍼니 유튜브 '라이브'</dd>
+    </dl>
+    <a class="go rv" href="https://www.youtube.com/@BeecompanyCCM/streams" target="_blank" rel="noopener">방송 보러 가기<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
   </div>
 </section>
 
