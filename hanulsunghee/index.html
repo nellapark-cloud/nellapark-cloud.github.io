@@ -494,7 +494,18 @@ const PINNED = [
   { id:'6SksqT_aG_o' },
   { id:'BG-E7X3T69k' },
   { id:'ZmQZWjFwptc' },
-  { id:'xsHwiK2frV8' }
+  { id:'xsHwiK2frV8' },
+  // 하늘 『쉼으로 찾는 기쁨』 (1998 · 2026 음원 재발매)
+  { id:'T5Xc6bdgmz0', title:'주 안에서 사는 기쁨', album:'shim' },
+  { id:'jnuMGd3s864', title:'쉼터', album:'shim' },
+  { id:'zSDiJsE6iKo', title:'나의 아이야', album:'shim' },
+  { id:'aKsZ1LmuwEo', title:'별 나무 새 시내', album:'shim' },
+  { id:'DIDdpxnrAUo', title:'하나님만 바라라', album:'shim' },
+  { id:'TseSnEJo95Q', title:'더 큰 일을 보리라', album:'shim' },
+  { id:'Vmsux9pcMa4', title:'너는 내 것이라', album:'shim' },
+  { id:'s0eNpux5kxQ', title:'살려야 해요', album:'shim' },
+  { id:'xBmKDLsdkbg', title:'이제는', album:'shim' },
+  { id:'9w0FRg9efVo', title:'주의 사랑을 나누세요', album:'shim' }
 ];
 // 인터뷰 영상
 const INTERVIEW = '_FtlbGWzczs';
@@ -503,7 +514,7 @@ const INTERVIEW = '_FtlbGWzczs';
 const ALBUMS = [
   { key:'lovestory', title:'Love Story', type:'하늘성희 · 첫 정규', year:'', cover:'covers/lovestory.jpg', tag:'NEW', tracks:[] },
   { key:'treasure', title:'I Have a Precious Treasure', type:'하늘성희', year:'', cover:'', fromPlaylist:true, tracks:[] },
-  { key:'shim', title:'쉼으로 찾는 기쁨', type:'하늘', year:'1998', cover:'covers/shim.jpg',
+  { key:'shim', title:'쉼으로 찾는 기쁨', type:'하늘 · 문지은 최성희 지은민', year:'1998', cover:'covers/shim.jpg',
     tracks:['주 안에서 사는 기쁨','쉼터','나의 아이야','별 나무 새 시내','하나님만 바라라','더 큰 일을 보리라','너는 내 것이라','살려야 해요','이제는','주의 사랑을 나누세요'] },
   { key:'praise', title:'Praise Together', type:'하늘노래', year:'1992', cover:'covers/praise.jpg',
     tracks:['크신 주께','손을 잡고서','가서 제자 삼으라','그 나라 갈 때에','사랑하는 나의 아버지','그날이 도적 같이','여호와를 경외함이','천국은 참 놀라운 곳'] },
@@ -708,7 +719,7 @@ async function loadSongs(plIds){
     const p = PINNED.find(x => x.id === id);
     const fromPl = (plIds || []).includes(id) && !p;
     const title = p && p.title ? p.title : '';
-    return { id, fixed:!!title, title: title || '…', album: fromPl ? treasure : (title ? albumOf(title) : null), fromPl };
+    return { id, fixed:!!title, title: title || '…', album: fromPl ? treasure : (p && p.album ? ALBUMS.find(a => a.key === p.album) : (title ? albumOf(title) : null)), fromPl };
   });
   buildShelf(); buildList();
   await Promise.all(songs.map(async s => {
