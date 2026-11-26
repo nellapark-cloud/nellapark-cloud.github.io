@@ -180,6 +180,8 @@ section.block{padding:80px 0;border-top:1px solid var(--line)}
 .vlist button.on .th{box-shadow:0 0 0 2px var(--accent)}
 .vlist b{display:block;margin-top:8px;font-size:13px;font-weight:500;line-height:1.45;color:var(--ink2)}
 .vlist em{display:block;font-style:normal;font-size:11px;color:var(--muted);margin-top:2px}
+.ytlink{display:inline-block;margin-top:18px;font-size:13px;color:var(--ink2);border-bottom:1px solid var(--line);padding-bottom:2px}
+.ytlink:hover{border-color:var(--accent)}
 .vtext p#vDesc:empty,.vtext ul:empty{display:none}
 
 /* gallery */
@@ -410,6 +412,7 @@ body.lock{overflow:hidden}
         <h3 style="margin-top:10px" id="vTitle"></h3>
         <p id="vDesc"></p>
         <ul id="vLive"></ul>
+        <a class="ytlink" id="vYt" target="_blank" rel="noopener">유튜브에서 보기 ↗</a>
       </div>
     </div>
     <div class="vlist rv" id="vlist"></div>
@@ -1206,6 +1209,7 @@ function showVideo(i, play){
   vIdx = i; const v = VIDEOS[i], box = $('vbox');
   const old = box.querySelector('iframe'); if (old) old.remove();
   box.style.backgroundImage = ''; ytThumb(v.id).then(u => { if (vIdx === i) box.style.backgroundImage = 'url("' + u + '")'; });
+  $('vYt').href = 'https://www.youtube.com/watch?v=' + v.id;
   $('vLabel').textContent = v.label; $('vTitle').innerHTML = v.title; $('vDesc').textContent = v.desc || '';
   $('vLive').innerHTML = ''; (v.live || []).forEach(t => { const li = document.createElement('li'); li.innerHTML = '<em>Live</em>'; li.appendChild(document.createTextNode(t)); $('vLive').appendChild(li); });
   [...$('vlist').children].forEach((b, k) => b.classList.toggle('on', k === i));
