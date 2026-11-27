@@ -227,6 +227,9 @@ section.block{padding:72px 0;border-top:1px solid var(--line)}
 @media (max-width:600px){.mform{grid-template-columns:1fr}}
 footer{border-top:1px solid var(--line)}
 footer .wrap{padding-top:24px;padding-bottom:28px;font-size:12px;color:var(--muted)}
+.foot-row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.visits{font-size:11px;letter-spacing:.02em;color:var(--muted);opacity:.8}
+.visits b{font-weight:500;color:var(--ink,#222)}
 
 /* dock */
 .dock{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .4s ease}
@@ -465,7 +468,7 @@ body.lock{overflow:hidden}
     </div>
   </div>
 </section>
-<footer><div class="wrap">© 2026 박동준 PARK DONG JUN</div></footer>
+<footer><div class="wrap foot-row"><span>© 2026 박동준 PARK DONG JUN</span><span class="visits" id="visits" hidden>오늘 <b id="vToday">-</b> · 전체 <b id="vTotal">-</b></span></div></footer>
 
 <div class="dock" id="dock" role="region" aria-label="미니 플레이어">
   <div class="bar"><div id="dProg"></div></div>
@@ -927,6 +930,21 @@ const hdr = $('hdr');
 addEventListener('scroll', () => hdr.classList.toggle('solid', scrollY > 30), { passive:true });
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold:.12 });
 document.querySelectorAll('.rv').forEach(el => io.observe(el));
+</script>
+<script>
+(function(){
+  var A='https://abacus.jasoncameron.dev', NS='nellapark-songs';
+  var d=new Date(Date.now()+9*3600e3).toISOString().slice(0,10).replace(/-/g,'');
+  var seen=false; try{seen=sessionStorage.getItem('pdj-v')==='1';sessionStorage.setItem('pdj-v','1')}catch(e){}
+  var op=seen?'get':'hit';
+  function n(k){return fetch(A+'/'+op+'/'+NS+'/'+k).then(function(r){return r.ok?r.json():{value:0}}).then(function(j){return j.value||0}).catch(function(){return null})}
+  Promise.all([n('day-'+d),n('total')]).then(function(v){
+    if(v[1]===null)return;
+    document.getElementById('vToday').textContent=(v[0]||0).toLocaleString();
+    document.getElementById('vTotal').textContent=v[1].toLocaleString();
+    document.getElementById('visits').hidden=false;
+  });
+})();
 </script>
 <script src="https://www.youtube.com/iframe_api"></script>
 </body>
